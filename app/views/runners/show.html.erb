@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @runner.name %>
+</p>
+
+<p>
+  <strong>Group:</strong>
+  <%= @runner.group %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @runner.role %>
+</p>
+
+<%= link_to 'Edit', edit_runner_path(@runner) %> |
+<%= link_to 'Back', runners_path %>
