@@ -24,3 +24,8 @@ Feature: Training Program for each Runner
 		When I update a specific days training
 		Then the runner sees that specific change.
 
+	Scenario: Athletes may not edit training program 
+		Given I am a athlete
+		When I open the training program screen
+		Then I am blocked from gaining access		
+
