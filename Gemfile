@@ -33,7 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
+  #gem 'sqlite3'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -52,4 +52,4 @@ group :production do
   gem 'rails_12factor'  # needed by Heroku to function  
 end
 #ruby "2.2.0" # controls what version of ruby is used locally and on Heroku, should be the same!
-
+ruby '2.0.0'
