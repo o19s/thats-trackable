@@ -8,9 +8,9 @@ Feature: Training Program for each Runner
 
 	Scenario: Add Training Event to Group Program
 		Given I am a coach
-		And I am adding events to Group A
+		And I am configuring the training program for Group A
 		When I add a new training event
-		Then I provide a date and a distance and a time.
+		Then I provide the date of the training event, "June 6th", and the expected distance, "1 mile" and the time at "8 minutes" with some notes "do warmup for 2 minutes, run 5 minutes, and warm down 1 minute"
 
 	Scenario: Add a Runner to the Program
 		Given I am a coach
