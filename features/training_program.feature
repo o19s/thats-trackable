@@ -29,3 +29,37 @@ Feature: Training Program for each Runner
 		When I open the training program screen
 		Then I am blocked from gaining access		
 
+	Scenario: As a ORM, this is how I am thinking
+		Given I have a Group A object
+		And I have created a TrainingPlan for 6/10/2012 that is 5w, 5r, 5w, 5r, 5w
+		And I have created a TrainingPlan for 6/11/2012 that is no training
+		And I have created a TrainingPlan for 6/12/2012 that is 5w, 5r, 5w, 5r, 5w
+		And I have created a TrainingPlan for 6/13/2012 that is no training
+		And I have created a TrainingPlan for 6/14/2012 that is no training
+		And I have created a TrainingPlan for 6/12/2012 that is 5w, 8r, 5w, 5r, 5w
+		When I add a runner named Eric Pugh to Group A
+		Then I can see on his dashboard six TrainingSessions
+		And the TrainingSession on 6/10/2012 for 5w, 5r, 5w, 5r, 5w
+		And the TrainingSession on 6/11/2012 is of type "unscheduled"
+		And the TrainingSession on 6/12/2012 for 5w, 5r, 5w, 5r, 5w
+		And the TrainingSession on 6/13/2012 is of type "unscheduled"
+		And the TrainingSession on 6/14/2012 is of type "unscheduled"
+		And the TrainingSession on 6/15/2012 for 5w, 8r, 5w, 5r, 5w
+
+
+	Scenario: As a ORM, this is how I am thinking
+		Given I have a runner in Group A with a full training plan
+		When she updates her TrainingSession on 6/10/2012 with the note that the day was hot, and it took 20 minutes
+		Then you can see on the dashboard the day was hot, and the time taken that day was 20 minutes.
+
+	Scenario: As a ORM, this is how I am thinking
+		Given I have a runner in Group A with a full training plan
+		And she is scheduled to run 40 min ez
+		When she gets a cold on 6/12/2012
+		Then the TrainingSession on 6/12/2012 is of type "unscheduled"
+		And other runners continue to be normally scheduled for 6/12/2012
+
+
+
+
+
