@@ -1,0 +1,32 @@
+<%= form_for(@runner) do |f| %>
+  <% if @runner.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@runner.errors.count, "error") %> prohibited this runner from being saved:</h2>
+
+      <ul>
+      <% @runner.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :group %><br>
+    <%= f.text_field :group %>
+  </div>
+  <div class="field">
+    <%= f.label :role %><br>
+    <%= f.radio_button(:role, "Athlete") %>
+    <%= f.label(:role_athletes, "Athlete") %>
+    <%= f.radio_button(:role, "Coach") %>
+    <%= f.label(:role_coach, "Coach") %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
