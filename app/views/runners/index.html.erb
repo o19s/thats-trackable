@@ -16,7 +16,7 @@
     <% @runners.each do |runner| %>
       <tr>
         <td><%= runner.name %></td>
-        <td><%= runner.group %></td>
+        <td><%= runner.group_id %></td>
         <td><%= runner.role %></td>
         <td><%= link_to 'Show', runner %></td>
         <td><%= link_to 'Edit', edit_runner_path(runner) %></td>

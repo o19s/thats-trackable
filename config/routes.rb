@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :runners
+
   resources :groups
 
   resources :runners
