@@ -2,8 +2,6 @@
 
 one:
   name: MyString
-  runner_id: 1
 
 two:
   name: MyString
-  runner_id: 1

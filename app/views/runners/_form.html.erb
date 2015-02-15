@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :group_id %><br>
-    <%= f.collection_select :group_id, Group.group(:name).distinct,:id, :name, include_blank: false %>
+    <%= f.collection_select :group_id, Group.group(:name),:id, :name, include_blank: false %>
   </div>
   <div class="field">
     <%= f.label :role %><br>

@@ -26,6 +26,8 @@ class RunnersController < ApplicationController
   def create
     @runner = Runner.new(runner_params)
 
+    #puts runner_params[:name]
+
     respond_to do |format|
       if @runner.save
         format.html { redirect_to @runner, notice: 'Runner was successfully created.' }
