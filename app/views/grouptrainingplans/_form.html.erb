@@ -1,0 +1,36 @@
+<%= form_for(@grouptrainingplan) do |f| %>
+    <% if @grouptrainingplan.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@grouptrainingplan.errors.count, "error") %> prohited this grouptrainingplan from being saved:</h2>
+          <ul>
+            <% @grouptrainingplan.errors.full_messages.each do |messages| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :date %><br>
+      <%= f.text_field :date %>
+
+      <br>
+
+      <%= f.label :group_id %>
+      <%= f.collection_select :group_id, Group.group(:name),:id, :name, include_blank: false %>
+
+      <br>
+
+      <%= f.label :trainingplan %><br>
+      <%= f.text_area :trainingplan %>
+
+      <br>
+
+      <%= f.label :progress %><br>
+      <%= f.text_area :progress %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>
