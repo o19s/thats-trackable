@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @grouptrainingplan.date %>
+</p>
+
+<p>
+  <strong>Group Id:</strong>
+  <%= @grouptrainingplan.group_id %>
+</p>
+
+<p>
+  <strong>Training Plan</strong>
+  <%= @grouptrainingplan.trainingplan %>
+</p>
+
+<p>
+  <strong>Progress</strong>
+  <%= @grouptrainingplan.progress %>
+</p>
+
+<%= link_to 'Edit', edit_grouptrainingplan_path(@grouptrainingplan) %> |
+<%= link_to 'Back', grouptrainingplan_path %>
