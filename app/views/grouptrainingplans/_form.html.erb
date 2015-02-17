@@ -15,15 +15,18 @@
       <%= f.text_field :date %>
 
       <br>
+      <br>
 
       <%= f.label :group_id %>
       <%= f.collection_select :group_id, Group.group(:name),:id, :name, include_blank: false %>
 
       <br>
+      <br>
 
       <%= f.label :trainingplan %><br>
       <%= f.text_area :trainingplan %>
 
+      <br>
       <br>
 
       <%= f.label :progress %><br>
