@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Individual Training Plans</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Runner_id</th>
+    <th>Date</th>
+    <th>Training Plan</th>
+    <th>Progress</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @individualtrainingplan.each do |plans| %>
+    <tr>
+      <td><%= plans.runner_id %></td>
+      <td><%= plans.date %></td>
+      <td><%= plans.trainingplan %></td>
+      <td><%= plans.progress %></td>
+      <td><%= link_to 'Show', plans %></td>
+      <td><%= link_to 'Edit', edit_individualtrainingplan_path(plans) %></td>
+      <td><%= link_to 'Destory', plans, method: :delete, data: {confirm: 'Are you sure?'}%></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'New Individual Training Plan', new_individualtrainingplan_path %>

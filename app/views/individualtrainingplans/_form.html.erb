@@ -1,0 +1,32 @@
+<%= form_for(@individualtrainingplan) do |f| %>
+    <% if @individualtrainingplan.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@individualtrainingplan.errors.count, "error") %> prohibited this runner from being saved:</h2>
+          <ul>
+            <% @individualtrainingplan.errors.full_messages.each do |messages| %>
+            <li><%= messages %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :runner_id %><br>
+      <%= f.text_field :runner_id %>
+    </div>
+    <div class="field">
+      <%= f.label :date %><br>
+      <%= f.text_field :date %>
+    </div>
+    <div class="field">
+      <%= f.label :trainingplan %><br>
+      <%= f.text_area :trainingplan %>
+    </div>
+
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
+
+<% end %>

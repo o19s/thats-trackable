@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Runner_id:</strong>
+  <%= @individualtrainingplan.runner_id %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @individualtrainingplan.date %>
+</p>
+
+<p>
+  <strong>Training Plan:</strong>
+  <%= @individualtrainingplan.trainingplan %>
+</p>
+
+<p>
+  <strong>Progress:</strong>
+  <%= @individualtrainingplan.progress %>
+</p>
+
+<%= link_to 'Edit', edit_individualtrainingplan_path(@individualtrainingplan) %>
+<%= link_to 'Back',individualtrainingplans_path %>

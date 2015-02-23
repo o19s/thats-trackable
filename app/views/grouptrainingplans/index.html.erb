@@ -8,7 +8,6 @@
       <th>Date</th>
       <th>Group_id</th>
       <th>Training_Plan</th>
-      <th>Progress</th>
       <th colspan="4"></th>
     </tr>
   </thread>
@@ -19,7 +18,6 @@
     <td><%= grouptrainingplan.date %></td>
     <td><%= grouptrainingplan.group_id %></td>
     <td><%= grouptrainingplan.trainingplan %></td>
-    <td><%= grouptrainingplan.progress %></td>
     <td><%= link_to 'Show', grouptrainingplan %></td>
     <td><%= link_to 'Edit', edit_grouptrainingplan_path(grouptrainingplan) %></td>
     <td><%= link_to 'Destroy', grouptrainingplan, method: :delete, data: {confirm: 'Are you sure?' }%></td>
