@@ -2,10 +2,6 @@
 
 one:
   name: MyString
-  group_id: 1
-  role: MyString
 
 two:
   name: MyString
-  group_id: 1
-  role: MyString

@@ -18,7 +18,7 @@ class RunnersControllerTest < ActionController::TestCase
 
   test "should create runner" do
     assert_difference('Runner.count') do
-      post :create, runner: { group: @runner.group, name: @runner.name, role: @runner.role }
+      post :create, runner: { group_id: @runner.group_id, name: @runner.name, role: @runner.role }
     end
 
     assert_redirected_to runner_path(assigns(:runner))
@@ -35,7 +35,7 @@ class RunnersControllerTest < ActionController::TestCase
   end
 
   test "should update runner" do
-    patch :update, id: @runner, runner: { group: @runner.group, name: @runner.name, role: @runner.role }
+    patch :update, id: @runner, runner: { group_id: @runner.group_id, name: @runner.name, role: @runner.role }
     assert_redirected_to runner_path(assigns(:runner))
   end
 

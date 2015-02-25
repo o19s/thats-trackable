@@ -16,15 +16,15 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :group %><br>
-    <%= f.text_field :group %>
+    <%= f.label :group_id %><br>
+    <%= f.collection_select :group_id, Group.group(:name),:id, :name, include_blank: false %>
   </div>
   <div class="field">
     <%= f.label :role %><br>
     <%= f.radio_button(:role, "Athlete") %>
-    <%= f.label(:role_athletes, "Athlete") %>
+    <%= f.label(:athlete_label, "I am an Athlete") %>
     <%= f.radio_button(:role, "Coach") %>
-    <%= f.label(:role_coach, "Coach") %>
+    <%= f.label(:coach_label, "I am a Coach") %>
   </div>
   <div class="actions">
     <%= f.submit %>

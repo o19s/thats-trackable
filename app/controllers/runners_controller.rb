@@ -26,6 +26,8 @@ class RunnersController < ApplicationController
   def create
     @runner = Runner.new(runner_params)
 
+    #puts runner_params[:name]
+
     respond_to do |format|
       if @runner.save
         format.html { redirect_to @runner, notice: 'Runner was successfully created.' }
@@ -69,6 +71,6 @@ class RunnersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def runner_params
-      params.require(:runner).permit(:name, :group, :role)
+      params.require(:runner).permit(:name, :group_id, :role)
     end
 end
