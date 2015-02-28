@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Planned Run</h1>
+
+<table>
+  <thread>
+    <tr>
+      <th>Date</th>
+      <th>Group_id</th>
+      <th>Training_Plan</th>
+      <th colspan="4"></th>
+    </tr>
+  </thread>
+
+  <tbody>
+  <% @planned_runs.each do |planned_run| %>
+  <tr>
+    <td><%= planned_run.date %></td>
+    <td><%= planned_run.group_id %></td>
+    <td><%= planned_run.training_plan %></td>
+    <td><%= link_to 'Show', planned_run %></td>
+    <td><%= link_to 'Edit', edit_planned_run_path(planned_run) %></td>
+    <td><%= link_to 'Destroy', planned_run, method: :delete, data: {confirm: 'Are you sure?' }%></td>
+  </tr>
+      <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Planned Run', new_planned_run_path %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150222232835) do
+ActiveRecord::Schema.define(version: 20150228003629) do
 
   create_table "groups", force: :cascade do |t|
     t.string   "name"
@@ -19,22 +19,12 @@ ActiveRecord::Schema.define(version: 20150222232835) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "grouptrainingplans", force: :cascade do |t|
+  create_table "planned_runs", force: :cascade do |t|
     t.string   "date"
     t.integer  "group_id"
-    t.text     "trainingplan"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  create_table "individualtrainingplans", force: :cascade do |t|
-    t.integer  "runner_id"
-    t.string   "date"
-    t.text     "trainingplan"
-    t.text     "progress"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.integer  "grouptrainingplans_id"
+    t.text     "training_plan"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "runners", force: :cascade do |t|
@@ -43,6 +33,16 @@ ActiveRecord::Schema.define(version: 20150222232835) do
     t.string   "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "runs", force: :cascade do |t|
+    t.integer  "runner_id"
+    t.string   "date"
+    t.text     "training_plan"
+    t.text     "progress"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "planned_run_id"
   end
 
 end

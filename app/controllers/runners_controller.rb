@@ -35,41 +35,36 @@ class RunnersController < ApplicationController
         format.json { render json: @runner.errors, status: :unprocessable_entity }
       end
     end
-    #Assigning all existing plans to runner as individual training plans
-    Grouptrainingplan.all.each do |plan|
-      if plan.group_id.to_s == runner_params[:group_id]
-        indPlan = Individualtrainingplan.new
-        run = Runner.last
-        indPlan.runner_id = run.id
-        indPlan.date = plan.date
-        indPlan.trainingplan = plan.trainingplan
-        indPlan.grouptrainingplans_id = plan.id
-        indPlan.save
-      end
+
+    #Assigning all existing plans to runner as individual runs
+    PlannedRun.where(group_id: @runner.group_id).find_each do |plan|
+      run = Run.new
+      run.runner_id = @runner.id
+      run.date = plan.date
+      run.training_plan = plan.training_plan
+      run.planned_run_id = plan.id
+      run.save
     end
   end
 
   # PATCH/PUT /runners/1
   # PATCH/PUT /runners/1.json
   def update
-
-    currentRunner = Runner.find(params[:id])
-    #Change Individual Training plans if group is updated on runner
-    if currentRunner.group_id.to_s != runner_params[:group_id]
-      Individualtrainingplan.all.each do |plan|
-        if plan.runner_id.to_s == currentRunner.id.to_s
-          plan.destroy
-        end
+    #Change Runs if group is updated on runner
+    #Tests current group_id to group_id param passed in
+    if @runner.group_id.to_s != runner_params[:group_id]
+      Run.where(runner_id: @runner.id).find_each do |oldRun|
+        #Must destroy old runs for this runner
+        oldRun.destroy
       end
-      Grouptrainingplan.all.each do |groupPlan|
-        if groupPlan.group_id.to_s == runner_params[:group_id]
-          indPlan = Individualtrainingplan.new
-          indPlan.runner_id = currentRunner.id
-          indPlan.date = groupPlan.date
-          indPlan.trainingplan = groupPlan.trainingplan
-          indPlan.grouptrainingplans_id = groupPlan.id
-          indPlan.save
-        end
+      #Add new runs depending on group
+      PlannedRun.where(group_id: runner_params[:group_id]).find_each do |plan|
+        run = Run.new
+        run.runner_id = @runner.id
+        run.date = plan.date
+        run.training_plan = plan.training_plan
+        run.planned_run_id = plan.id
+        run.save
       end
     end
 
@@ -89,14 +84,6 @@ class RunnersController < ApplicationController
   # DELETE /runners/1
   # DELETE /runners/1.json
   def destroy
-    #Delete all individual training plans
-    currentRunner = Runner.find(params[:id])
-    Individualtrainingplan.all.each do |indPlan|
-      if indPlan.runner_id.to_s == currentRunner.id.to_s
-        indPlan.destroy
-      end
-    end
-
     @runner.destroy
     respond_to do |format|
       format.html { redirect_to runners_url, notice: 'Runner was successfully destroyed.' }
