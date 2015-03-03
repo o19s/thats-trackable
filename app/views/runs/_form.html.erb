@@ -13,7 +13,6 @@
     <div class="field">
       <%= f.label :runner_id %><br>
       <%= f.collection_select :runner_id, Runner.group(:name), :id, :name, include_blank: false %>
-      
     </div>
 
     <div class="field">
