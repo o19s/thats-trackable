@@ -5,7 +5,7 @@
 <table>
   <thead>
   <tr>
-    <th>Runner_id</th>
+    <th>Runner</th>
     <th>Date</th>
     <th>Training Plan</th>
     <th>Progress</th>
@@ -15,7 +15,7 @@
   <tbody>
   <% @run.each do |plans| %>
     <tr>
-      <td><%= plans.runner_id %></td>
+      <td><%= Runner.find(plans.runner_id).name %></td>
       <td><%= plans.date %></td>
       <td><%= plans.training_plan %></td>
       <td><%= plans.progress %></td>

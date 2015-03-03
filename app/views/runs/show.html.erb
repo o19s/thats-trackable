@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Runner_id:</strong>
-  <%= @run.runner_id %>
+  <strong>Runner:</strong>
+  <%= Runner.find(@run.runner_id).name %>
 </p>
 
 <p>

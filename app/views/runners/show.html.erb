@@ -7,7 +7,7 @@
 
 <p>
   <strong>Group:</strong>
-  <%= @runner.group_id %>
+  <%= Group.find(@runner.group_id).name %>
 </p>
 
 <p>

@@ -6,7 +6,7 @@
   <thread>
     <tr>
       <th>Date</th>
-      <th>Group_id</th>
+      <th>Group</th>
       <th>Training_Plan</th>
       <th colspan="4"></th>
     </tr>
@@ -16,7 +16,7 @@
   <% @planned_runs.each do |planned_run| %>
   <tr>
     <td><%= planned_run.date %></td>
-    <td><%= planned_run.group_id %></td>
+    <td><%= Group.find(planned_run.group_id).name %></td>
     <td><%= planned_run.training_plan %></td>
     <td><%= link_to 'Show', planned_run %></td>
     <td><%= link_to 'Edit', edit_planned_run_path(planned_run) %></td>

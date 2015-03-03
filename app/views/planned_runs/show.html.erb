@@ -6,8 +6,9 @@
 </p>
 
 <p>
-  <strong>Group Id:</strong>
-  <%= @planned_run.group_id %>
+  <strong>Group:</strong>
+  <%= Group.find(@planned_run.group_id).name %>
+
 </p>
 
 <p>
