@@ -12,5 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require jquery-ui
 //= require_tree .
+
+//Renders datepicker on planned_run form
+$(document).ready(function(){
+    $('#planned_run_date').datepicker({
+        dateFormat: "yy-mm-dd"
+    });
+});

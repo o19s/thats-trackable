@@ -1,10 +1,11 @@
+<%= stylesheet_link_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" %>
 <%= form_for(@planned_run) do |f| %>
     <% if @planned_run.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@planned_run.errors.count, "error") %> prohited this planned_run from being saved:</h2>
           <ul>
             <% @planned_run.errors.full_messages.each do |messages| %>
-                <li><%= message %></li>
+                <li><%= messages %></li>
             <% end %>
           </ul>
         </div>
@@ -12,7 +13,8 @@
 
     <div class="field">
       <%= f.label :date %><br>
-      <%= f.text_field :date %>
+      <%= f.text_field :date, required: true %>
+
     </div>
 
     <div class="field">
