@@ -15,9 +15,14 @@
 //= require jquery-ui
 //= require_tree .
 
-//Renders datepicker on planned_run form
+//Renders datepicker on planned_run form and run form
 $(document).ready(function(){
     $('#planned_run_date').datepicker({
         dateFormat: "yy-mm-dd"
     });
+
+    $('#run_date').datepicker({
+        dateFormat: "yy-mm-dd"
+    });
+
 });
