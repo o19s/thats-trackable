@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
+//= require bootstrap-sprockets
 //= require_tree .
 
 //Renders datepicker on planned_run form and run form

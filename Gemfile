@@ -35,6 +35,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Getting around Windows 7
 gem 'coffee-script-source', '1.8.0'
 
+# Bootstrap
+gem 'bootstrap-sass', '~> 3.2.0'
+
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
