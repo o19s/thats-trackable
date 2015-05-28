@@ -28,6 +28,7 @@ class RunnersController < ApplicationController
 
     respond_to do |format|
       if @runner.save
+        log_in @runner
         format.html { redirect_to @runner, notice: 'Runner was successfully created.' }
         format.json { render :show, status: :created, location: @runner }
       else
@@ -99,6 +100,6 @@ class RunnersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def runner_params
-      params.require(:runner).permit(:name, :group_id, :role)
+      params.require(:runner).permit(:name, :group_id, :role, :username, :password)
     end
 end
