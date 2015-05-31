@@ -18,7 +18,7 @@ class RunsController < ApplicationController
   def update
     respond_to do |format|
       if @run.update(run_params)
-        format.html { redirect_to @run, notice: 'Run was successfully updated. '}
+        format.html { redirect_to "/runners/#{current_runner.id}/today", notice: 'Run was successfully updated. '}
         format.json { render :show, status: :ok, location: @run }
       else
         format.html { render :edit }
@@ -51,8 +51,8 @@ class RunsController < ApplicationController
 
   private
   def set_run
-    # @run = Run.find(params[:id])
-    @run = Run.find(session[:runner_id])
+     @run = Run.find(params[:id])
+   # @run = Run.find(params[:runs_id])
   end
 
   def run_params

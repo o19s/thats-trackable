@@ -93,8 +93,9 @@ class RunnersController < ApplicationController
   end
 
   def today
-
+    @today = Date.today
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

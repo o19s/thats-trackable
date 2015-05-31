@@ -1,0 +1,11 @@
+<h1><%= current_runner.name %>'s Runs for <%= @today.to_formatted_s(:long_ordinal) %></h1>
+<% if flash[:notice] %>
+    <p class="flash-notice"><%= flash[:notice] %></p>
+<% end %>
+
+<% current_run = Run.find_by date: @today, runner_id: current_runner.id %>
+<p>Current Run: <%= current_run.planned_run.training_plan %></p>
+
+<br>
+<%= link_to "Record Your Progress", edit_run_path(current_run.id), class: "btn btn-primary" %>
+

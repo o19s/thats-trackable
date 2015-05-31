@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
 
   resources :runners do
-    get :today
+     get :today
   end
 
   resources :groups do
@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete ' logout' => 'sessions#destroy'
-  get 'today' => 'runners#today'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
