@@ -92,6 +92,10 @@ class RunnersController < ApplicationController
     end
   end
 
+  def today
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_runner

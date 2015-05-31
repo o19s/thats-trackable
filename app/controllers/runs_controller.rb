@@ -51,7 +51,8 @@ class RunsController < ApplicationController
 
   private
   def set_run
-    @run = Run.find(params[:id])
+    # @run = Run.find(params[:id])
+    @run = Run.find(session[:runner_id])
   end
 
   def run_params

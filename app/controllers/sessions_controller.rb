@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if runner && runner.authenticate(params[:session][:password])
       # Log the user in and redirect to the user's show page
       log_in runner
-      redirect_to runner
+      redirect_to controller: "runners", action: "today"
     else
       flash.now[:danger] = "Invalid Username/Password combination"
       render 'new'
