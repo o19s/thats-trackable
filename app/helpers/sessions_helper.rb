@@ -12,4 +12,9 @@ module SessionsHelper
   def logged_in?
     !current_runner.nil?
   end
+
+  def log_out
+    session.delete(:runner_id)
+    @current_runner = nil
+  end
 end

@@ -4,8 +4,11 @@
 <% end %>
 
 <% current_run = Run.find_by date: @today, runner_id: current_runner.id %>
+<% if current_run %>
 <p>Current Run: <%= current_run.planned_run.training_plan %></p>
 
 <br>
 <%= link_to "Record Your Progress", edit_run_path(current_run.id), class: "btn btn-primary" %>
+<% end %>
+<%= link_to "Log Out", logout_path, method: :delete %>
 
