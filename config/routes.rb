@@ -17,6 +17,10 @@ Rails.application.routes.draw do
     resources :runners
   end
 
+  #resources :runs do
+  #  get :all_runs
+  #end
+
   resources :planned_runs
 
   resources :runs
