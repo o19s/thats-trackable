@@ -1,8 +1,19 @@
 class RunsController < ApplicationController
   before_action :set_run, only: [:show, :edit, :update, :destroy]
+  before_action :get_runner
+
 
   def index
-    @run = Run.all
+    if @runner
+      @run = @runner.runs
+    else
+      @run = Run.all
+    end
+
+  end
+
+  def get_runner
+    @runner = Runner.find_by_id params[:runner_id]
   end
 
   def show
