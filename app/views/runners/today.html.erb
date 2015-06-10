@@ -11,8 +11,8 @@
     <div class="col-md-6 col-md-offset-3" style="text-align:center">
       <% current_run = Run.find_by date: @today, runner_id: current_runner.id %>
       <% if current_run %>
-          <p><strong>Current Run:</strong> <%= current_run.training_plan %></p>
-          <%= link_to "Record Your Progress", edit_run_path(current_run.id), class: "btn btn-primary", %><br>
+          <p><strong>Current Run:</strong> <%=  current_run.training_plan %></p>
+          <%= link_to "Record Your Progress", edit_run_path(current_run.id), class: "btn btn-primary" %><br>
       <% else %>
           <p>You have no runs scheduled for today.</p>
       <% end %>
