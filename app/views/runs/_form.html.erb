@@ -1,0 +1,38 @@
+<%= stylesheet_link_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" %>
+<%= form_for(@run) do |f| %>
+    <% if @run.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@run.errors.count, "error") %> prohibited this runner from being saved:</h2>
+          <ul>
+            <% @run.errors.full_messages.each do |messages| %>
+            <li><%= messages %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :runner_id %><br>
+      <%= f.collection_select :runner_id, Runner.group(:name), :id, :name, include_blank: false %>
+    </div>
+
+    <div class="field">
+      <%= f.label :date %><br>
+      <%= f.text_field :date %>
+    </div>
+    <div class="field">
+      <%= f.label :training_plan %><br>
+      <%= f.text_area :training_plan %>
+    </div>
+    <div class="field">
+      <%= f.label :progress %><br>
+      <%= f.text_area :progress %>
+    </div>
+
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
+
+<% end %>

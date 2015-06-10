@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @planned_run.date %>
+</p>
+
+<p>
+  <strong>Group:</strong>
+  <%= Group.find(@planned_run.group_id).name %>
+
+</p>
+
+<p>
+  <strong>Training Plan</strong>
+  <%= @planned_run.training_plan %>
+</p>
+
+<%= link_to 'Edit', edit_planned_run_path(@planned_run) %> |
+<%= link_to 'Back', planned_runs_path %>

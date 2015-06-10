@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Runner:</strong>
+  <%= Runner.find(@run.runner_id).name %>
+  <%= current_runner.name %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @run.date %>
+</p>
+
+<p>
+  <strong>Training Plan:</strong>
+  <%= @run.training_plan %>
+</p>
+
+<p>
+  <strong>Progress:</strong>
+  <%= @run.progress %>
+</p>
+
+<%= link_to 'Edit', edit_run_path(@run) %>
+<%= link_to 'Back',runs_path %>

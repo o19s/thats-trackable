@@ -1,9 +1,35 @@
 Rails.application.routes.draw do
-  resources :runners
+  get 'sessions/new'
 
-  resources :groups
+  resources :runners do
+    resources :runs
+  end
 
-  resources :runners
+  resources :runners do
+     get :today
+  end
+
+  resources :groups do
+    resources :planned_runs
+  end
+
+  resources :groups do
+    resources :runners
+  end
+
+  #resources :runs do
+  #  get :all_runs
+  #end
+
+  resources :planned_runs
+
+  resources :runs
+
+  get 'signup' => 'runners#new'
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

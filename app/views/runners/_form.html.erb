@@ -26,6 +26,14 @@
     <%= f.radio_button(:role, "Coach") %>
     <%= f.label(:coach_label, "I am a Coach") %>
   </div>
+  <div class="field">
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+  </div>
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

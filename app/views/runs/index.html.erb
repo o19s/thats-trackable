@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Runs</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Runner</th>
+    <th>Date</th>
+    <th>Training Plan</th>
+    <th>Progress</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @run.each do |plans| %>
+    <tr>
+      <td><%= Runner.find(plans.runner_id).name %></td>
+      <td><%= plans.date %></td>
+      <td><%= plans.training_plan %></td>
+      <td><%= plans.progress %></td>
+      <td><%= link_to 'Show', plans %></td>
+      <td><%= link_to 'Edit', edit_run_path(plans) %></td>
+      <td><%= link_to 'Destory', plans, method: :delete, data: {confirm: 'Are you sure?'}%></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'New Run', new_run_path %>
