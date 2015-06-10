@@ -1,16 +1,25 @@
-<h1><%= current_runner.name %>'s Runs for <%= @today.to_formatted_s(:long_ordinal) %></h1>
-<% if flash[:notice] %>
-    <p class="flash-notice"><%= flash[:notice] %></p>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-3 col-md-6">
+      <h1><%= current_runner.name %>'s Runs for <%= @today.to_formatted_s(:long_ordinal) %></h1>
+      <% if flash[:notice] %>
+          <p class="flash-notice"><%= flash[:notice] %></p>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3" style="text-align:center">
+      <% current_run = Run.find_by date: @today, runner_id: current_runner.id %>
+      <% if current_run %>
+          <p><strong>Current Run:</strong> <%= current_run.training_plan %></p>
+          <%= link_to "Record Your Progress", edit_run_path(current_run.id), class: "btn btn-primary", %><br>
+      <% else %>
+          <p>You have no runs scheduled for today.</p>
+      <% end %>
+      <br>
+    </div>
+  </div>
+  <%= link_to "Log Out", logout_path, method: :delete, class: "btn btn-danger", style: "color:white" %>
 
-<% current_run = Run.find_by date: @today, runner_id: current_runner.id %>
-<% if current_run %>
-<p><strong>Current Run:</strong> <%= current_run.training_plan %></p>
-<%= link_to "Record Your Progress", edit_run_path(current_run.id), class: "btn btn-primary" %><br>
-<% else %>
-    <p>You have no runs scheduled for today.</p>
-<% end %>
-<br>
-
-<%= link_to "Log Out", logout_path, method: :delete, class: "btn btn-danger", style: "color:white" %>
+</div>
 

@@ -1,40 +1,40 @@
-<%= form_for(@runner) do |f| %>
-  <% if @runner.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@runner.errors.count, "error") %> prohibited this runner from being saved:</h2>
+  <%= form_for(@runner) do |f| %>
+    <% if @runner.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@runner.errors.count, "error") %> prohibited this runner from being saved:</h2>
 
-      <ul>
-      <% @runner.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @runner.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :group_id %><br>
+      <%= f.collection_select :group_id, Group.group(:name),:id, :name, include_blank: false %>
+    </div>
+    <div class="field">
+      <%= f.label :role %><br>
+      <%= f.radio_button(:role, "Athlete") %>
+      <%= f.label(:athlete_label, "I am an Athlete") %>
+      <%= f.radio_button(:role, "Coach") %>
+      <%= f.label(:coach_label, "I am a Coach") %>
+    </div>
+    <div class="field">
+      <%= f.label :username %>
+      <%= f.text_field :username %>
+    </div>
+    <div class="field">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :group_id %><br>
-    <%= f.collection_select :group_id, Group.group(:name),:id, :name, include_blank: false %>
-  </div>
-  <div class="field">
-    <%= f.label :role %><br>
-    <%= f.radio_button(:role, "Athlete") %>
-    <%= f.label(:athlete_label, "I am an Athlete") %>
-    <%= f.radio_button(:role, "Coach") %>
-    <%= f.label(:coach_label, "I am a Coach") %>
-  </div>
-  <div class="field">
-    <%= f.label :username %>
-    <%= f.text_field :username %>
-  </div>
-  <div class="field">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
