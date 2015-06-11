@@ -1,20 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @planned_run.date %>
-</p>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <p>
+      <strong>Date:</strong>
+      <%= @planned_run.date %>
+    </p>
 
-<p>
-  <strong>Group:</strong>
-  <%= Group.find(@planned_run.group_id).name %>
+    <p>
+      <strong>Group:</strong>
+      <%= Group.find(@planned_run.group_id).name %>
 
-</p>
+    </p>
 
-<p>
-  <strong>Training Plan</strong>
-  <%= @planned_run.training_plan %>
-</p>
+    <p>
+      <strong>Training Plan</strong>
+      <%= @planned_run.training_plan %>
+    </p>
 
-<%= link_to 'Edit', edit_planned_run_path(@planned_run) %> |
-<%= link_to 'Back', planned_runs_path %>
+    <%= link_to 'Edit', edit_planned_run_path(@planned_run), class: "btn btn-success" %> |
+    <%= link_to 'Back', planned_runs_path, class: "btn btn-info" %>
+  </div>
+</div>
