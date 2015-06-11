@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
   <div class="row">
-    <h1>Listing Planned Run</h1>
+    <div class="col-md-12">
+      <h1>Listing Planned Run</h1>
+    </div>
   </div>
   <div class="row">
     <div class="col-md-3 col-sm-3 col-xs-3">
@@ -30,7 +32,7 @@
         <div class="col-md-3 col-sm-3 col-xs-2">
           <%= Group.find(planned_run.group_id).name %>
         </div>
-        <div class="col-md-3 col-sm-3 col-xs-3">
+        <div class="col-md-3 col-sm-3 col-xs-3 style=">
           <%= planned_run.training_plan %>
         </div>
         <div class="col-md-3 hidden-sm hidden-xs">
@@ -40,7 +42,6 @@
         </div>
         <div class="hidden-lg hidden-md col-sm-3 col-xs-4">
           <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal<%= index %>">Options</button>
-
           <!-- Modal -->
           <div id="myModal<%= index %>" class="modal fade" role="dialog">
             <div class="modal-dialog">
