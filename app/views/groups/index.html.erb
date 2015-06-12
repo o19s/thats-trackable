@@ -6,10 +6,10 @@
 </div>
 
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-6">
     <strong>NAME</strong>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-6">
     <strong>OPTIONS</strong>
   </div>
 </div>
@@ -20,10 +20,10 @@
   <% else %>
         <div class="row" style="background-color: lightblue">
   <% end %>
-  <div class="col-md-3">
+  <div class="col-md-6">
     <%= group.name %>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-6">
     <%= link_to 'Show', group, class: "btn btn-success" %>
     <%= link_to 'Edit', edit_group_path(group), class: "btn btn-primary" %>
     <%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
