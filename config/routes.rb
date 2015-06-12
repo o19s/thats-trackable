@@ -17,10 +17,6 @@ Rails.application.routes.draw do
     resources :runners
   end
 
-  #resources :runs do
-  #  get :all_runs
-  #end
-
   resources :planned_runs
 
   resources :runs
@@ -35,7 +31,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+  root 'sessions#new'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

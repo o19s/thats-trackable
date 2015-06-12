@@ -1,29 +1,78 @@
 <p id="notice"><%= notice %></p>
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Listing Planned Run</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 col-sm-3 col-xs-3">
+      <strong>DATE</strong>
+    </div>
+    <div class="col-md-3 col-sm-3 col-xs-3">
+      <strong>GROUP</strong>
+    </div>
+    <div class="col-md-3 col-sm-3 col-xs-3">
+      <strong>Training Plan</strong>
+    </div>
+    <div class="col-md-3 col-sm-3 col-xs-3">
+      <strong>Buttons</strong>
+    </div>
+  </div>
+  <!-- Grid layout for Planned_runs -->
 
-<h1>Listing Planned Run</h1>
-
-<table>
-  <thread>
-    <tr>
-      <th>Date</th>
-      <th>Group</th>
-      <th>Training_Plan</th>
-      <th colspan="4"></th>
-    </tr>
-  </thread>
-
-  <tbody>
-  <% @planned_runs.each do |planned_run| %>
-  <tr>
-    <td><%= planned_run.date %></td>
-    <td><%= Group.find(planned_run.group_id).name %></td>
-    <td><%= planned_run.training_plan %></td>
-    <td><%= link_to 'Show', planned_run %></td>
-    <td><%= link_to 'Edit', edit_planned_run_path(planned_run) %></td>
-    <td><%= link_to 'Destroy', planned_run, method: :delete, data: {confirm: 'Are you sure?' }%></td>
-  </tr>
+  <% @planned_runs.each.with_index do |planned_run, index| %>
+      <% if index % 2 == 0 %>
+        <div class="row" style="background-color: #FBFB7A">
+      <% else %>
+          <div class="row" style="background-color: lightblue">
       <% end %>
-  </tbody>
-</table>
+        <div class="col-md-3 col-sm-3 col-xs-3">
+          <%= planned_run.date %>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-2">
+          <%= Group.find(planned_run.group_id).name %>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-3">
+          <%= planned_run.training_plan %>
+        </div>
+        <div class="col-md-3 hidden-sm hidden-xs">
+          <%= link_to 'Show', planned_run, class: "btn btn-success"%>
+          <%= link_to 'Edit', edit_planned_run_path(planned_run), class: "btn btn-primary" %>
+          <%= link_to 'Destroy', planned_run, method: :delete, data: {confirm: 'Are you sure?' }, class: "btn btn-danger"%>
+        </div>
+        <div class="hidden-lg hidden-md col-sm-3 col-xs-4">
+          <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal<%= index %>">Options</button>
+          <!-- Modal -->
+          <div id="myModal<%= index %>" class="modal fade" role="dialog">
+            <div class="modal-dialog">
 
-<%= link_to 'New Planned Run', new_planned_run_path %>
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Options</h4>
+                </div>
+                <div class="modal-body">
+                  <%= link_to 'Show', planned_run, class: "btn btn-success"%>
+                  <%= link_to 'Edit', edit_planned_run_path(planned_run), class: "btn btn-primary" %>
+                  <%= link_to 'Destroy', planned_run, method: :delete, data: {confirm: 'Are you sure?' }, class: "btn btn-danger"%>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= link_to 'New Planned Run', new_planned_run_path, class: "btn btn-info", style: "margin-top:2em; width:100%" %>
+    </div>
+  </div>
+</div>
+
+

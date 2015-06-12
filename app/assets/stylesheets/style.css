@@ -1,0 +1,15 @@
+body{
+    background: #F2F2FF !important;
+}
+
+.container {
+  background-color: white;
+}
+
+.col-md-6 {
+    text-align: center;
+}
+
+.btn{
+    color: white;
+}
