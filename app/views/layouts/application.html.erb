@@ -2,9 +2,18 @@
 <html>
 <head>
   <title>ThatsTrackable</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag  'addtohomescreen', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'addtohomescreen', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script>
+	addToHomescreen({
+	   skipFirstVisit: true,
+	   maxDisplayCount: 5
+	});
+</script>
 </head>
 <body>
 <!-- Header -->
