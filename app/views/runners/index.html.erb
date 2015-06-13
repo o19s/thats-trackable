@@ -12,12 +12,14 @@
   <div class="col-md-3 col-sm-3 col-xs-3">
     <strong>GROUP</strong>
   </div>
-  <div class="col-md-3 col-sm-3 col-xs-2">
+  <div class="col-md-2 col-sm-2 col-xs-2">
     <strong>ROLE</strong>
   </div>
-  <div class="col-md-3 col-sm-3 col-xs-5">
+  <% if runner_role == 'Coach' %>
+  <div class="col-md-4 col-sm-4 col-xs-5">
     <strong>OPTIONS</strong>
   </div>
+  <% end %>
 </div>
 
 <% @runners.each.with_index do |runner, index| %>
@@ -32,15 +34,17 @@
   <div class="col-md-3 col-sm-3 col-xs-3">
     <%= runner.group_id.nil? ? 'n/a' : Group.find(runner.group_id).name %>
   </div>
-  <div class="col-md-3 col-sm-3 col-xs-2">
+  <div class="col-md-2 col-sm-2 col-xs-2">
     <%= runner.role %>
   </div>
-  <div class="col-md-3 hidden-sm hidden-xs">
+  <% if runner_role == 'Coach' %>
+  <div class="col-md-4 hidden-sm hidden-xs">
     <%= link_to 'Show', runner, class: "btn btn-success" %>
     <%= link_to 'Edit', edit_runner_path(runner), class: "btn btn-primary" %>
     <%= link_to 'Destroy', runner, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
   </div>
-  <div class="hidden-lg hidden-md col-sm-3 col-xs-4">
+
+  <div class="hidden-lg hidden-md col-sm-4 col-xs-5">
     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal<%= index %>">Options</button>
     <!-- Modal -->
     <div id="myModal<%= index %>" class="modal fade" role="dialog">
@@ -65,7 +69,7 @@
       </div>
     </div>
   </div>
-
+  <% end %>
 
   </div>
 <% end %>
