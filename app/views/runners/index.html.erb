@@ -42,6 +42,7 @@
     <%= link_to 'Show', runner, class: "btn btn-success" %>
     <%= link_to 'Edit', edit_runner_path(runner), class: "btn btn-primary" %>
     <%= link_to 'Destroy', runner, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+    <%= link_to 'Runs', runner_runs_path(runner), class: "btn btn-info" %>
   </div>
 
   <div class="hidden-lg hidden-md col-sm-4 col-xs-5">
