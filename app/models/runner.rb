@@ -1,5 +1,5 @@
 class Runner < ActiveRecord::Base
-  validates :username, uniqueness: true
+  validates :email, uniqueness: true
   validates :name, uniqueness: true
 
   belongs_to :group
