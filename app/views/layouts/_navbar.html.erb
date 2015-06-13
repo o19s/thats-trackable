@@ -23,8 +23,12 @@
             <li>
               <%= link_to "Groups", groups_path %>
             </li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <% if runner_role == 'Coach' %>
+              <li class="divider"></li>
+                <% Group.all.each do |group| %>
+                    <li><%= link_to "Run Group #{group.name}", group_planned_runs_path(group) %></li>
+                <% end %>
+            <% end %>
           </ul>
         </li>
       </ul>
