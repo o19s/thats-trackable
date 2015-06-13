@@ -13,6 +13,10 @@ module SessionsHelper
     !current_runner.nil?
   end
 
+  def runner_role
+    return current_runner.role
+  end
+
   def log_out
     session.delete(:runner_id)
     @current_runner = nil
