@@ -28,8 +28,8 @@ class RunnersController < ApplicationController
 
     respond_to do |format|
       if @runner.save
-        log_in @runner
-        format.html { redirect_to "/runners/#{@runner.id}/today", notice: 'Profile was successfully created.' }
+        # log_in @runner  // We used to login the runner right here, but create is now a Admin function
+        format.html { redirect_to runners_path, notice: "Profile for #{@runner.name} was successfully created." }
         format.json { render :show, status: :created, location: @runner }
       else
         format.html { render :new }
