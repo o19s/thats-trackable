@@ -3,8 +3,8 @@
         <div class="col-md-6 col-md-offset-3">
           <h1>Log In</h1>
             <%= form_for(:session, url: login_path) do |f| %>
-                <%= f.label :username, class: "pull-left" %>
-                <%= f.text_field :username, class: 'form-control' %><br>
+                <%= f.label :email, class: "pull-left" %>
+                <%= f.text_field :email, class: 'form-control' %><br>
 
                 <%= f.label :password, class: "pull-left" %>
                 <%= f.password_field :password, class: 'form-control' %><br>
