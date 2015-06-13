@@ -43,8 +43,10 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
+
  
-        <% if @current_runner %>
+        <% if logged_in? %>
+          <p class="navbar-text">Signed in as <%= @current_runner.name %></p>
 
           <%= link_to "Log Out", logout_path, method: :delete, class: "btn btn-default navbar-right navbar-btn btn-danger" %>
   
