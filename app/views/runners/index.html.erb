@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
   <div class="col-md-12">
-    <h1>Listing Runners</h1>
+    <h1>Runners!</h1>
   </div>
 </div>
 
@@ -30,7 +30,7 @@
     <%= runner.name %>
   </div>
   <div class="col-md-3 col-sm-3 col-xs-3">
-    <%= Group.find(runner.group_id).name %>
+    <%= runner.group_id.nil? ? 'n/a' : Group.find(runner.group_id).name %>
   </div>
   <div class="col-md-3 col-sm-3 col-xs-2">
     <%= runner.role %>

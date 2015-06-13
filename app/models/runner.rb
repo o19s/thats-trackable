@@ -1,4 +1,7 @@
 class Runner < ActiveRecord::Base
+  validates :username, uniqueness: true
+  validates :name, uniqueness: true
+
   belongs_to :group
   has_many :runs, dependent: :destroy
   has_secure_password
