@@ -1,8 +1,10 @@
 class PlannedRunsController < ApplicationController
   before_action :set_planned_run, only: [:show, :edit, :update, :destroy]
+  before_action :set_group, only: [:index, :show, :edit, :update, :destroy, :create, :new]
 
   def index
-    @planned_runs = PlannedRun.all
+    @planned_runs = @group.nil? ? PlannedRun.all : PlannedRun.where(group: @group)
+    #@planned_runs = PlannedRun.all
   end
 
   def show
@@ -10,6 +12,7 @@ class PlannedRunsController < ApplicationController
 
   def new
     @planned_run = PlannedRun.new
+    @planned_run.group = @group
   end
 
   def edit
@@ -19,7 +22,7 @@ class PlannedRunsController < ApplicationController
     @planned_run = PlannedRun.new(planned_run_params)
     respond_to do |format|
       if @planned_run.save
-        format.html { redirect_to @planned_run, notice: 'Planned Run was successfully create. ' }
+        format.html { redirect_to @group, notice: 'Planned Run was successfully create. ' }
         format.json { render :show, status: :created, location: @planned_run }
       else
         format.html{ render :new }
@@ -70,6 +73,9 @@ class PlannedRunsController < ApplicationController
   def set_planned_run
     @planned_run = PlannedRun.find(params[:id])
   end
+  def set_group
+    @group = Group.find(params[:group_id])
+  end  
 
   def planned_run_params
     params.require(:planned_run).permit(:date, :group_id, :training_plan, :progress)

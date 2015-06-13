@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
   <div class="row">
     <div class="col-md-12">
-      <h1>Listing Planned Run</h1>
+      <h1>Planned runs for group <i><%= @group.name %></i></h1>
     </div>
   </div>
   <div class="row">
@@ -36,9 +36,9 @@
           <%= planned_run.training_plan %>
         </div>
         <div class="col-md-3 hidden-sm hidden-xs">
-          <%= link_to 'Show', planned_run, class: "btn btn-success"%>
-          <%= link_to 'Edit', edit_planned_run_path(planned_run), class: "btn btn-primary" %>
-          <%= link_to 'Destroy', planned_run, method: :delete, data: {confirm: 'Are you sure?' }, class: "btn btn-danger"%>
+          <%= link_to 'Show', group_planned_runs_path(@group), class: "btn btn-success"%>
+          <%= link_to 'Edit', edit_group_planned_run_path(@group, planned_run), class: "btn btn-primary" %>
+          <%= link_to 'Destroy', group_planned_run_path(@group, planned_run), method: :delete, data: {confirm: 'Are you sure?' }, class: "btn btn-danger"%>
         </div>
         <div class="hidden-lg hidden-md col-sm-3 col-xs-4">
           <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal<%= index %>">Options</button>
@@ -53,9 +53,9 @@
                   <h4 class="modal-title">Options</h4>
                 </div>
                 <div class="modal-body">
-                  <%= link_to 'Show', planned_run, class: "btn btn-success"%>
-                  <%= link_to 'Edit', edit_planned_run_path(planned_run), class: "btn btn-primary" %>
-                  <%= link_to 'Destroy', planned_run, method: :delete, data: {confirm: 'Are you sure?' }, class: "btn btn-danger"%>
+                  <%= link_to 'Show', group_planned_runs_path(@group), class: "btn btn-success"%>
+                  <%= link_to 'Edit', edit_group_planned_run_path(@group, planned_run), class: "btn btn-primary" %>
+                  <%= link_to 'Destroy', group_planned_run_path(@group, planned_run), method: :delete, data: {confirm: 'Are you sure?' }, class: "btn btn-danger"%>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -70,7 +70,7 @@
 
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <%= link_to 'New Planned Run', new_planned_run_path, class: "btn btn-info", style: "margin-top:2em; width:100%" %>
+      <%= link_to 'New Planned Run', new_group_planned_run_path(@group), class: "btn btn-info", style: "margin-top:2em; width:100%" %>
     </div>
   </div>
 </div>

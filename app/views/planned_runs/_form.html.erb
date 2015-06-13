@@ -1,5 +1,5 @@
 <%= stylesheet_link_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" %>
-<%= form_for(@planned_run) do |f| %>
+<%= form_for [:group, @planned_run] do |f| %>
     <% if @planned_run.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@planned_run.errors.count, "error") %> prohited this planned_run from being saved:</h2>
@@ -19,7 +19,7 @@
 
     <div class="field">
       <%= f.label :group_id %>
-      <%= f.collection_select :group_id, Group.group(:name),:id, :name, include_blank: false %>
+      <%= f.collection_select :group_id, Group.all, :id, :name, prompt: true%>
     </div>
 
     <div class="field">
