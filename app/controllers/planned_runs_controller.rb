@@ -4,7 +4,6 @@ class PlannedRunsController < ApplicationController
 
   def index
     @planned_runs = @group.nil? ? PlannedRun.all : PlannedRun.where(group: @group)
-    #@planned_runs = PlannedRun.all
   end
 
   def show
@@ -45,7 +44,7 @@ class PlannedRunsController < ApplicationController
   def update
     respond_to do |format|
       if @planned_run.update(planned_run_params)
-        format.html { redirect_to @planned_run, notice: 'Planned Run was successfully updated. '}
+        format.html { redirect_to group_planned_run_path(@group, @planned_run), notice: 'Planned Run was successfully updated. '}
         format.json { render :show, status: :ok, location: @planned_run }
       else
         format.html { render :edit }

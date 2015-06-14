@@ -36,7 +36,7 @@
           <%= planned_run.training_plan %>
         </div>
         <div class="col-md-3 hidden-sm hidden-xs">
-          <%= link_to 'Show', group_planned_runs_path(@group), class: "btn btn-success"%>
+          <%= link_to 'Show', group_planned_run_path(@group, planned_run), class: "btn btn-success"%>
           <%= link_to 'Edit', edit_group_planned_run_path(@group, planned_run), class: "btn btn-primary" %>
           <%= link_to 'Destroy', group_planned_run_path(@group, planned_run), method: :delete, data: {confirm: 'Are you sure?' }, class: "btn btn-danger"%>
         </div>
@@ -53,7 +53,7 @@
                   <h4 class="modal-title">Options</h4>
                 </div>
                 <div class="modal-body">
-                  <%= link_to 'Show', group_planned_runs_path(@group), class: "btn btn-success"%>
+                  <%= link_to 'Show', group_planned_run_path(@group, planned_run), class: "btn btn-success"%>
                   <%= link_to 'Edit', edit_group_planned_run_path(@group, planned_run), class: "btn btn-primary" %>
                   <%= link_to 'Destroy', group_planned_run_path(@group, planned_run), method: :delete, data: {confirm: 'Are you sure?' }, class: "btn btn-danger"%>
                 </div>

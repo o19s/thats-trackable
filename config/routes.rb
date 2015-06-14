@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :runners
   end
 
-  resources :planned_runs
+  #resources :planned_runs
 
   resources :runs
 
