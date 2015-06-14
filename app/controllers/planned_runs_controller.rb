@@ -3,7 +3,7 @@ class PlannedRunsController < ApplicationController
   before_action :set_group, only: [:index, :show, :edit, :update, :destroy, :create, :new]
 
   def index
-    @planned_runs = @group.nil? ? PlannedRun.all : PlannedRun.where(group: @group)
+    @planned_runs = @group.nil? ? PlannedRun.all : PlannedRun.where(group: @group).order(:date)
   end
 
   def show
