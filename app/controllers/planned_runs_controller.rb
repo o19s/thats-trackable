@@ -63,7 +63,7 @@ class PlannedRunsController < ApplicationController
   def destroy
      @planned_run.destroy
      respond_to do |format|
-       format.html { redirect_to planned_runs_url, notice: 'Planned Run was successfully deleted. '}
+       format.html { redirect_to group_planned_runs_url(@group), notice: 'Planned Run was successfully deleted. '}
        format.json { head :no_content }
      end
   end
