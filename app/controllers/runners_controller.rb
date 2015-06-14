@@ -4,7 +4,7 @@ class RunnersController < ApplicationController
   # GET /runners
   # GET /runners.json
   def index
-    @runners = Runner.all
+    @runners = Runner.all.order(:role).order(:name)
   end
 
   # GET /runners/1
