@@ -38,7 +38,7 @@
         <div class="col-md-3 hidden-sm hidden-xs">
           <%= link_to 'Show', group_planned_run_path(@group, planned_run), class: "btn btn-success"%>
           <%= link_to 'Edit', edit_group_planned_run_path(@group, planned_run), class: "btn btn-primary" %>
-          <%= link_to 'Destroy', group_planned_run_path(@group, planned_run), method: :delete, data: {confirm: 'Are you sure?' }, class: "btn btn-danger"%>
+          <%= link_to 'Delete', group_planned_run_path(@group, planned_run), method: :delete, data: {confirm: 'Are you sure?' }, class: "btn btn-danger"%>
         </div>
         <div class="hidden-lg hidden-md col-sm-3 col-xs-4">
           <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal<%= index %>">Options</button>
@@ -55,7 +55,7 @@
                 <div class="modal-body">
                   <%= link_to 'Show', group_planned_run_path(@group, planned_run), class: "btn btn-success"%>
                   <%= link_to 'Edit', edit_group_planned_run_path(@group, planned_run), class: "btn btn-primary" %>
-                  <%= link_to 'Destroy', group_planned_run_path(@group, planned_run), method: :delete, data: {confirm: 'Are you sure?' }, class: "btn btn-danger"%>
+                  <%= link_to 'Delete', group_planned_run_path(@group, planned_run), method: :delete, data: {confirm: 'Are you sure?' }, class: "btn btn-danger"%>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
