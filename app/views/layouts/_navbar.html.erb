@@ -47,7 +47,9 @@
 
 
           <ul class="nav navbar-nav navbar-right">
-
+            <li>
+             <%= link_to "Settings", runner_pass_path(current_runner) %>
+            </li>
 
             <% if logged_in? %>
                 <p class="navbar-text">Signed in as <%= @current_runner.name %></p>
