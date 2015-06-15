@@ -3,8 +3,7 @@
   <div class="col-md-6 col-md-offset-3">
 
     <strong>Runner:</strong>
-    <%= Runner.find(@run.runner_id).name %>
-    <%= current_runner.name %><br>
+    <%= Runner.find(@run.runner_id).name %><br>
 
 
 
@@ -23,6 +22,6 @@
 
 
   <%= link_to 'Edit', edit_run_path(@run), class: "btn btn-success" %>
-  <%= link_to 'Back',runs_path, class: "btn btn-info" %>
+  <%= link_to 'Back',runner_runs_path(current_runner.id), class: "btn btn-info" %>
   </div>
 </div>
