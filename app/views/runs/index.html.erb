@@ -75,7 +75,7 @@
             <%= link_to 'Show', plans, class: "btn btn-success"%>
             <%= link_to 'Edit', edit_run_path(plans), class: "btn btn-primary" %>
             <% if runner_role == 'Coach' %>
-              <%= link_to 'Destroy', plans, method: :delete, data: {confirm: 'Are you sure?' }, class: "btn btn-danger"%>
+              <%= link_to 'Delete', plans, method: :delete, data: {confirm: 'Are you sure?' }, class: "btn btn-danger"%>
             <% end %>
           </div>
           <div class="modal-footer">
