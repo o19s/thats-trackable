@@ -12,11 +12,13 @@
       <% current_run = Run.find_by date: @today, runner_id: current_runner.id %>
       <h1>
       <% if current_run %>
-          <p><strong>Current Run:</strong> <%=  current_run.training_plan %></p>
-          <h3>Record Your Progress:</h3><br>
+          <div class="alert alert-info" role="alert">
+            <%=  current_run.training_plan %>
+          </div>
+          <h2>Record Your Progress:</h2><br>
           <!-- Progess Update -->
           <%= form_for current_run do |f| %>
-              <%= f.text_area :progress %><br>
+              <%= f.text_area :progress, rows:"6" %><br>
               <%= f.submit "Update", class: "btn btn-primary" %>
           <% end %>
       <% else %>
