@@ -1,10 +1,10 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <h1>Editing a Run</h1>
+    <h1>Editing a Run for <%=current_runner.name%> </h1>
 
     <%= render 'form' %>
 
-    <%= link_to 'Show', @run, class: "btn btn-success" %> |
+    <%= link_to 'Show', runner_run_path(current_runner,@run), class: "btn btn-success" %> |
     <%= link_to 'Back', runner_runs_path(current_runner), class: "btn btn-info" %>
   </div>
 </div>

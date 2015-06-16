@@ -5,15 +5,11 @@ class RunsController < ApplicationController
 
   def index
     if @runner
-      @run = @runner.runs
+      @run = @runner.runs.order(:date)
     else
-      @run = Run.all
+      @run = Run.all.order(:date)
     end
 
-  end
-
-  def get_runner
-    @runner = Runner.find_by_id params[:runner_id]
   end
 
   def show
@@ -29,7 +25,7 @@ class RunsController < ApplicationController
   def update
     respond_to do |format|
       if @run.update(run_params)
-        format.html { redirect_to "/runners/#{current_runner.id}/today", notice: 'Run was successfully updated. '}
+        format.html { redirect_to runner_today_path(current_runner), notice: 'Run was successfully updated. '}
         format.json { render :show, status: :ok, location: @run }
       else
         format.html { render :edit }
@@ -63,8 +59,11 @@ class RunsController < ApplicationController
   private
   def set_run
      @run = Run.find(params[:id])
-   # @run = Run.find(params[:runs_id])
-  end
+   end
+
+  def get_runner
+    @runner = Runner.find_by_id params[:runner_id]
+  end  
 
   def run_params
     params.require(:run).permit(:runner_id, :date, :training_plan, :progress)
