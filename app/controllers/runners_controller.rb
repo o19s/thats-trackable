@@ -97,6 +97,10 @@ class RunnersController < ApplicationController
   end
 
 
+  def pass
+    @runner = Runner.find(params[:runner_id])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_runner

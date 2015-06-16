@@ -43,6 +43,7 @@
     <%= link_to 'Edit', edit_runner_path(runner), class: "btn btn-primary" %>
     <%= link_to 'Destroy', runner, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
     <%= link_to 'Runs', runner_runs_path(runner), class: "btn btn-info" %>
+    <%= link_to 'Password', runner_pass_path(runner), class: "btn btn-warning" %>
   </div>
 
   <div class="hidden-lg hidden-md col-sm-4 col-xs-5">
@@ -60,7 +61,9 @@
           <div class="modal-body">
             <%= link_to 'Show', runner, class: "btn btn-success"%>
             <%= link_to 'Edit', edit_runner_path(runner), class: "btn btn-primary" %>
+            <br><br>
             <%= link_to 'Destroy', runner, method: :delete, data: {confirm: 'Are you sure?' }, class: "btn btn-danger"%>
+            <%= link_to 'Password', runner_pass_path(runner), class: "btn btn-warning" %>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
