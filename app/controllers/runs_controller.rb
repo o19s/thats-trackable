@@ -5,9 +5,9 @@ class RunsController < ApplicationController
 
   def index
     if @runner
-      @run = @runner.runs
+      @run = @runner.runs.order(:date)
     else
-      @run = Run.all
+      @run = Run.all.order(:date)
     end
 
   end
