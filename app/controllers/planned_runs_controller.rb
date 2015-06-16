@@ -32,10 +32,10 @@ class PlannedRunsController < ApplicationController
     #Add all "Planned_runs" for runners in this new group. (Planned_runs turn into runs)
     Runner.where(group_id: @planned_run[:group_id]).find_each do |runner|
       run = Run.new
-      run.runner_id = runner.id
+      run.runner = runner
       run.date = @planned_run.date
       run.training_plan = @planned_run.training_plan
-      run.planned_run_id = @planned_run.id
+      run.planned_run = @planned_run
       run.save
     end
   end
