@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    runner = Runner.find_by(email: params[:session][:email].downcase)
+    runner = Runner.find_by(email: params[:session][:email].downcase.strip)
     if runner && runner.authenticate(params[:session][:password])
       # Log the user in and redirect to the user's show page
       log_in runner
