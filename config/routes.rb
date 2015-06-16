@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   #resources :planned_runs
 
-  #resources :runs
+  resources :runs
 
   get 'signup' => 'runners#new'
   get 'login' => 'sessions#new'
