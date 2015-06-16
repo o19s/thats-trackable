@@ -1,3 +1,3 @@
-<h1>New Run</h1>
+<h1>New Run for <%=@runner.name%></h1>
 <%= render 'form' %>
-<%= link_to 'Back', runs_path %>
+<%= link_to 'Back', runner_runs_path(@runner) %>
