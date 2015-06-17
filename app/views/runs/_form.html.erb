@@ -11,11 +11,8 @@
         </div>
     <% end %>
 
-    <div class="field">
-      <%= f.label :runner_id %><br>
-      <%= f.collection_select :runner_id, Runner.all, :id, :name, include_blank: false %>
-    </div>
-
+    <%= f.hidden_field :runner_id %>
+    
     <div class="field">
       <%= f.label :date %><br>
       <%= f.text_field :date %>

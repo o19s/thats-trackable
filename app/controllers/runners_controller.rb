@@ -25,6 +25,7 @@ class RunnersController < ApplicationController
   # POST /runners.json
   def create
     @runner = Runner.new(runner_params)
+    @runner.email.strip!  # When you cut'n'paste in emails, they can come it with a space at the end!
 
     respond_to do |format|
       if @runner.save
