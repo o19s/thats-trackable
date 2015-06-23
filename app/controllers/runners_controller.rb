@@ -1,5 +1,6 @@
 class RunnersController < ApplicationController
   before_action :set_runner, only: [:show, :edit, :update, :destroy]
+  before_action :load_activities, only: [:today]
 
   # GET /runners
   # GET /runners.json
@@ -108,4 +109,10 @@ class RunnersController < ApplicationController
     def runner_params
       params.require(:runner).permit(:name, :group_id, :role, :email, :password)
     end
+
+    def load_activities
+      @activities = PublicActivity::Activity.order('created_at DESC').limit(20)      
+    end    
+
+
 end

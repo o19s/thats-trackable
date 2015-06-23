@@ -1,5 +1,7 @@
 class Run < ActiveRecord::Base
-  #has_many :runners
+  include PublicActivity::Model
+  tracked
+  
   belongs_to :planned_run
   belongs_to :runner
 
