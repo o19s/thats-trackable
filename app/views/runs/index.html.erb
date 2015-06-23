@@ -27,7 +27,11 @@
 </div>
 
 <% @run.each.with_index do |plans, index| %>
-    <div class="row">
+    <% if index % 2 == 0 %>
+        <div class="row" style="background-color: #FBFB7A">
+    <% else %>
+        <div class="row" style="background-color: lightblue">
+    <% end %>
   <div class="col-md-2 col-sm-2 hidden-xs">
     <%= plans.runner.name %>
   </div>
