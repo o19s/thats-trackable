@@ -14,7 +14,11 @@
     
     <div class="field">
       <%= f.label :date %><br>
+      <% if runner_role == 'Coach' %>
       <%= f.text_field :date %>
+      <% else %>
+      <%= @run.date %>
+      <% end %>
     </div>
     <div class="field">
       <%= f.label :training_plan %><br>
