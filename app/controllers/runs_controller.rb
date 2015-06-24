@@ -15,6 +15,8 @@ class RunsController < ApplicationController
   def show
   end
 
+
+
   def new
     @run = Run.new
   end
@@ -25,10 +27,21 @@ class RunsController < ApplicationController
   def update
     respond_to do |format|
       if @run.update(run_params)
-        format.html { redirect_to runner_today_path(current_runner), notice: 'Run was successfully updated. '}
+        if params[:commit] == 'Track Today'
+          redirect_path = today_path
+        else
+          redirect_path = edit_runner_run_path(@runner,@run)
+        end
+
+        format.html { redirect_to redirect_path, notice: 'Run was successfully updated. '}
         format.json { render :show, status: :ok, location: @run }
       else
-        format.html { render :edit }
+        if params[:commit] == 'Track Today'
+          render_path = 'sessions/today'
+        else
+          render_path = 'runs/edit'
+        end        
+        format.html { render render_path }
         format.json { render json: @run.errors, status: :unprocessable_entity }
       end
     end
@@ -36,10 +49,11 @@ class RunsController < ApplicationController
 
   def create
     @run = Run.new(run_params)
+    @run.runner = @runner
 
     respond_to do |format|
       if @run.save
-        format.html {redirect_to @run, notice: 'Run was successfully created.' }
+        format.html {redirect_to runner_runs_path(@runner), notice: 'Run was successfully created.' }
         format.json {render :show, status: :created, locations: @run }
       else
         format.html { render :edit }
@@ -51,7 +65,7 @@ class RunsController < ApplicationController
   def destroy
     @run.destroy
     respond_to do |format|
-      format.html { redirect_to runs_url, notice: 'Run was successfully destroyed. ' }
+      format.html { redirect_to runner_run_path(@runner), notice: 'Run was successfully destroyed. ' }
       format.json { head :no_content }
     end
   end

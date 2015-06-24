@@ -20,9 +20,9 @@
           </div>
           <h2>Record Your Progress:</h2><br>
           <!-- Progess Update -->
-          <%= form_for current_run do |f| %>
+          <%= form_for [@runner, current_run] do |f| %>
               <%= f.text_area :progress, rows:"6" %><br>
-              <%= f.submit "Update", class: "btn btn-primary" %>
+              <%= f.submit "Track Today", class: "btn btn-primary" %>
           <% end %>
       <% else %>
 
