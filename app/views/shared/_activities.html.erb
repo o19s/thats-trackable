@@ -1,18 +1,3 @@
 <div class="col-sm-3">
-   <% @activities.each do |activity| %>
-      <li class="list-group-item">
-        <span class="glyphicon glyphicon-<%= activity.key.match(/\.(.*)/)[1] %>"></span>
-        <small class="text-muted"><%= activity.created_at.strftime('%H:%M:%S %-d %B %Y') %></small><br/>
-        <strong><%= activity.owner ? activity.owner.name : 'Guest' %></strong>
-        <%= render_activity(activity) %>
-        <% if activity.trackable %>
-          "<%= link_to activity.trackable.training_plan, run_path(activity.trackable) %>"
-        <% elsif activity.key %>
-          <span class="text-muted">"<%= activity.key %>"</span>
-        <% else %>
-          with unknown title.
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
+   <%= render_activities @activities %>
 </div>

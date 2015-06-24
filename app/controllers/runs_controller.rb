@@ -65,7 +65,7 @@ class RunsController < ApplicationController
   def destroy
     @run.destroy
     respond_to do |format|
-      format.html { redirect_to runner_run_path(@runner), notice: 'Run was successfully destroyed. ' }
+      format.html { redirect_to runner_runs_path(@runner), notice: 'Run was successfully destroyed. ' }
       format.json { head :no_content }
     end
   end

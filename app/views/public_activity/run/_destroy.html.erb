@@ -1,3 +1,6 @@
 <li class="list-group-item">
-  A run was deleted.
+  <span class="glyphicon glyphicon-remove"></span>
+  <small class="text-muted"><%= local_time_ago(a.created_at) %></small><br/>
+  <strong><%= activity.owner ? activity.owner.name : 'Guest' %></strong>
+  deleted a run.
 </li>
