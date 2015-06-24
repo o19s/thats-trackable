@@ -7,8 +7,8 @@
         <%= render_activity(activity) %>
         <% if activity.trackable %>
           "<%= link_to activity.trackable.training_plan, run_path(activity.trackable) %>"
-        <% elsif activity.title %>
-          <span class="text-muted">"<%= activity.title %>"</span>
+        <% elsif activity.key %>
+          <span class="text-muted">"<%= activity.key %>"</span>
         <% else %>
           with unknown title.
         <% end %>
