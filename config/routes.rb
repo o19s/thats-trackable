@@ -1,12 +1,7 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-
+  
   resources :runners do
     resources :runs
-  end
-
-  resources :runners do
-     #get :today
   end
 
   resources :groups do
