@@ -10,7 +10,7 @@
 
 
     <strong>Group:</strong>
-    <%= Group.find(@runner.group_id).name %>
+    <%= @runner.group.nil? ? 'n/a' : @runner.group.name %>
     <br>
 
     <strong>Email:</strong>
