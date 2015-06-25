@@ -34,6 +34,8 @@ Please feel free to use a different markup language if you do not plan to run
 
 # run `rake db:seed` to create the default administrator with the email dep4b@yahoo.com/password combo
 
+# You need to export the Facebook App Secret Key, something like: `export FACEBOOK_APP_SECRET=some_secret_value`
+
 === Notes
 
 # AddToHomescreen Javascript from https://github.com/cubiq/add-to-homescreen
