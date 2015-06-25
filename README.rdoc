@@ -36,6 +36,8 @@ Please feel free to use a different markup language if you do not plan to run
 
 # You need to export the Facebook App Secret Key, something like: `export FACEBOOK_APP_SECRET=some_secret_value`
 
+# You need to export the Facebook App ID, something like: `export FACEBOOK_APP_ID=some_id`
+
 === Notes
 
 # AddToHomescreen Javascript from https://github.com/cubiq/add-to-homescreen
