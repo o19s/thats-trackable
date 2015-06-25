@@ -1,0 +1,525 @@
+{
+    "fields": [
+        "id",
+        "name",
+        "group_id",
+        "role",
+        "created_at",
+        "updated_at",
+        "email",
+        "password_digest"
+    ],
+    "title": "users",
+    "types": [
+        23,
+        1043,
+        23,
+        1043,
+        1114,
+        1114,
+        1043,
+        1043
+    ],
+    "values": [
+        [
+            1,
+            "Administrator",
+            null,
+            "Coach",
+            "2015-06-13 00:37:11.259881",
+            "2015-06-13 00:37:11.259881",
+            "dep4b@yahoo.com",
+            "$2a$10$nkonb/3ae1YOz3HarZaIJu.F7RusTggZonyNyhfC0ulyDjFCqlKr2"
+        ],
+        [
+            2,
+            "Katie Pugh",
+            1,
+            "Coach",
+            "2015-06-14 01:01:36.072467",
+            "2015-06-14 01:01:36.072467",
+            "katiexc@gmail.com",
+            "$2a$10$Q3igEfIa1SknpJBEKK2xo.6/ARMsZ45uwY32xr4G7H1MN3TN51Koi"
+        ],
+        [
+            10,
+            "Chuck Witt",
+            1,
+            "Coach",
+            "2015-06-14 01:13:59.045746",
+            "2015-06-14 01:13:59.045746",
+            "cwitt@k12albemarle.org",
+            "$2a$10$JkNK3QYR4tzGi65zbTeCduxBLWS/ECOP2XOU5XBZpJ1Tx3kVDpAIe"
+        ],
+        [
+            18,
+            "Avery Patterson",
+            2,
+            "Athlete",
+            "2015-06-14 01:26:41.707454",
+            "2015-06-14 01:26:41.707454",
+            "avery.e.patterson@gmail.com",
+            "$2a$10$w87dciziOfXMSbI98fUaae57/QYZgDcf.oQkoUhfhUQ3V6ae0ACVW"
+        ],
+        [
+            19,
+            "Christina Webb",
+            1,
+            "Athlete",
+            "2015-06-14 01:27:19.283637",
+            "2015-06-14 01:27:19.283637",
+            "WebbChristina5058@gmail.com",
+            "$2a$10$qkm3JIJDJdM3IWsFdnh17.qfh6nVxBM9bx9w3jRGzPiGaT2TUwIxa"
+        ],
+        [
+            20,
+            "Sarah Servine",
+            2,
+            "Athlete",
+            "2015-06-14 01:27:45.526965",
+            "2015-06-14 01:27:45.526965",
+            "sarahservine@gmail.com",
+            "$2a$10$2PYuTQkaRYkXwjTpQ2bsS.JrpVBZmpJHplRTeZXqszqQrDsrcQ6Vi"
+        ],
+        [
+            21,
+            "Sarah Titus",
+            1,
+            "Athlete",
+            "2015-06-14 01:28:07.86427",
+            "2015-06-14 01:28:07.86427",
+            "sarah.runs22@gmail.com",
+            "$2a$10$bn2UlQoeDWjEYy.kk8VVD.PPcVtDBWWpeFwLvLV0DvsQfhPBahJlq"
+        ],
+        [
+            22,
+            "Julia Berg",
+            2,
+            "Athlete",
+            "2015-06-14 01:28:33.87846",
+            "2015-06-14 01:28:33.87846",
+            "jkberg511@gmail.com",
+            "$2a$10$PK/4Shb1XhZeyr/pHy5T.enCJwz6nUAaI.F6nqmCYchVOicdg8QJG"
+        ],
+        [
+            24,
+            "Kate de Jong",
+            2,
+            "Athlete",
+            "2015-06-14 01:29:39.308628",
+            "2015-06-14 01:29:39.308628",
+            "soccerockstar7@gmail.com",
+            "$2a$10$rsd2axFtdrnhyZH3s2HtJOuE3p/e8Hz4NenHJrzEn5Ib8oUl0tb5C"
+        ],
+        [
+            25,
+            "Katrine Berg",
+            2,
+            "Athlete",
+            "2015-06-14 01:30:24.761056",
+            "2015-06-14 01:30:24.761056",
+            "kmberg711@gmail.com",
+            "$2a$10$YOWk25XH8iSyY2P05VK7TukRm/Ox7ChSa6Xl/NsHmr8jpx0yoboVm"
+        ],
+        [
+            27,
+            "Teryn Ratcliffe",
+            4,
+            "Athlete",
+            "2015-06-14 01:31:38.177508",
+            "2015-06-14 01:31:38.177508",
+            "ratcliffe.teryn@gmail.com",
+            "$2a$10$YYBhharz1fQVwLdFgdRPWO6VFu2z6mN45QEZHH46yWm4zaxufc8rG"
+        ],
+        [
+            28,
+            "Jenna Hill",
+            2,
+            "Athlete",
+            "2015-06-14 01:32:07.033323",
+            "2015-06-14 01:32:07.033323",
+            "runnerlvr@gmail.com",
+            "$2a$10$oG.tsNELAsjvzCwaDQv.MOrz3/Jypwv21y7lO9t3RUjUciOvWdZ8q"
+        ],
+        [
+            29,
+            "Abby Cole",
+            4,
+            "Athlete",
+            "2015-06-14 01:32:31.466405",
+            "2015-06-14 01:32:31.466405",
+            "arc.abbycole@gmail.com",
+            "$2a$10$ShoJtFn1nvmuJvJOnkF1J.PkX6I/g8aLuf6EraEG100lam1XE.yM."
+        ],
+        [
+            30,
+            "Emily Flanders",
+            4,
+            "Athlete",
+            "2015-06-14 01:32:56.711704",
+            "2015-06-14 01:32:56.711704",
+            "emmyrflanders@gmail.com",
+            "$2a$10$Vgdva.kYLdML.fwy2cOyLeI5sSsked8K85x9s/S.7TmP2yF0Kih5m"
+        ],
+        [
+            31,
+            "Leah Gillespie",
+            2,
+            "Athlete",
+            "2015-06-14 01:33:35.339565",
+            "2015-06-14 01:33:35.339565",
+            "h2ol0vergal@gmail.com",
+            "$2a$10$snFSteDQrfDS5U0qfKckEORXpiCkDN/VX3IH4xyXOvs9svfSYh0dW"
+        ],
+        [
+            32,
+            "Anne Patterson",
+            2,
+            "Athlete",
+            "2015-06-14 01:33:57.556618",
+            "2015-06-14 01:33:57.556618",
+            "Annekp11@comcast.net",
+            "$2a$10$M3NjgtKGtnTsrIXWbhsucOhb3EYI0fOTkVxesbL.HroO19IwdS2I6"
+        ],
+        [
+            33,
+            "Riley Stackhouse",
+            4,
+            "Athlete",
+            "2015-06-14 01:34:34.804193",
+            "2015-06-14 01:34:34.804193",
+            "riley.stackhouse1@gmail.com",
+            "$2a$10$mw/O53X6nygv0JtBam/Zi.5niVc7qnJKCjklMPTaw349Kp9RHs9G6"
+        ],
+        [
+            34,
+            "Sarah Brewster",
+            4,
+            "Athlete",
+            "2015-06-14 01:35:04.623669",
+            "2015-06-14 01:35:04.623669",
+            "brewstersarah977@gmail.com",
+            "$2a$10$No2QpPfgYYc2sHcUOg/8S.UMMnMCCSxbMlTKBiBdCdBubVkyXFAhO"
+        ],
+        [
+            35,
+            "Molly Ward",
+            5,
+            "Athlete",
+            "2015-06-14 01:35:52.842617",
+            "2015-06-14 01:35:52.842617",
+            "mewk2@student.k12albemarle.org",
+            "$2a$10$vUsZ/5UVo7HhaBVXGvGOA.wTcAho2bVHA/k2B5NG7PkAEayVzNFca"
+        ],
+        [
+            36,
+            "Bronwyn Playus",
+            5,
+            "Athlete",
+            "2015-06-14 01:36:36.524862",
+            "2015-06-14 01:36:36.524862",
+            "cowboykiki@gmail.com",
+            "$2a$10$gRIRR3b5iY4x7IkGxLEW2e37hUTu4XJkz0vAld94.VPOrVmjEkr7S"
+        ],
+        [
+            37,
+            "Kathryn Edwards",
+            5,
+            "Athlete",
+            "2015-06-14 01:37:06.12553",
+            "2015-06-14 01:37:06.12553",
+            "kathryne3622@gmail.com",
+            "$2a$10$2s/FdOAg7f.wtiCCABoerOeWFgIBNkq89XJqNJ4hhP8XsGEYYMafS"
+        ],
+        [
+            38,
+            "Ruby Neisser",
+            1,
+            "Athlete",
+            "2015-06-14 01:37:28.341682",
+            "2015-06-14 01:37:28.341682",
+            "ruby.neisser@gmail.com",
+            "$2a$10$f39vyLgLfO3YwPoEA1l.bOHgG49PpA2AEKKg04.fb8Ze6.42RoJL."
+        ],
+        [
+            39,
+            "Sarah Inman",
+            5,
+            "Athlete",
+            "2015-06-14 01:37:59.45867",
+            "2015-06-14 01:37:59.45867",
+            "doodlebugplay@gmail.com",
+            "$2a$10$UhZ9j4jmTSeAoNfAwIWr4O3e6OPj1sDmlCkDkjv2Rt4IVMWuo2A7K"
+        ],
+        [
+            40,
+            "Meredith Martin",
+            5,
+            "Athlete",
+            "2015-06-14 01:38:21.124628",
+            "2015-06-14 01:38:21.124628",
+            "meredithm101@gmail.com",
+            "$2a$10$T/uSSdAYCGjOMe38kq38ROyNEaI1YUu9qfTsFmJuwnGKv9ByELu3m"
+        ],
+        [
+            41,
+            "Reagan Burton",
+            5,
+            "Athlete",
+            "2015-06-14 01:38:44.588293",
+            "2015-06-14 01:38:44.588293",
+            "reaganburton2@gmail.com",
+            "$2a$10$Tlmb38o8XGvOP0bd6TSFGOv52pZmA8JAmCg3O/8nonsYqwfBokJfC"
+        ],
+        [
+            42,
+            "Caroline McGahren",
+            5,
+            "Athlete",
+            "2015-06-14 01:39:12.638307",
+            "2015-06-14 01:39:12.638307",
+            "ccmchagren@gmail.com",
+            "$2a$10$/url1Pe8PolonFIZ.M/2luiQMBi1Ek.rfc99oWbEnYpoHB0LWuAdu"
+        ],
+        [
+            43,
+            "Talley Johnston",
+            2,
+            "Athlete",
+            "2015-06-14 01:39:49.076586",
+            "2015-06-14 01:39:49.076586",
+            "tjohnston009@gmail.com",
+            "$2a$10$R8fDdJlf2.5giUIDxjDRNuCQ9Q4bQUHemqj/9gNHRhzUoysXerC1u"
+        ],
+        [
+            44,
+            "Hana Lagana",
+            4,
+            "Athlete",
+            "2015-06-14 01:40:14.729146",
+            "2015-06-14 01:40:14.729146",
+            "hana.mae.lagana@gmail.com",
+            "$2a$10$Bdr1GajPN4P.3KFe6RFpp.Ws0SRNQFIW3.TbCICYN8R9m68mtUdC6"
+        ],
+        [
+            45,
+            "Nina Willms",
+            2,
+            "Athlete",
+            "2015-06-14 01:41:01.236504",
+            "2015-06-14 01:41:01.236504",
+            "npwillms@gmail.com",
+            "$2a$10$XywQzEugIQQTfOrn4Y5ZSuvrqUVC3asUaUwqHVAjD7nsizg3lYXGS"
+        ],
+        [
+            46,
+            "Andria Li",
+            4,
+            "Athlete",
+            "2015-06-14 01:41:29.187464",
+            "2015-06-14 01:41:29.187464",
+            "andriali53@gmail.com",
+            "$2a$10$n17qfcIWUJPEjcYHubtYGucfzy25jwVpo2MNdT./Kttnp/W91BW.W"
+        ],
+        [
+            47,
+            "Shannon Durazo",
+            4,
+            "Athlete",
+            "2015-06-14 01:41:59.409819",
+            "2015-06-14 01:41:59.409819",
+            "cvilleshannon@gmail.com",
+            "$2a$10$rO3W/Io6oYTKc158ViAPjOUS5LP20S24fyRc6wqhge1e3LtyGAYx."
+        ],
+        [
+            48,
+            "Rebecca LaBelle",
+            4,
+            "Athlete",
+            "2015-06-14 01:42:24.228352",
+            "2015-06-14 01:42:24.228352",
+            "rebecca.labelle98@gmail.com",
+            "$2a$10$xdTpYSs7W7YqXXBYV2frH.TvmW9h1xbpR17VfG.BCCFlOgaQub.5i"
+        ],
+        [
+            49,
+            "Causey Hope",
+            4,
+            "Athlete",
+            "2015-06-14 01:43:07.026529",
+            "2015-06-14 01:43:07.026529",
+            "obxhopes@embarqmail.com",
+            "$2a$10$du4zOsRBFT6/iSQPmn5YdORNsyTA5d0thStveDyq8HM78.Sp6XQhS"
+        ],
+        [
+            9,
+            "Cherie Witt",
+            1,
+            "Coach",
+            "2015-06-14 01:13:28.263449",
+            "2015-06-16 10:26:22.017272",
+            "cherwitt26@gmail.com",
+            "$2a$10$41rCtsp9TdtD.mun1zbUs.4U7PWNDOF8voTJqkfbeZRP48vQqIYwu"
+        ],
+        [
+            3,
+            "Averi Witt",
+            1,
+            "Athlete",
+            "2015-06-14 01:03:35.644527",
+            "2015-06-16 10:46:28.030364",
+            "cellery56@gmail.com",
+            "$2a$10$qXnzCePj2eQIU3Pmx6CHhe0IZsgKyBCOKQP15f2RM4Tbl3ZWFEY8y"
+        ],
+        [
+            4,
+            "Zoe Clay",
+            1,
+            "Athlete",
+            "2015-06-14 01:04:04.629326",
+            "2015-06-16 10:46:28.200797",
+            "zozoeclay@gmail.com",
+            "$2a$10$9ExjXb5g7y6QJpnwPjcUSe3XwDtbhJu7gtp0TpZgCjjBaJlN/PxA2"
+        ],
+        [
+            5,
+            "Deborah Ayres-Brown",
+            1,
+            "Athlete",
+            "2015-06-14 01:04:52.836919",
+            "2015-06-16 10:46:28.242533",
+            "dacoolkitty5@gmail.com",
+            "$2a$10$VdyC4xS7NEOx1gn5fGCP5OBi0mBbbwxaF5ljfMDbrXEGq7K6ho2GS"
+        ],
+        [
+            6,
+            "Faith Reid",
+            1,
+            "Athlete",
+            "2015-06-14 01:05:24.575037",
+            "2015-06-16 10:46:28.260209",
+            "faithreid99@gmail.com",
+            "$2a$10$4Lsge6iYSD8W4bVupQ4HKuN9tVl2X2sirKx0s.w2cfZIVSfD4VVSe"
+        ],
+        [
+            8,
+            "Erica Grupp",
+            1,
+            "Athlete",
+            "2015-06-14 01:12:57.448056",
+            "2015-06-16 10:46:28.292451",
+            "gruppy98@gmail.com",
+            "$2a$10$8Rm5Wtf7yIPBxt7VMQqFpuu2mSFCCDRv7TRfrw8kU/Nlwj/SDd9t."
+        ],
+        [
+            11,
+            "Kelsey Tarleton",
+            2,
+            "Athlete",
+            "2015-06-14 01:15:52.035567",
+            "2015-06-16 10:46:28.414822",
+            "kelse.tg@gmail.com",
+            "$2a$10$8l.qIPu3sbrUcHfl7Z1Ur.dMhNqANriq9XMhSttMKMkNrh3B9dtE."
+        ],
+        [
+            12,
+            "Alex Allen",
+            2,
+            "Athlete",
+            "2015-06-14 01:16:24.232753",
+            "2015-06-16 10:46:28.456869",
+            "allenalex2016@gmail.com",
+            "$2a$10$yNQURVxA1.iGvfmT8GIwme5obxDu3dpH6RykBNqXmniZQYnq87RgC"
+        ],
+        [
+            13,
+            "Caroline Outlaw",
+            2,
+            "Athlete",
+            "2015-06-14 01:17:06.161481",
+            "2015-06-16 10:46:28.499171",
+            "lazzyfeet09@gmail.com",
+            "$2a$10$dvqsWAv0cSAAt5mGrzGqJOXMEw3kYd66xlEv0vZTyDzei32fR/Nze"
+        ],
+        [
+            14,
+            "Nayiri Krysztofowicz",
+            2,
+            "Athlete",
+            "2015-06-14 01:19:25.590395",
+            "2015-06-16 10:46:28.541249",
+            "naynayrunner@gmail.com",
+            "$2a$10$G8mRfrOYrssx42HMZUkAr.2qaD/amI9I.XB2oSzEyoIH.SVAU6N56"
+        ],
+        [
+            15,
+            "Molly Servine",
+            2,
+            "Athlete",
+            "2015-06-14 01:20:51.166855",
+            "2015-06-16 10:46:28.5634",
+            "mollyservine@gmail.com",
+            "$2a$10$VbtZM7to7w0lYd/qtR7V0.CD6NHwgWGssiJWpCNAQX1DTEBms09fS"
+        ],
+        [
+            16,
+            "Abbey Palmer",
+            4,
+            "Athlete",
+            "2015-06-14 01:24:32.528163",
+            "2015-06-16 10:46:28.573157",
+            "hotpink2000@comcast.net",
+            "$2a$10$8U4N74LVRkv0rO5EYWBduuoSfbcLRDyW6mSaL4Rl4WwOcUVsGVtIy"
+        ],
+        [
+            50,
+            "Avery Jordan ",
+            1,
+            "Athlete",
+            "2015-06-15 15:07:33.106694",
+            "2015-06-16 10:46:28.941058",
+            "averycjordan@gmail.com",
+            "$2a$10$OxRIg7BzT.h0aEXZ5yNd7.pCJFgWFbYmtDG1n5PA6md11OR5cVeOC"
+        ],
+        [
+            51,
+            "Kat Todorovic",
+            2,
+            "Athlete",
+            "2015-06-15 15:10:05.53656",
+            "2015-06-16 10:46:28.961788",
+            "katvt13@gmail.com",
+            "$2a$10$/fbRSPKf9gCkIsu/QgAUfu1b2orczpJCteY08DP26gbX8vtc.k44i"
+        ],
+        [
+            52,
+            "Grace Rainey",
+            2,
+            "Athlete",
+            "2015-06-16 11:17:43.447002",
+            "2015-06-16 11:17:43.447002",
+            "raineyg123@gmail.com",
+            "$2a$10$wLFA60CQS0zmi3JBZbnoLuUiRWmq2n672ccCbZndGPlDuy7vl8j9i"
+        ],
+        [
+            53,
+            "Maggie Nemergut",
+            4,
+            "Athlete",
+            "2015-06-16 15:44:36.29548",
+            "2015-06-16 15:44:36.29548",
+            "maggie.nemergut01@gmail.com",
+            "$2a$10$KxFoF65qinsIyk6E1eWzxO6LzJPgPjM96l2Uv.BgONAxoww9b/8Fe"
+        ],
+        [
+            54,
+            "Alaina Dimaria",
+            5,
+            "Athlete",
+            "2015-06-16 15:48:15.697247",
+            "2015-06-16 15:48:15.697247",
+            "Alainaludimaria@gmail.com",
+            "$2a$10$COFDqxODx2m7E1WTrbSAJemZ6bwzi9zmI1bm1v3YrOiZSwo44Awda"
+        ]
+    ]
+}

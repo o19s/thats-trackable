@@ -41,3 +41,5 @@ Please feel free to use a different markup language if you do not plan to run
 # Google Analytics approach taken from http://railsapps.github.io/rails-google-analytics.html
 
 # gravatar from http://guides.railsgirls.com/gravatar/
+
+# How to read in Json: https://gist.github.com/shvetsovdm/6317604
