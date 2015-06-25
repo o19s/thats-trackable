@@ -32,7 +32,7 @@
     <%= runner.name %>
   </div>
   <div class="col-md-3 col-sm-3 col-xs-3">
-    <%= runner.group_id.nil? ? 'n/a' : Group.find(runner.group_id).name %>
+    <%= runner.group.nil? ? 'n/a' : runner.group.name %>
   </div>
   <div class="col-md-2 col-sm-2 col-xs-2">
     <%= runner.role %>
