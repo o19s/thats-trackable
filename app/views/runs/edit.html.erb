@@ -5,6 +5,6 @@
     <%= render 'form' %>
 
     <%= link_to 'Show', runner_run_path(current_runner,@run), class: "btn btn-success" %> |
-    <%= link_to 'Back', runner_runs_path(current_runner), class: "btn btn-info" %>
+    <%= link_to 'Back', request.referrer, class: "btn btn-info" %>
   </div>
 </div>
