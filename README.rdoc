@@ -39,3 +39,5 @@ Please feel free to use a different markup language if you do not plan to run
 # AddToHomescreen Javascript from https://github.com/cubiq/add-to-homescreen
 
 # Google Analytics approach taken from http://railsapps.github.io/rails-google-analytics.html
+
+# gravatar from http://guides.railsgirls.com/gravatar/

@@ -1,4 +1,7 @@
 class Runner < ActiveRecord::Base
+  include Gravtastic
+  gravtastic :default => :wavatar
+
   validates :email, uniqueness: true
   validates :name, uniqueness: true
 
