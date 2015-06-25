@@ -4,22 +4,25 @@
   <div class="col-md-6 col-md-offset-3">
     <%= image_tag "#{@runner.facebook_user.avatar_url}?width=200&height=200", class: 'avatar', alt: @runner.name unless @runner.facebook_user.nil?%>
 
+    <p>
     <strong>Name:</strong>
     <%= @runner.name %>
-    <br>
+    </p>
 
-
+    <p>
     <strong>Group:</strong>
     <%= @runner.group.nil? ? 'n/a' : @runner.group.name %>
-    <br>
+    </p>
 
+    <p>
     <strong>Email:</strong>
     <%= @runner.email %>
-    <br>
+    </p>
 
+    <p>
     <strong>Role:</strong>
     <%= @runner.role %>
-    <br><br>
+    </p>
 
   <%= link_to 'Edit', edit_runner_path(@runner), class: "btn btn-success" %> |
   <%= link_to 'Back', runners_path, class: "btn btn-info" %>
