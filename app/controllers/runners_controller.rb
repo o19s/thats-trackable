@@ -70,19 +70,19 @@ class RunnersController < ApplicationController
       end
 
       #Log user back in after change of password
-     if @runner.password != runner_params[:password]
-       log_out
-     end
+     #if @runner.password != runner_params[:password]
+     #  log_out
+     #end
     end
 
     respond_to do |format|
       if @runner.update(runner_params)
         #Log user back in after change of password
         #if @runner.password != runner_params[:password]
-          log_in @runner
+        #  log_in @runner
         #end
       #end
-        format.html { redirect_to @runner, notice: 'Runner was successfully updated.' }
+        format.html { redirect_to runner_today_path(@runner), notice: 'Runner was successfully updated.' }
         format.json { render :show, status: :ok, location: @runner }
       else
         format.html { render :edit }
