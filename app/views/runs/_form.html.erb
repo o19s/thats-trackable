@@ -1,5 +1,5 @@
 <%= stylesheet_link_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" %>
-<%= form_for(@run) do |f| %>
+<%= form_for [@runner, @run] do |f| %>
     <% if @run.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@run.errors.count, "error") %> prohibited this runner from being saved:</h2>
@@ -11,15 +11,20 @@
         </div>
     <% end %>
 
-    <%= f.hidden_field :runner_id %>
     
     <div class="field">
       <%= f.label :date %><br>
+      <% if runner_role == 'Coach' %>
       <%= f.text_field :date %>
+      <% else %>
+      <%= @run.date %>
+      <% end %>
     </div>
     <div class="field">
+      <% if runner_role == 'Coach' %>
       <%= f.label :training_plan %><br>
       <%= f.text_area :training_plan, rows:"6" %>
+      <% end %>
     </div>
     <div class="field">
       <%= f.label :progress %><br>
