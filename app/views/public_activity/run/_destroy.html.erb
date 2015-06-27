@@ -1,6 +1,12 @@
 <li class="list-group-item">
   <span class="glyphicon glyphicon-remove"></span>
-  <small class="text-muted"><%= local_time_ago(a.created_at) %></small><br/>
-  <strong><%= activity.owner ? activity.owner.name : 'Guest' %></strong>
+  <small class="text-muted">
+  	<%= local_time_ago(a.created_at) %>
+  	<%= image_tag "#{activity.owner.facebook_user.avatar_url}?width=25&height=25", class: 'avatar', alt: activity.owner.name if activity.owner and activity.owner.facebook_user %>
+  </small>
+  <br/>
+  <strong>  	
+  	<%= activity.owner ? activity.owner.name : 'Guest' %>
+  </strong>
   deleted a run.
 </li>
