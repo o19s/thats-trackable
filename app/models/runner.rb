@@ -3,6 +3,7 @@ class Runner < ActiveRecord::Base
   validates :name, uniqueness: true
 
   belongs_to :group
+  has_one :facebook_user
   has_many :runs, dependent: :destroy
   has_secure_password
 

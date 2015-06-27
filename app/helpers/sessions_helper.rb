@@ -6,7 +6,7 @@ module SessionsHelper
 
   # Returns the current logged-in user (if any)
   def current_runner
-    @current_runner ||= Runner.find_by(id: session[:runner_id])
+    @current_runner ||= Runner.find_by(id: session[:runner_id]) if session[:runner_id]
   end
 
   def logged_in?

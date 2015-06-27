@@ -1,12 +1,7 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-
+  
   resources :runners do
     resources :runs
-  end
-
-  resources :runners do
-     get :today
   end
 
   resources :groups do
@@ -29,13 +24,16 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
+  get 'today' => 'sessions#today'
+
+  get '/auth/:provider/callback', to: 'sessions#link_to_facebook'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'sessions#new'
+  root 'sessions#today'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

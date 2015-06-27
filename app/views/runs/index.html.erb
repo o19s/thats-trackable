@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
   <div class="col-md-12">
-    <h1>Listing Runs</h1>
+    <h1>Listing Runs for <%= @runner.name %> </h1>
   </div>
 </div>
 
@@ -51,7 +51,7 @@
 
   <div class="col-md-3 col-sm-4 hidden-xs">
     <%= link_to 'Show', runner_run_path(@runner,plans), class: "btn btn-success" %>
-    <%= link_to 'Edit', edit_runner_run_path(@runner,plans), class: "btn btn-primary" %>
+    <%= link_to 'Edit', edit_runner_run_path(@runner,plans), class: "btn btn-primary" if runner_role == 'Coach' || @runner.name == current_runner.name %>
     <% if runner_role == 'Coach' %>
       <%= link_to 'Delete', runner_run_path(@runner,plans), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger" %>
     <% end %>
@@ -73,7 +73,7 @@
           </div>
           <div class="modal-body">
             <%= link_to 'Show', runner_run_path(@runner,plans), class: "btn btn-success"%>
-            <%= link_to 'Edit', edit_runner_run_path(@runner,plans), class: "btn btn-primary" %>
+            <%= link_to 'Edit', edit_runner_run_path(@runner,plans), class: "btn btn-primary" if runner_role == 'Coach' || @runner.name == current_runner.name%>
             <% if runner_role == 'Coach' %>
               <%= link_to 'Delete', runner_run_path(@runner,plans), method: :delete, data: {confirm: 'Are you sure?' }, class: "btn btn-danger"%>
             <% end %>

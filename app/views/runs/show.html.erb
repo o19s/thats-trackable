@@ -1,27 +1,29 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
+    <%= image_tag "#{@run.runner.facebook_user.avatar_url}?width=200&height=200", class: 'avatar', alt: @run.runner.name unless @run.runner.facebook_user.nil?%>
 
+    <p>
     <strong>Runner:</strong>
     <%= @run.runner.name %><br>
+    </p>
 
-
-
+    <p>
     <strong>Date:</strong>
     <%= @run.date %><br>
+    </p>
 
-
-
+    <p>
     <strong>Training Plan:</strong>
     <%= @run.training_plan %><br>
+    </p>
 
-
-
+    <p>
     <strong>Progress:</strong>
     <%= @run.progress %><br><br>
+    </p>
 
-
-  <%= link_to 'Edit', edit_runner_run_path(@runner, @run), class: "btn btn-success" %>
+  <%= link_to 'Edit', edit_runner_run_path(@runner, @run), class: "btn btn-success" if runner_role == 'Coach' || @runner.name == current_runner.name %>
   <%= link_to 'Back',runner_runs_path(@runner), class: "btn btn-info" %>
   </div>
 </div>

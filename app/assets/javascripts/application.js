@@ -15,6 +15,7 @@
 //= require jquery-ui
 //= require bootstrap-sprockets
 //= require_tree .
+//= require local_time
 
 //Renders datepicker on planned_run form and run form
 $(document).ready(function(){
