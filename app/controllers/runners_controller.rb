@@ -53,7 +53,6 @@ class RunnersController < ApplicationController
   # PATCH/PUT /runners/1
   # PATCH/PUT /runners/1.json
   def update
-    byebug
     #Change Runs if group is updated on runner
     #Tests current group_id to group_id param passed in
     if @runner.group_id.to_s != runner_params[:group_id] && runner_params[:group_id] != nil
