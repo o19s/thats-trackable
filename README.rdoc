@@ -39,3 +39,7 @@ Please feel free to use a different markup language if you do not plan to run
 # AddToHomescreen Javascript from https://github.com/cubiq/add-to-homescreen
 
 # Google Analytics approach taken from http://railsapps.github.io/rails-google-analytics.html
+
+# Public Activity inspired by http://www.sitepoint.com/activity-feeds-rails/
+
+# Local Timezone https://github.com/basecamp/local_time

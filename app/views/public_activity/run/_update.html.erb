@@ -1,0 +1,11 @@
+<li class="list-group-item">
+  <span class="glyphicon glyphicon-edit"></span>
+  <small class="text-muted"><%= local_time_ago(a.created_at) %></small><br/>
+  <strong><%= activity.owner ? activity.owner.name : 'Guest' %></strong>
+  
+  <% if a.trackable %>
+    reported that she <i><%= a.trackable.progress%></i> for run  <%= link_to a.trackable.training_plan, runner_run_path(a.trackable.runner,a.trackable) %>.
+  <% else %>
+    edited the run that is currently deleted.
+  <% end %>
+</li>

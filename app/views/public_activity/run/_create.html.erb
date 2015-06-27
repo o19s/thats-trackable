@@ -1,0 +1,10 @@
+<li class="list-group-item">
+  <span class="glyphicon glyphicon-plus"></span>
+  <small class="text-muted"><%= local_time_ago(a.created_at) %></small><br/>
+  <strong><%= activity.owner ? activity.owner.name : 'Guest' %></strong>
+  <% if a.trackable %>
+    added the run <%= link_to a.trackable.id, run_path(a.trackable) %>.
+  <% else %>
+    added the run that is currently deleted.
+  <% end %>
+</li>

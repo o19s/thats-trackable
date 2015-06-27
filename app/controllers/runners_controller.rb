@@ -1,6 +1,7 @@
 class RunnersController < ApplicationController
   before_action :set_runner, only: [:show, :edit, :update, :destroy]
 
+
   # GET /runners
   # GET /runners.json
   def index
@@ -93,10 +94,6 @@ class RunnersController < ApplicationController
     end
   end
 
-  def today
-    @today = Date.today
-  end
-
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -108,4 +105,8 @@ class RunnersController < ApplicationController
     def runner_params
       params.require(:runner).permit(:name, :group_id, :role, :email, :password)
     end
+
+ 
+
+
 end

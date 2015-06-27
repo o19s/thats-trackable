@@ -38,6 +38,10 @@ gem 'coffee-script-source', '1.8.0'
 # Bootstrap
 gem 'bootstrap-sass', '~> 3.2.0'
 
+# PublicActivity for activity feeds
+gem 'public_activity'
+gem 'local_time'
+
 
 
 group :development, :test do
