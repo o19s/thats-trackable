@@ -30,8 +30,18 @@ class SessionsController < ApplicationController
     redirect_to login_path
   end
 
+
+  def link_to_facebook
+    facebook_user = FacebookUser.from_omniauth(request.env['omniauth.auth'])
+    current_runner.facebook_user = facebook_user
+    current_runner.save!
+    flash[:success] = "Linked runner #{current_runner.name} to facebook profile #{facebook_user.name}"
+    redirect_to root_url
+  end  
+
   private
   def load_activities
     @activities = PublicActivity::Activity.order('created_at DESC').limit(20)      
   end     
+
 end

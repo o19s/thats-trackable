@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   get 'today' => 'sessions#today'
 
+  get '/auth/:provider/callback', to: 'sessions#link_to_facebook'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

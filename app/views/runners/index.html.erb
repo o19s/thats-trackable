@@ -29,6 +29,7 @@
     <div class="row" style="background-color: lightblue">
   <% end %>
   <div class="col-md-3 col-sm-3 col-xs-2">
+    <%= image_tag runner.facebook_user.avatar_url, class: 'avatar', alt: runner.name unless runner.facebook_user.nil?%>
     <%= runner.name %>
   </div>
   <div class="col-md-3 col-sm-3 col-xs-3">
