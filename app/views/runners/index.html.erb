@@ -1,3 +1,5 @@
+
+
 <p id="notice"><%= notice %></p>
 <div class="row">
   <div class="col-md-12">
@@ -12,6 +14,9 @@
   <div class="col-md-3 col-sm-3 col-xs-3">
     <strong>GROUP</strong>
   </div>
+  <div class="col-md-3 col-sm-3 col-xs-3">
+    <strong>ACTIVITY</strong>
+  </div>  
   <div class="col-md-2 col-sm-2 col-xs-2">
     <strong>ROLE</strong>
   </div>
@@ -34,6 +39,9 @@
   </div>
   <div class="col-md-3 col-sm-3 col-xs-3">
     <%= runner.group.nil? ? 'n/a' : runner.group.name %>
+  </div>
+  <div class="col-md-3 col-sm-3 col-xs-3">  
+    <span class="sparklines" sparkType="tristate" barWidth="8"><!-- <%=runner.activity_sparkline%> --></span>
   </div>
   <div class="col-md-2 col-sm-2 col-xs-2">
     <%= runner.role %>
@@ -90,3 +98,7 @@
   </div>
 </div>
 <% end %>
+
+<script type="text/javascript">
+$('.sparklines').sparkline('html', { enableTagOptions: true });
+</script>

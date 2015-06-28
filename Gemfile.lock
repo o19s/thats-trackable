@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/cubus/jquery-sparkline-rails.git
+  revision: c5b531f51e3e734710c7561b06c2c829107f9b38
+  specs:
+    jquery-sparkline-rails (2.1.1)
+      jquery-rails
+      rails (>= 3.2.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -193,6 +201,7 @@ DEPENDENCIES
   coffee-script-source (= 1.8.0)
   jbuilder (~> 2.0)
   jquery-rails
+  jquery-sparkline-rails!
   jquery-ui-rails
   local_time
   omniauth-facebook

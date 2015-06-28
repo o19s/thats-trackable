@@ -44,6 +44,8 @@ gem 'local_time'
 
 gem 'omniauth-facebook'
 
+gem 'jquery-sparkline-rails', github: 'cubus/jquery-sparkline-rails'
+
 
 
 

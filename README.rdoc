@@ -51,3 +51,5 @@ Please feel free to use a different markup language if you do not plan to run
 # Local Timezone https://github.com/basecamp/local_time
 
 # Privacy Policy that Facebook needs generated via https://www.iubenda.com
+
+# Using Sparkline from https://github.com/cubus/jquery-sparkline-rails that is forked from original project bc updated for Rails 4.
