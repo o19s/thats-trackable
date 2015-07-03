@@ -34,8 +34,20 @@ Please feel free to use a different markup language if you do not plan to run
 
 # run `rake db:seed` to create the default administrator with the email dep4b@yahoo.com/password combo
 
+# You need to export the Facebook App Secret Key, something like: `export FACEBOOK_APP_SECRET=some_secret_value`
+
+# You need to export the Facebook App ID, something like: `export FACEBOOK_APP_ID=some_id`
+
+# To run migrations run `heroku run rake db:migrate --app stormy-fjord-4119-staging`
+
 === Notes
 
 # AddToHomescreen Javascript from https://github.com/cubiq/add-to-homescreen
 
 # Google Analytics approach taken from http://railsapps.github.io/rails-google-analytics.html
+
+# Public Activity inspired by http://www.sitepoint.com/activity-feeds-rails/
+
+# Local Timezone https://github.com/basecamp/local_time
+
+# Privacy Policy that Facebook needs generated via https://www.iubenda.com
