@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :runners do
-    get :pass
+    get :password
   end
 
   #resources :planned_runs
