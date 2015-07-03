@@ -55,7 +55,7 @@ class RunnersController < ApplicationController
   def update
     #Change Runs if group is updated on runner
     #Tests current group_id to group_id param passed in
-    if @runner.group_id.to_s != runner_params[:group_id]
+    if @runner.group_id.to_s != runner_params[:group_id] && runner_params[:group_id] != nil
       Run.where(runner_id: @runner.id).find_each do |oldRun|
         #Must destroy old runs for this runner
         oldRun.destroy
@@ -70,20 +70,13 @@ class RunnersController < ApplicationController
         run.save
       end
 
-      #Log user back in after change of password
-     if @runner.password != runner_params[:password]
-       log_out
-     end
+
     end
 
     respond_to do |format|
       if @runner.update(runner_params)
-        #Log user back in after change of password
-        #if @runner.password != runner_params[:password]
-          log_in @runner
-        #end
-      #end
-        format.html { redirect_to @runner, notice: 'Runner was successfully updated.' }
+
+        format.html { redirect_to today_path, notice: 'Runner was successfully updated.' }
         format.json { render :show, status: :ok, location: @runner }
       else
         format.html { render :edit }
