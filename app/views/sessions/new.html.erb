@@ -7,20 +7,17 @@
           <% end %>
 
             <%= form_for(:session, url: login_path) do |f| %>
-                <%= f.label :email, class: "pull-left" %>
-                <%= f.text_field :email, class: 'form-control' %><br>
+                <div class="form-group">
+                <%= f.text_field :email, class: 'form-control', placeholder: 'your@email.com' %>
+                </div>
 
-                <%= f.label :password, class: "pull-left" %>
-                <%= f.password_field :password, class: 'form-control' %><br>
+                <div class="form-group">
+                <%= f.password_field :password, class: 'form-control', placeholder: 'password' %>
+                </div>
 
                 <%= f.submit "Log in", class: "btn btn-primary", style: "width:100%" %>
             <% end %>
-            <br>
-            <!-- commenting out because I think creating runners is an admin task -->
-            <!--
-            <p>New User? <%= link_to "Sign up now!", signup_path, class: "btn btn-success", style: "color:white" %></p>
-            -->
+
         </div>
     </div>
 </div>
-
