@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   def require_login
     unless logged_in?
-      flash[:info] = "Please sign in to use RunTracker"
+      flash[:info] = "Please sign in to use RunTracker and get tracking!"
       redirect_to login_path # halts request cycle
     end
   end
