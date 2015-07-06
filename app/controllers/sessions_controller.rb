@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
   before_action :load_activities, only: [:today]
+  before_action :still_logged_in, only: [:new]
 
 
   def today
@@ -42,6 +43,12 @@ class SessionsController < ApplicationController
     current_runner.save!
     flash[:success] = "Linked runner #{current_runner.name} to facebook profile #{facebook_user.name}"
     redirect_to root_url
+  end
+
+  def still_logged_in
+    if logged_in?
+      redirect_to today_path
+    end
   end
 
   private
