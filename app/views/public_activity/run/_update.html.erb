@@ -5,12 +5,12 @@
   	<%= image_tag "#{activity.owner.facebook_user.avatar_url}?width=25&height=25", class: 'avatar', alt: activity.owner.name if activity.owner and activity.owner.facebook_user %>
   </small>
   <br/>
-  <strong>  	
+  <strong>
   	<%= activity.owner ? activity.owner.name : 'Guest' %>
   </strong>
-  
+
   <% if a.trackable %>
-    reported that she <i><%= a.trackable.progress%></i> for run  <%= link_to a.trackable.training_plan, runner_run_path(a.trackable.runner,a.trackable) %>.
+    tracked <i><%= a.trackable.progress%></i>.
   <% else %>
     edited the run that is currently deleted.
   <% end %>
