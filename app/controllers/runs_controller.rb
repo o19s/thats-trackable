@@ -25,22 +25,20 @@ class RunsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @run.update(run_params)
-        if params[:commit] == 'Track Today'
-          redirect_path = today_path
-        else
-          redirect_path = edit_runner_run_path(@runner,@run)
-        end
 
+    today_view_update = (params[:commit] == 'Track Today')
+    
+    with_tracking do
+      @successful_update = @run.update(run_params)
+    end
+
+    respond_to do |format|
+      if @successful_update
+        redirect_path = (today_view_update == true) ? today_path : edit_runner_run_path(@runner,@run)
         format.html { redirect_to redirect_path, notice: 'Run was successfully updated. '}
         format.json { render :show, status: :ok, location: @run }
       else
-        if params[:commit] == 'Track Today'
-          render_path = 'sessions/today'
-        else
-          render_path = 'runs/edit'
-        end        
+        render_path = (today_view_update == true) ? 'sessions/today' : 'runs/edit'
         format.html { render render_path }
         format.json { render json: @run.errors, status: :unprocessable_entity }
       end
@@ -77,9 +75,15 @@ class RunsController < ApplicationController
 
   def get_runner
     @runner = Runner.find_by_id params[:runner_id]
-  end  
+  end
 
   def run_params
     params.require(:run).permit(:runner_id, :date, :training_plan, :progress)
+  end
+
+  def with_tracking
+    Run.public_activity_on
+    yield if block_given?
+    Run.public_activity_off
   end
 end
