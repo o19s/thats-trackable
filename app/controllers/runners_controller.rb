@@ -55,7 +55,7 @@ class RunnersController < ApplicationController
   def update
     #Change Runs if group is updated on runner
     #Tests current group_id to group_id param passed in
-    if @runner.group_id.to_s != runner_params[:group_id]
+    if @runner.group_id.to_s != runner_params[:group_id] && runner_params[:group_id] != nil
       Run.where(runner_id: @runner.id).find_each do |oldRun|
         #Must destroy old runs for this runner
         oldRun.destroy
@@ -69,11 +69,14 @@ class RunnersController < ApplicationController
         run.planned_run_id = plan.id
         run.save
       end
+
+
     end
 
     respond_to do |format|
       if @runner.update(runner_params)
-        format.html { redirect_to @runner, notice: 'Runner was successfully updated.' }
+
+        format.html { redirect_to today_path, notice: 'Runner was successfully updated.' }
         format.json { render :show, status: :ok, location: @runner }
       else
         format.html { render :edit }
@@ -94,6 +97,10 @@ class RunnersController < ApplicationController
     end
   end
 
+
+  def password
+    @runner = Runner.find(params[:runner_id])
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

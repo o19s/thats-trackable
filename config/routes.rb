@@ -12,6 +12,10 @@ Rails.application.routes.draw do
     resources :runners
   end
 
+  resources :runners do
+    get :password
+  end
+
   #resources :planned_runs
 
   resources :runs
