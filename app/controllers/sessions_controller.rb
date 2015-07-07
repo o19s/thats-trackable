@@ -1,11 +1,18 @@
 class SessionsController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
   before_action :load_activities, only: [:today]
+  before_action :still_logged_in, only: [:new]
 
 
   def today
     @today = Date.today
     @current_run = Run.find_by date: @today, runner: current_runner
+  end
+
+  def still_logged_in
+    if logged_in?
+      redirect_to today_path
+    end
   end
 
   def new
