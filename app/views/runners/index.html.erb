@@ -38,7 +38,7 @@
   <div class="col-md-2 col-sm-2 col-xs-2">
     <%= runner.role %>
   </div>
-  
+
   <div class="col-md-4 hidden-sm hidden-xs">
     <%= link_to 'Runs', runner_runs_path(runner), class: "btn btn-info" %>
 
@@ -46,8 +46,8 @@
     <%= link_to 'Edit', edit_runner_path(runner), class: "btn btn-primary" if runner_role == 'Coach' || runner.name == current_runner.name %>
     <%= link_to 'Delete', runner, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" if runner_role == 'Coach'%>
     <%= link_to 'Password', runner_password_path(runner), class: "btn btn-warning" %>
-    
-    
+
+
   </div>
 
   <div class="hidden-lg hidden-md col-sm-4 col-xs-5">
@@ -68,6 +68,7 @@
             <%= link_to 'Show', runner, class: "btn btn-success"%>
             <%= link_to 'Edit', edit_runner_path(runner), class: "btn btn-primary" if runner_role == 'Coach' || runner.name == current_runner.name %>
             <%= link_to 'Delete', runner, method: :delete, data: {confirm: 'Are you sure?' }, class: "btn btn-danger" if runner_role == 'Coach' %>
+            <%= link_to 'Password', runner_password_path(runner), class: "btn btn-warning" %>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

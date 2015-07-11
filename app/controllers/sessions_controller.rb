@@ -51,6 +51,12 @@ class SessionsController < ApplicationController
     redirect_to root_url
   end
 
+  def still_logged_in
+    if logged_in?
+      redirect_to today_path
+    end
+  end
+
   private
   def load_activities
     @activities = PublicActivity::Activity.order('created_at DESC').limit(20)
