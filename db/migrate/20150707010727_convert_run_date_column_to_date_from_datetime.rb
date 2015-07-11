@@ -1,7 +1,5 @@
 class ConvertRunDateColumnToDateFromDatetime < ActiveRecord::Migration
   def change
-      change_column :runs, :date, :date
-
       rename_column :runs, :date, :date_string
       add_column :runs, :date, :date
 
