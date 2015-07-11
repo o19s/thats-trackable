@@ -24,18 +24,10 @@
         <td><%= activity.parameters %></td>
         <td><%= activity.owner ? activity.owner.name : 'Guest' %></td>
         <td>
-          <pre class="prettyprint">
-            <code class="language-js">
-            <%= JSON.pretty_generate(activity.trackable.attributes)%>
-            </code>
-          </pre>
+          <pre class="prettyprint"><code class="language-js"><%= JSON.pretty_generate(activity.trackable.attributes)%></code></pre>
         </td>
         <td><%= link_to 'Destroy', activity_path(activity), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Activity', new_activity_path %>
