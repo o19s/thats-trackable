@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  
+
+  resources :activities, only: [:index, :destroy]
+
   resources :runners do
     resources :runs
   end
