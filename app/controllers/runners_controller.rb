@@ -98,7 +98,7 @@ class RunnersController < ApplicationController
   end
 
 
-  def pass
+  def password
     @runner = Runner.find(params[:runner_id])
   end
 

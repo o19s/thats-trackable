@@ -9,6 +9,12 @@ class SessionsController < ApplicationController
     @current_run = Run.find_by date: @today, runner: current_runner
   end
 
+  def still_logged_in
+    if logged_in?
+      redirect_to today_path
+    end
+  end
+
   def new
   end
 
