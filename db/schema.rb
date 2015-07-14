@@ -109,12 +109,12 @@ ActiveRecord::Schema.define(version: 20150713195549) do
 
   create_table "runs", force: :cascade do |t|
     t.integer  "runner_id"
-    t.date     "date"
     t.text     "training_plan"
     t.text     "progress"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.integer  "planned_run_id"
+    t.date     "date"
   end
 
 end
