@@ -13,6 +13,7 @@ class RunsController < ApplicationController
   end
 
   def show
+    commontator_thread_show(@run) # have the comment thread be open in the page.
   end
 
 
@@ -27,7 +28,7 @@ class RunsController < ApplicationController
   def update
 
     today_view_update = (params[:commit] == 'Track Today')
-    
+
     with_tracking do
       @successful_update = @run.update(run_params)
     end

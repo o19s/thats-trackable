@@ -44,7 +44,8 @@ gem 'local_time'
 
 gem 'omniauth-facebook'
 
-
+# Adding in commenting
+gem 'commontator', '~> 4.10.0'
 
 
 
@@ -66,6 +67,6 @@ end
 
 group :production do
   gem 'pg'
-  gem 'rails_12factor'  # needed by Heroku to function  
+  gem 'rails_12factor'  # needed by Heroku to function
 end
 #ruby "2.2.0" # controls what version of ruby is used locally and on Heroku, should be the same!

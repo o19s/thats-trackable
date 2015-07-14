@@ -1,7 +1,7 @@
 <li class="list-group-item">
   <span class="glyphicon glyphicon-plus"></span>
   <small class="text-muted">
-  	<%= local_time_ago(a.created_at) %>
+  	<%= local_time_ago(a.created_at, type: 'time-or-date') %>
   	<%= image_tag "#{activity.owner.facebook_user.avatar_url}?width=25&height=25", class: 'avatar', alt: activity.owner.name if activity.owner and activity.owner.facebook_user %>
   </small>
   <br/>
@@ -11,6 +11,7 @@
 
   <% if a.trackable %>
     added the run <%= link_to a.trackable.id, runner_run_path(a.trackable.runner,a.trackable) %>.
+    <%= commontator_thread(a.trackable) %>
   <% else %>
     added the run that is currently deleted.
   <% end %>

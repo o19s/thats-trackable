@@ -1,0 +1,33 @@
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Activities</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Key</th>
+      <th>Parameters</th>
+      <th>Owner</th>
+      <th>Trackable</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @activities.each do |activity| %>
+      <tr>
+        <td><%= activity.id %></td>
+        <td><%= activity.key %></td>
+        <td><%= activity.parameters %></td>
+        <td><%= activity.owner ? activity.owner.name : 'Guest' %></td>
+        <td>
+          <pre class="prettyprint"><code class="language-js"><%= JSON.pretty_generate(activity.trackable.attributes)%></code></pre>
+        </td>
+        <td><%= link_to 'Destroy', activity_path(activity), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
