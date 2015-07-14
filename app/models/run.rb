@@ -10,5 +10,7 @@ class Run < ActiveRecord::Base
   #Catches the user trying to add duplicate dates per runner
   validates_uniqueness_of :date, :scope => :runner_id
 
+  acts_as_commontable
+  
   Run.public_activity_off
 end

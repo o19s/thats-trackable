@@ -11,6 +11,7 @@
 
   <% if a.trackable %>
     added the run <%= link_to a.trackable.id, runner_run_path(a.trackable.runner,a.trackable) %>.
+    <%= commontator_thread(a.trackable) %>
   <% else %>
     added the run that is currently deleted.
   <% end %>
