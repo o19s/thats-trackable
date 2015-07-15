@@ -1,16 +1,22 @@
 <li class="list-group-item">
   <span class="glyphicon glyphicon-edit"></span>
   <small class="text-muted">
-  	<%= local_time_ago(a.created_at) %>
+  	<%= local_time_ago(a.created_at, type: 'time-or-date') %>
   	<%= image_tag "#{activity.owner.facebook_user.avatar_url}?width=25&height=25", class: 'avatar', alt: activity.owner.name if activity.owner and activity.owner.facebook_user %>
   </small>
   <br/>
   <strong>
   	<%= activity.owner ? activity.owner.name : 'Guest' %>
   </strong>
-
   <% if a.trackable %>
-    reported <i><%= a.trackable.progress%></i>.
+    reported
+    <% if (a.updated_at - 1.day) > a.trackable.date %>
+    for <strong>
+      <%= local_time(a.trackable.date, '%B %e, %Y') %>
+    </strong>
+    <% end %>
+    <i><%= a.trackable.progress%></i>.
+    <%= commontator_thread(a.trackable) %>
   <% else %>
     edited the run that is currently deleted.
   <% end %>
