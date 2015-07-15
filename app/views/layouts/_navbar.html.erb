@@ -21,6 +21,9 @@
               <%= link_to "Runners", runners_path %>
             </li>
             <% if runner_role == 'Coach' %>
+              <li>
+                <a href="#">Edit Runs</a>
+              </li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Administration <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
@@ -37,12 +40,14 @@
 
             <% end %>
 
+            <% if runner_role == 'Runner' %>
             <li>
               <%= link_to "My Runs", runner_runs_path(current_runner) %>
             </li>
             <li>
               <%= link_to "Today's Run", today_path %>
             </li>
+            <% end %>
           </ul>
 
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150707010727) do
+ActiveRecord::Schema.define(version: 20150714012236) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 20150707010727) do
     t.datetime "updated_at",     null: false
     t.integer  "planned_run_id"
     t.date     "date"
+    t.integer  "changed_flag"
   end
 
 end

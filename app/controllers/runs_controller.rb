@@ -34,6 +34,10 @@ class RunsController < ApplicationController
 
     respond_to do |format|
       if @successful_update
+        #ADD TO FORM AND PASS IN PARAMS
+        #updated_run = Run.find_by_id(@successful_update)
+        #updated_run.changed_flag = 1
+        #updated_run.save
         redirect_path = (today_view_update == true) ? today_path : edit_runner_run_path(@runner,@run)
         format.html { redirect_to redirect_path, notice: 'Run was successfully updated. '}
         format.json { render :show, status: :ok, location: @run }
