@@ -47,7 +47,8 @@ gem 'omniauth-facebook'
 # Adding in commenting
 gem 'commontator', '~> 4.10.0'
 
-
+# backing up data
+gem 'yaml_db'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
