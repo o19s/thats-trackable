@@ -1,0 +1,12 @@
+one:
+  id: 1
+  date: 2015-07-11
+  group_id: 1
+  training_plan: 'Run a ton'
+
+
+two:
+  id: 2
+  date: 2015-07-10
+  group_id: 2
+  training_plan: 'jog 3 miles'

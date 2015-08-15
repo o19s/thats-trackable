@@ -1,0 +1,8 @@
+one:
+  id: 1
+  runner_id: 1
+  date: 2015-07-22
+  training_plan: Sprint 3 miles
+  progress:
+  planned_run_id: 1
+

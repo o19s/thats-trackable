@@ -1,11 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  name: Logan
   group_id: 1
-  role: MyString
+  role: Runner
+  email: lklingler0@gmail.com
+  password_digest: $2a$04$Q1bKx7zT7k6RxJuohPMS9em1rEdf4w7eGDV.ExaOSIajHoEZoVF12"
+  #testing
 
 two:
-  name: MyString
+  name: Admin
   group_id: 1
-  role: MyString
+  role: Coach
+  email: admin@admin.com
+  password_digest: $2a$04$/1ZsGBZyp3k7.fTRBCWGSuFzRc.0xpK7CIwRk4tuz/0NNScI2Z2i6"
+  #testing2
