@@ -45,16 +45,7 @@ class PlannedRunsController < ApplicationController
 
 
   def update
-    puts '------------------------------------------'
-   # if params[:checks]
-   #    params[:checks].each do |check|
-   #      puts check + ' | '
-   #    end
-
-   #  end
-  #  puts '------------------------------------------'
-
-    respond_to do |format|
+      respond_to do |format|
       if @planned_run.update(planned_run_params)
         format.html { redirect_to group_planned_run_path(@group, @planned_run), notice: 'Planned Run was successfully updated. '}
         format.json { render :show, status: :ok, location: @planned_run }
