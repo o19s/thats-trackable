@@ -84,21 +84,6 @@ class PlannedRunsController < ApplicationController
         end
         run.save
       end
-
-
-
-    #  if !(params[:checks].include? run)
-        #puts '---------------------------------------------'
-        #puts params[:checks][0].to_s.class
-        #puts run.id.to_s.class
-
-
-        #puts params[:checks][0].to_s == run.id.to_s
-        #puts params[:checks].include?(run.id)
-        #puts '---------------------------------------------'
-       # if params[:checks][0].to_s == run.id.to_s
-
-      #  end
     end
   end
 
