@@ -38,7 +38,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit 'Update Run', :class => 'form-control btn btn-info' %>
+      <%= f.submit 'Update Run', :class => 'btn btn-info' %>
     </div>
 
 
@@ -55,11 +55,11 @@
     $('#run_training_plan').change(function(){
         $('#run_changed_flag').prop("checked",true);
             if (training_plan != $('#run_training_plan').val()){
-                alert('different');
+               // alert('different');
                 $('#run_changed_flag').prop("checked",true);
             }
             else{
-                alert('same')
+              //  alert('same')
                 $('#run_changed_flag').prop("checked",false);
             }
 

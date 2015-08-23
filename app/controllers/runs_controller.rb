@@ -83,7 +83,7 @@ class RunsController < ApplicationController
   end
 
   def run_params
-    params.require(:run).permit(:runner_id, :date, :training_plan, :progress)
+    params.require(:run).permit(:runner_id, :date, :training_plan, :progress, :changed_flag)
   end
 
   def with_tracking

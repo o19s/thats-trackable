@@ -1,6 +1,9 @@
 class PlannedRunsController < ApplicationController
   before_action :set_planned_run, only: [:show, :edit, :update, :destroy]
   before_action :set_group, only: [:index, :show, :edit, :update, :destroy, :create, :new]
+  helper_method :check_runs
+
+
 
   def index
     @planned_runs = @group.nil? ? PlannedRun.all : PlannedRun.where(group: @group).order(:date)
@@ -42,6 +45,15 @@ class PlannedRunsController < ApplicationController
 
 
   def update
+    puts '------------------------------------------'
+   # if params[:checks]
+   #    params[:checks].each do |check|
+   #      puts check + ' | '
+   #    end
+
+   #  end
+  #  puts '------------------------------------------'
+
     respond_to do |format|
       if @planned_run.update(planned_run_params)
         format.html { redirect_to group_planned_run_path(@group, @planned_run), notice: 'Planned Run was successfully updated. '}
@@ -54,9 +66,39 @@ class PlannedRunsController < ApplicationController
 
     #Update all runs if Planned_run is changed
     Run.where(planned_run_id: @planned_run.id).find_each do |run|
-      run.date = @planned_run.date
-      run.training_plan = @planned_run.training_plan
-      run.save
+      update = true
+      if params[:checks]
+        params[:checks].each do |checks|
+          if checks.to_s == run.id.to_s
+            update = false
+          end
+
+
+        end
+      end
+      if update
+        run.date = @planned_run.date
+        run.training_plan = @planned_run.training_plan
+        if run.changed_flag
+          run.changed_flag = nil
+        end
+        run.save
+      end
+
+
+
+    #  if !(params[:checks].include? run)
+        #puts '---------------------------------------------'
+        #puts params[:checks][0].to_s.class
+        #puts run.id.to_s.class
+
+
+        #puts params[:checks][0].to_s == run.id.to_s
+        #puts params[:checks].include?(run.id)
+        #puts '---------------------------------------------'
+       # if params[:checks][0].to_s == run.id.to_s
+
+      #  end
     end
   end
 
@@ -68,6 +110,11 @@ class PlannedRunsController < ApplicationController
      end
   end
 
+  def check_runs
+    customized_runs = Run.where(changed_flag: true, planned_run_id: @planned_run.id)
+  end
+
+
   private
   def set_planned_run
     @planned_run = PlannedRun.find(params[:id])
@@ -77,6 +124,10 @@ class PlannedRunsController < ApplicationController
   end  
 
   def planned_run_params
-    params.require(:planned_run).permit(:date, :group_id, :training_plan, :progress)
+    params.require(:planned_run).permit(:date, :group_id, :training_plan, :progress, :stuff)
+  end
+
+  def get_checks
+   # @checks = [:checks]
   end
 end
