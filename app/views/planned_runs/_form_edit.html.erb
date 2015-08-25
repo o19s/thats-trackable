@@ -55,7 +55,7 @@
                 <th>Don't Update</th>
               </tr>
               <% check_runs.each do |runs| %>
-                  <tr>
+                  <tr style="text-align:left">
                     <td><%=Runner.find_by_id(runs.runner_id).name %></td>
                     <td><%= runs.date %></td>
                     <td><%= check_box_tag(name="checks[]" ,value="#{runs.id}") %></td>
