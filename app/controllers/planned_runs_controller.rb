@@ -3,8 +3,6 @@ class PlannedRunsController < ApplicationController
   before_action :set_group, only: [:index, :show, :edit, :update, :destroy, :create, :new]
   helper_method :check_runs
 
-
-
   def index
     @planned_runs = @group.nil? ? PlannedRun.all : PlannedRun.where(group: @group).order(:date)
   end
@@ -45,7 +43,7 @@ class PlannedRunsController < ApplicationController
 
 
   def update
-      respond_to do |format|
+    respond_to do |format|
       if @planned_run.update(planned_run_params)
         format.html { redirect_to group_planned_run_path(@group, @planned_run), notice: 'Planned Run was successfully updated. '}
         format.json { render :show, status: :ok, location: @planned_run }
