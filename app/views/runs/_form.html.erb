@@ -55,11 +55,9 @@
     $('#run_training_plan').change(function(){
         $('#run_changed_flag').prop("checked",true);
             if (training_plan != $('#run_training_plan').val()){
-               // alert('different');
                 $('#run_changed_flag').prop("checked",true);
             }
             else{
-              //  alert('same')
                 $('#run_changed_flag').prop("checked",false);
             }
 
