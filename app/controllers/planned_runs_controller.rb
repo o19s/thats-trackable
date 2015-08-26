@@ -101,7 +101,4 @@ class PlannedRunsController < ApplicationController
     params.require(:planned_run).permit(:date, :group_id, :training_plan, :progress)
   end
 
-  def get_checks
-   # @checks = [:checks]
-  end
 end
