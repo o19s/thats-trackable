@@ -55,17 +55,17 @@ class PlannedRunsController < ApplicationController
 
     #Update all runs if Planned_run is changed
     Run.where(planned_run_id: @planned_run.id).find_each do |run|
-      update = true
+      updateRun = true
       if params[:checks]
         params[:checks].each do |checks|
           if checks.to_s == run.id.to_s
-            update = false
+            updateRun = false
           end
 
 
         end
       end
-      if update
+      if updateRun
         run.date = @planned_run.date
         run.training_plan = @planned_run.training_plan
         if run.changed_flag
