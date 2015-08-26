@@ -44,20 +44,20 @@
 
 <% end %>
 
+<p style="display:none" id="original_planned_run"><%= @original_planned_run.training_plan %></p>
+
 <script>
   //Javascrip to test if training_plan is different
-  var training_plan;
-
-  $(document).ready(function(){
-      training_plan = $('#run_training_plan').val();
-  });
+  var training_plan = $('#original_planned_run').html();
 
     $('#run_training_plan').change(function(){
         $('#run_customize_flag').prop("checked",true);
             if (training_plan != $('#run_training_plan').val()){
+                //Different
                 $('#run_customize_flag').prop("checked",true);
             }
             else{
+                //Same
                 $('#run_customize_flag').prop("checked",false);
             }
 
