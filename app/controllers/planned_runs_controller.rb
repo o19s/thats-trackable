@@ -53,7 +53,7 @@ class PlannedRunsController < ApplicationController
       end
     end
 
-    #Update all runs if Planned_run is changed
+    #Update all runs if Planned_run is customize
     Run.where(planned_run_id: @planned_run.id).find_each do |run|
       updateRun = true
       if params[:checks]
@@ -68,8 +68,8 @@ class PlannedRunsController < ApplicationController
       if updateRun
         run.date = @planned_run.date
         run.training_plan = @planned_run.training_plan
-        if run.changed_flag
-          run.changed_flag = nil
+        if run.customize_flag
+          run.customize_flag = nil
         end
         run.save
       end
@@ -85,7 +85,7 @@ class PlannedRunsController < ApplicationController
   end
 
   def check_runs
-    customized_runs = Run.where(changed_flag: true, planned_run_id: @planned_run.id)
+    customized_runs = Run.where(customize_flag: true, planned_run_id: @planned_run.id)
   end
 
 
