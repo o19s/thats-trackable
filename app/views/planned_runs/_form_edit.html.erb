@@ -56,7 +56,7 @@
               </tr>
               <% check_runs.each do |runs| %>
                   <tr style="text-align:left">
-                    <td><%=Runner.find_by_id(runs.runner_id).name %></td>
+                    <td><%=Runner.find(runs.runner.name) %></td>
                     <td><%= runs.date %></td>
                     <td><%= check_box_tag(name="checks[]" ,value="#{runs.id}") %></td>
                   </tr>

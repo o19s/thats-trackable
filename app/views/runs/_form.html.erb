@@ -32,8 +32,8 @@
 
     <div class="field">
       <% if runner_role == 'Coach' %>
-      <%= f.label :changed_flag, 'Custom' %>
-      <%= f.check_box :changed_flag %>
+      <%= f.label :customize_flag, 'Custom' %>
+      <%= f.check_box :customize_flag %>
       <% end %>
     </div>
 
@@ -53,12 +53,12 @@
   });
 
     $('#run_training_plan').change(function(){
-        $('#run_changed_flag').prop("checked",true);
+        $('#run_customize_flag').prop("checked",true);
             if (training_plan != $('#run_training_plan').val()){
-                $('#run_changed_flag').prop("checked",true);
+                $('#run_customize_flag').prop("checked",true);
             }
             else{
-                $('#run_changed_flag').prop("checked",false);
+                $('#run_customize_flag').prop("checked",false);
             }
 
     });
