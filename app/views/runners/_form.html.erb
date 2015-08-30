@@ -13,11 +13,11 @@
 
     <div class="field">
       <%= f.label :name %><br>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, class: 'form-control' %>
     </div>
     <div class="field">
       <%= f.label :group_id %><br>
-      <%= f.collection_select :group_id, Group.all,:id, :name, include_blank: false %>
+      <%= f.collection_select :group_id, Group.all,:id, :name, {include_blank: false}, {class: 'form-control'} %>
     </div>
     <div class="field">
       <%= f.label :role %><br>
@@ -28,13 +28,13 @@
     </div>
     <div class="field">
       <%= f.label :email %>
-      <%= f.text_field :email %>
+      <%= f.text_field :email, class: 'form-control' %>
     </div>
     <div class="field">
       <%= f.label :password %>
-      <%= f.password_field :password %>
+      <%= f.password_field :password, class: 'form-control' %>
     </div>
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit :class=> 'btn btn-info' %>
     </div>
   <% end %>
