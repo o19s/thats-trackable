@@ -44,7 +44,12 @@
 
 <% end %>
 
-<p style="display:none" id="original_planned_run"><%= @original_planned_run.training_plan %></p>
+<p style="display:none" id="original_planned_run">
+  <%= if @original_planned_run
+        @original_planned_run.training_plan
+      end
+  %>
+</p>
 
 <script>
   //Javascrip to test if training_plan is different
