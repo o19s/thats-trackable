@@ -12,21 +12,21 @@
 
     <div class="field">
       <%= f.label :date %><br>
-      <%= f.text_field :date, required: true %>
+      <%= f.text_field :date, required: true, class: 'form-control' %>
 
     </div>
 
     <div class="field">
       <%= f.label :group_id %>
-      <%= f.collection_select :group_id, Group.all, :id, :name, prompt: true%>
+      <%= f.collection_select :group_id, Group.all, :id, :name, {prompt: true}, {class: "form-control"} %>
     </div>
 
     <div class="field">
       <%= f.label :training_plan %><br>
-      <%= f.text_area :training_plan, cols: 40, rows: 5 %>
+      <%= f.text_area :training_plan, cols: 40, rows: 5, class: 'form-control' %>
     </div>
 
     <div class="actions">
-      <%= f.submit  %>
+      <%= f.submit :class=> 'btn btn-info'  %>
     </div>
 <% end %>
