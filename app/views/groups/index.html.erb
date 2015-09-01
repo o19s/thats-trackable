@@ -20,11 +20,11 @@
   <% else %>
         <div class="row" style="background-color: lightblue">
   <% end %>
-  <div class="col-md-6">
+  <div class="col-md-6" style="line-height:215%; margin-top: .5em; margin-bottom:.5em;">
     <%= group.name %>
   </div>
 
-  <div class="col-md-6">
+  <div class="col-md-6" style="line-height:215%; margin-top: .5em; margin-bottom: .5em;">
     <%= link_to 'Show', group, class: "btn btn-success" %>
     <%= link_to 'Edit', edit_group_path(group), class: "btn btn-primary" %>
     <%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
