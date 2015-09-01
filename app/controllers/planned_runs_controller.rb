@@ -1,6 +1,7 @@
 class PlannedRunsController < ApplicationController
   before_action :set_planned_run, only: [:show, :edit, :update, :destroy]
   before_action :set_group, only: [:index, :show, :edit, :update, :destroy, :create, :new]
+  helper_method :check_runs
 
   def index
     @planned_runs = @group.nil? ? PlannedRun.all : PlannedRun.where(group: @group).order(:date)
@@ -52,11 +53,26 @@ class PlannedRunsController < ApplicationController
       end
     end
 
-    #Update all runs if Planned_run is changed
+    #Update all runs if Planned_run is customize
     Run.where(planned_run_id: @planned_run.id).find_each do |run|
-      run.date = @planned_run.date
-      run.training_plan = @planned_run.training_plan
-      run.save
+      updateRun = true
+      if params[:checks]
+        params[:checks].each do |checks|
+          if checks.to_s == run.id.to_s
+            updateRun = false
+          end
+
+
+        end
+      end
+      if updateRun
+        run.date = @planned_run.date
+        run.training_plan = @planned_run.training_plan
+        if run.customize_flag
+          run.customize_flag = nil
+        end
+        run.save
+      end
     end
   end
 
@@ -67,6 +83,11 @@ class PlannedRunsController < ApplicationController
        format.json { head :no_content }
      end
   end
+
+  def check_runs
+    customized_runs = Run.where(customize_flag: true, planned_run_id: @planned_run.id)
+  end
+
 
   private
   def set_planned_run
@@ -79,4 +100,5 @@ class PlannedRunsController < ApplicationController
   def planned_run_params
     params.require(:planned_run).permit(:date, :group_id, :training_plan, :progress)
   end
+
 end

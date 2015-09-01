@@ -1,0 +1,76 @@
+<%= form_for [@group, @planned_run] do |f| %>
+    <% if @planned_run.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@planned_run.errors.count, "error") %> prohited this planned_run from being saved:</h2>
+          <ul>
+            <% @planned_run.errors.full_messages.each do |messages| %>
+                <li><%= messages %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :date %><br>
+      <%= f.text_field :date, required: true %>
+
+    </div>
+
+    <div class="field">
+      <%= f.label :group_id %>
+      <%= f.collection_select :group_id, Group.all, :id, :name, prompt: true%>
+    </div>
+
+    <div class="field">
+      <%= f.label :training_plan %><br>
+      <%= f.text_area :training_plan, cols: 40, rows: 5 %>
+    </div>
+    <div class="actions">
+      <% if check_runs.count != 0 %>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        Update Planned Run
+      </button>
+      <% else %>
+          <%= f.submit class: 'btn btn-primary' %>
+
+      <% end %>
+    </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Update: Planned Run</h4>
+      </div>
+      <div class="modal-body">
+        <p>Please select the Custom Runs that you <strong>DON'T</strong> want to update!</p>
+        <div class="table-responsive">
+            <table class="table table-striped">
+              <tr>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Don't Update</th>
+              </tr>
+              <% check_runs.each do |runs| %>
+                  <tr style="text-align:left">
+                    <td><%=runs.runner.name %></td>
+                    <td><%= runs.date %></td>
+                    <td><%= check_box_tag(name="checks[]" ,value="#{runs.id}") %></td>
+                  </tr>
+              <% end %>
+            </table>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <%= f.submit class: 'btn btn-info' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% end %>

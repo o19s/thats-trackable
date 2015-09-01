@@ -14,7 +14,7 @@
     <div class="field">
       <%= f.label :date %><br>
       <% if runner_role == 'Coach' %>
-      <%= f.text_field :date %>
+      <%= f.text_field :date, class: 'form-control' %>
       <% else %>
       <%= @run.date %>
       <% end %>
@@ -22,18 +22,44 @@
     <div class="field">
       <% if runner_role == 'Coach' %>
       <%= f.label :training_plan %><br>
-      <%= f.text_area :training_plan, rows:"6" %>
+      <%= f.text_area :training_plan, rows:"6", class: 'form-control' %>
       <% end %>
     </div>
     <div class="field">
       <%= f.label :progress %><br>
-      <%= f.text_area :progress, rows:"6" %>
+      <%= f.text_area :progress, rows:"6", class: 'form-control' %>
     </div>
 
+    <div class="field">
+      <% if runner_role == 'Coach' %>
+      <%= f.label :customize_flag, 'Custom' %>
+      <%= f.check_box :customize_flag %>
+      <% end %>
+    </div>
 
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit 'Update Run', :class => 'btn btn-info' %>
     </div>
 
 
 <% end %>
+
+<p style="display:none" id="original_planned_run"><%= @original_planned_run.training_plan %></p>
+
+<script>
+  //Javascrip to test if training_plan is different
+  var training_plan = $('#original_planned_run').html();
+
+    $('#run_training_plan').change(function(){
+        $('#run_customize_flag').prop("checked",true);
+            if (training_plan != $('#run_training_plan').val()){
+                //Different
+                $('#run_customize_flag').prop("checked",true);
+            }
+            else{
+                //Same
+                $('#run_customize_flag').prop("checked",false);
+            }
+
+    });
+</script>
