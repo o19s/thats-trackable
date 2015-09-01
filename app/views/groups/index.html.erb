@@ -23,6 +23,7 @@
   <div class="col-md-6">
     <%= group.name %>
   </div>
+
   <div class="col-md-6">
     <%= link_to 'Show', group, class: "btn btn-success" %>
     <%= link_to 'Edit', edit_group_path(group), class: "btn btn-primary" %>
@@ -30,6 +31,25 @@
   </div>
   </div>
 <% end %>
+<br>
+<div class="table-responsive">
+<table class="table table-striped">
+  <tr>
+    <th class="col-md-6">Name</th>
+    <th class="col-md-6">Options</th>
+  </tr>
+  <% @groups.each do |group| %>
+    <tr>
+      <td class="col-md-6"><%= group.name %></td>
+      <td class="col-md-6">
+        <%= link_to 'Show', group, class: "btn btn-success" %>
+        <%= link_to 'Edit', edit_group_path(group), class: "btn btn-primary" %>
+        <%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+</div>
 
 <br>
 <div class="row">
