@@ -5,16 +5,13 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-3 col-sm-3 col-xs-3">
+    <div class="col-md-4 col-sm-3 col-xs-3">
       <strong>DATE</strong>
     </div>
-    <div class="col-md-3 col-sm-3 col-xs-3">
-      <strong>GROUP</strong>
-    </div>
-    <div class="col-md-3 col-sm-3 col-xs-3">
+    <div class="col-md-4 col-sm-3 col-xs-3">
       <strong>Training Plan</strong>
     </div>
-    <div class="col-md-3 col-sm-3 col-xs-3">
+    <div class="col-md-4 col-sm-3 col-xs-3">
       <strong>Buttons</strong>
     </div>
   </div>
@@ -26,16 +23,13 @@
       <% else %>
           <div class="row" style="background-color: lightblue">
       <% end %>
-        <div class="col-md-3 col-sm-3 col-xs-3 index_rows">
+        <div class="col-md-4 col-sm-3 col-xs-3 index_rows">
           <%= planned_run.date %>
         </div>
-        <div class="col-md-3 col-sm-3 col-xs-3 index_rows">
-          <%= Group.find(planned_run.group_id).name %>
-        </div>
-        <div class="col-md-3 col-sm-3 col-xs-3 index_rows">
+        <div class="col-md-4 col-sm-3 col-xs-3 index_rows">
           <%= planned_run.training_plan %>
         </div>
-        <div class="col-md-3 hidden-sm hidden-xs index_rows">
+        <div class="col-md-4 hidden-sm hidden-xs index_rows">
           <%= link_to 'Show', group_planned_run_path(@group, planned_run), class: "btn btn-success"%>
           <%= link_to 'Edit', edit_group_planned_run_path(@group, planned_run), class: "btn btn-primary" %>
           <%= link_to 'Delete', group_planned_run_path(@group, planned_run), method: :delete, data: {confirm: 'Are you sure?' }, class: "btn btn-danger"%>
