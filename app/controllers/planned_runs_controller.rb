@@ -22,7 +22,7 @@ class PlannedRunsController < ApplicationController
     @planned_run = PlannedRun.new(planned_run_params)
     respond_to do |format|
       if @planned_run.save
-        format.html { redirect_to @group, notice: 'Planned Run was successfully created. ' }
+        format.html { redirect_to group_planned_runs_path(@group,@planned_run), notice: 'Planned Run was successfully created. ' }
         format.json { render :show, status: :created, location: @planned_run }
       else
         format.html{ render :new }
