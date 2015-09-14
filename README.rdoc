@@ -38,6 +38,10 @@ Please feel free to use a different markup language if you do not plan to run
 
 # You need to export the Facebook App ID, something like: `export FACEBOOK_APP_ID=some_id`
 
+# to deploy to staging run `git push staging`
+
+# to deploy to production run `git push prod` 
+
 # To run migrations run `heroku run rake db:migrate --app stormy-fjord-4119-staging`
 
 === Notes
