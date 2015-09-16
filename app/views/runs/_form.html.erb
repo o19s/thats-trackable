@@ -44,19 +44,13 @@
 
 <% end %>
 
-<p style="display:none" id="original_planned_run">
-  <%= if @original_planned_run
-        @original_planned_run.training_plan
-      end
-  %>
-</p>
+<div style="display:none" id="original_planned_run"><%= @original_planned_run.training_plan.presence  %></div>
 
 <script>
   //Javascript to test if training_plan is different
   var training_plan = $('#original_planned_run').html();
 
     $('#run_training_plan').change(function(){
-        $('#run_customize_flag').prop("checked",true);
             if (training_plan != $('#run_training_plan').val()){
                 //Different
                 $('#run_customize_flag').prop("checked",true);
