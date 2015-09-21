@@ -34,6 +34,16 @@ class RunsController < ApplicationController
       @successful_update = @run.update(run_params)
     end
 
+    # Check if Run is customized
+    original_run = PlannedRun.find_by_id(@run.planned_run_id)
+    if original_run.training_plan != @run.training_plan
+      @run.customize_flag = true
+      @run.save
+    else
+      @run.customize_flag = false
+      @run.save
+    end
+
     respond_to do |format|
       if @successful_update
         #ADD TO FORM AND PASS IN PARAMS
