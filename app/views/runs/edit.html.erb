@@ -5,5 +5,21 @@
     <%= render 'form' %>
 
     <%= link_to 'Back', runner_runs_path(@runner), class: "btn btn-primary" %>
+    <button class="btn btn-success" onclick="revert()">Revert to Original</button>
   </div>
 </div>
+
+<script type="text/javascript">
+
+  var original_date = "<%= @original_planned_run.date %>";
+  var original_training_plan = "<%= @original_planned_run.training_plan %>";
+  var original_custom = "<%= @original_planned_run %>";
+
+  function revert(){
+    $('#run_date').val(original_date);
+    $('#run_training_plan').val(original_training_plan);
+    $('#run_progress').val('');
+    $('#run_customize_flag').attr('checked', false)
+  }
+
+</script>
