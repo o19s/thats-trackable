@@ -27,7 +27,8 @@
           <%= planned_run.date %>
         </div>
         <div class="hidden-lg hidden-md hidden-sm col-xs-3 index_rows">
-          <%= Date.strptime(planned_run.date.to_s, "%Y-%m-%d").strftime("%m-%d") %>
+          <%= planned_run.date.strftime('%m-%d') %>
+
         </div>
         <div class="col-md-4 col-sm-3 col-xs-3 index_rows">
           <%= planned_run.training_plan %>
