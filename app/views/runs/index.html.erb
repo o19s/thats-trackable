@@ -30,26 +30,26 @@
     <div class="row" style="background-color: lightblue">
   <% end %>
 
-  <div class="col-md-2 col-sm-2 hidden-xs">
+  <div class="col-md-2 col-sm-2 hidden-xs index_rows">
     <%= plans.runner.name %>
   </div>
 
-  <div class="col-md-2 col-sm-2 hidden-xs">
+  <div class="col-md-2 col-sm-2 hidden-xs index_rows">
     <%= plans.date %>
   </div>
-  <div class="hidden-lg hidden-md hidden-sm col-xs-3">
+  <div class="hidden-lg hidden-md hidden-sm col-xs-3 index_rows">
     <%= Date.strptime(plans.date.to_s, "%Y-%m-%d").strftime("%m-%d") %>
   </div>
 
-  <div class="col-md-3 col-sm-2 col-xs-4">
+  <div class="col-md-3 col-sm-2 col-xs-4 index_rows">
     <%= plans.training_plan %>
   </div>
 
-  <div class="col-md-2 col-sm-2 hidden-xs">
+  <div class="col-md-2 col-sm-2 hidden-xs index_rows">
     <%= plans.progress %>
   </div>
 
-  <div class="col-md-3 col-sm-4 hidden-xs">
+  <div class="col-md-3 col-sm-4 hidden-xs index_rows">
     <%= link_to 'Show', runner_run_path(@runner,plans), class: "btn btn-success" %>
     <%= link_to 'Edit', edit_runner_run_path(@runner,plans), class: "btn btn-primary" if runner_role == 'Coach' || @runner.name == current_runner.name %>
     <% if runner_role == 'Coach' %>
@@ -57,8 +57,8 @@
     <% end %>
   </div>
 
-  <div class="hidden-lg hidden-md hidden-sm col-xs-5">
-    <button type="button" class="btn btn-info" style="width:100%" data-toggle="modal" data-target="#myModal<%= index %>">Run: <%= index %></button>
+  <div class="hidden-lg hidden-md hidden-sm col-xs-5 index_rows">
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal<%= index %>">Run: <%= index %></button>
   </div>
 
     <!-- Modal -->
