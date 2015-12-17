@@ -19,4 +19,10 @@ body{
     border: 1px solid #DDDDDD;      
     border-radius: 50% 50% 50% 50%;      
     padding: 4px; 
-} 
+}
+
+.index_rows {
+    line-height: 215%;
+    margin-top: .5em;
+    margin-bottom: .5em;
+}
