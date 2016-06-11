@@ -41,6 +41,11 @@
       <%= f.submit 'Update Run', :class => 'btn btn-info' %>
     </div>
 
+    <div class="actions">
+      <div id="revert" class="btn btn-primary">Revert</div>
+    </div>
+
+
 
 <% end %>
 
@@ -61,4 +66,12 @@
             }
 
     });
+</script>
+
+<script>
+  //Javascript to revert to original planned run
+  $('#revert').click(function() {
+     $('#run_training_plan').val($('#original_planned_run').html());
+     $('#run_customize_flag').prop("checked",false);
+  });
 </script>
