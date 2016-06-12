@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150826002404) do
+ActiveRecord::Schema.define(version: 20160612202119) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id"
@@ -105,16 +105,17 @@ ActiveRecord::Schema.define(version: 20150826002404) do
     t.datetime "updated_at",      null: false
     t.string   "email"
     t.string   "password_digest"
+    t.boolean  "active"
   end
 
   create_table "runs", force: :cascade do |t|
     t.integer  "runner_id"
+    t.date     "date"
     t.text     "training_plan"
     t.text     "progress"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.integer  "planned_run_id"
-    t.date     "date"
     t.boolean  "customize_flag"
   end
 

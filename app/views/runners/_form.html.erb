@@ -27,6 +27,10 @@
       <%= f.label(:coach_label, "I am a Coach") %>
     </div>
     <div class="field">
+      <%= f.label(:active_label, "Currently Active in Program") %>
+      <%= f.check_box :active, class: 'form-control' %>
+    </div>
+    <div class="field">
       <%= f.label :email %>
       <%= f.text_field :email, class: 'form-control' %>
     </div>

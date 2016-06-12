@@ -13,8 +13,9 @@
     <strong>GROUP</strong>
   </div>
   <div class="col-md-2 col-sm-2 col-xs-2">
-    <strong>ROLE</strong>
+    <strong>ROLE (active?)</strong>
   </div>
+
   <% if runner_role == 'Coach' %>
   <div class="col-md-4 col-sm-4 col-xs-4">
     <strong>OPTIONS</strong>
@@ -36,8 +37,9 @@
     <%= runner.group.nil? ? 'n/a' : runner.group.name %>
   </div>
   <div class="col-md-2 col-sm-2 col-xs-2 index_rows">
-    <%= runner.role %>
+    <%= runner.role %> (<%= runner.active? %>)
   </div>
+
 
   <div class="col-md-4 hidden-sm hidden-xs index_rows">
     <%= link_to 'Runs', runner_runs_path(runner), class: "btn btn-info" %>
