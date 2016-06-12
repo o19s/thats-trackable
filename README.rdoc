@@ -40,9 +40,11 @@ Please feel free to use a different markup language if you do not plan to run
 
 # to deploy to staging run `git push staging`
 
-# to deploy to production run `git push prod` 
+# to deploy to production run `git push prod`
 
-# To run migrations run `heroku run rake db:migrate --app stormy-fjord-4119-staging`
+# To run migrations in staging run `heroku run rake db:migrate --app stormy-fjord-4119-staging`
+
+# To run migrations in production run `heroku run rake db:migrate --app stormy-fjord-4119`
 
 === Notes
 
