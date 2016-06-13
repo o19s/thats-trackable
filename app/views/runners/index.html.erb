@@ -1,96 +1,84 @@
-<p id="notice"><%= notice %></p>
-<div class="row">
-  <div class="col-md-12">
-    <h1>Runners!</h1>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-3 col-sm-3 col-xs-3">
-    <strong>NAME</strong>
-  </div>
-  <div class="col-md-3 col-sm-3 col-xs-3">
-    <strong>GROUP</strong>
-  </div>
-  <div class="col-md-2 col-sm-2 col-xs-2">
-    <strong>ROLE (active in program?)</strong>
-  </div>
-
-  <% if runner_role == 'Coach' %>
-  <div class="col-md-4 col-sm-4 col-xs-4">
-    <strong>OPTIONS</strong>
-  </div>
-  <% end %>
-</div>
-
-<% @runners.each.with_index do |runner, index| %>
-  <% if index % 2 == 0 %>
-    <div class="row" style="background-color: #FBFB7A">
-  <% else %>
-    <div class="row" style="background-color: lightblue">
-  <% end %>
-  <div class="col-md-3 col-sm-3 col-xs-3 index_rows">
-    <%= image_tag runner.facebook_user.avatar_url, class: 'avatar', alt: runner.name unless runner.facebook_user.nil?%>
-    <%= runner.name %>
-  </div>
-  <div class="col-md-3 col-sm-3 col-xs-3 index_rows">
-    <%= runner.group.nil? ? 'n/a' : runner.group.name %>
-  </div>
-  <div class="col-md-2 col-sm-2 col-xs-2 index_rows">
-    <%= runner.role %> (<%= runner.active? %>)
-  </div>
-
-
-  <div class="col-md-4 hidden-sm hidden-xs index_rows">
-    <%= link_to 'Runs', runner_runs_path(runner), class: "btn btn-info" %>
-
-    <%= link_to 'Show', runner, class: "btn btn-success" %>
-    <%= link_to 'Edit', edit_runner_path(runner), class: "btn btn-primary" if runner_role == 'Coach' || runner.name == current_runner.name %>
-    <%= link_to 'Delete', runner, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" if runner_role == 'Coach'%>
-    <%= link_to 'Password', runner_password_path(runner), class: "btn btn-warning" if runner_role == 'Coach' || runner.name == current_runner.name %>
-
-
-  </div>
-
-  <div class="hidden-lg hidden-md col-sm-4 col-xs-4 index_rows">
-    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal<%= index %>">Options</button>
-    <!-- Modal -->
-    <div id="myModal<%= index %>" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Options</h4>
-          </div>
-
-          <div class="modal-body">
-            <%= link_to 'Runs', runner_runs_path(runner), class: "btn btn-info" %>
-            <%= link_to 'Show', runner, class: "btn btn-success"%>
-            <%= link_to 'Edit', edit_runner_path(runner), class: "btn btn-primary" if runner_role == 'Coach' || runner.name == current_runner.name %>
-            <%= link_to 'Delete', runner, method: :delete, data: {confirm: 'Are you sure?' }, class: "btn btn-danger" if runner_role == 'Coach' %>
-            <%= link_to 'Password', runner_password_path(runner), class: "btn btn-warning" %>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-
-  </div>
+<% if notice %>
+<div class="alert alert-info"><%= notice %></div>
 <% end %>
-
-
-<% if runner_role == 'Coach' %>
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= link_to 'New Runner', new_runner_path, class: "btn btn-info", style: "width: 100%; margin-top: 2em" %>
-  </div>
+     <div class="col-sm-5 bootcards-list">
+
+       <div class="panel panel-default">
+         <% if runner_role == 'Coach' %>
+         <div class="panel-body">
+ 						<div class="search-form">
+ 							<div class="row">
+ 							    <div class="col-xs-9">
+                    <!--
+ 							      <div class="form-group">
+ 								      <input type="text" class="form-control" placeholder="Search Runners...">
+ 								      <i class="fa fa-search"></i>
+ 							      </div>
+                    -->
+ 							    </div>
+ 							    <div class="col-xs-3">
+
+                  <a class="btn btn-primary btn-block" href="/runners/new">
+                    <i class="fa fa-plus"></i><span>Add</span>
+                  </a>
+ 							    </div>
+ 							</div>
+ 					 </div>
+ 				 </div>
+         <% end %>
+
+         <div class="list-group">
+           <% @runners.each do |runner| %>
+           <a class="list-group-item <%= 'active' if runner.id == @runner.id %>" href="<%= runner_path(runner) %>">
+             <%= image_tag runner.facebook_user.avatar_url, class: 'img-rounded pull-left', alt: runner.name unless runner.facebook_user.nil? %>
+             <h4 class="list-group-item-heading"><%=runner.name%></h4>
+             <p class="list-group-item-text"><%=runner.role %></p>
+           </a>
+           <% end %>
+         </div>
+       </div>
+
+     </div>
+     <div class="col-sm-7 bootcards-cards">
+
+       <% if @runner %>
+       <div class="panel panel-default">
+
+         <div class="panel-heading clearfix">
+           <h3 class="panel-title pull-left"><%= @runner.name %></h3>
+              <% if runner_role == 'Coach' || @runner.name == current_runner.name %>
+              <a class="btn btn-primary pull-right" href="/runners/3/edit">
+                <i class="fa fa-pencil"></i>Edit
+             </a>
+             <% end %>
+           </div>
+           <div class="list-group">
+             <div class="list-group-item">
+               <p class="list-group-item-text">Email</p>
+               <h4 class="list-group-item-heading"><%= @runner.email %></h4>
+             </div>
+             <% if runner_role == 'Coach' || @runner.name == current_runner.name %>
+             <div class="list-group-item">
+               <p class="list-group-item-text">Training Group</p>
+               <h4 class="list-group-item-heading"><%= @runner.group.nil? ? 'n/a' : @runner.group.name %></h4>
+             </div>
+             <div class="list-group-item">
+               <p class="list-group-item-text">Role</p>
+               <h4 class="list-group-item-heading"><%= @runner.role %></h4>
+             </div>
+             <% end %>
+
+
+           </div>
+
+         <div class="panel-footer">
+           <small><i>Repeating is harder than anything else.</i> - Usain Bolt</small>
+         </div>
+         <% end %>
+       </div>
+
+     </div>
+   </div>
+
 </div>
-<% end %>

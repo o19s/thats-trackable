@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
+  get 'logout' => 'sessions#destroy'
   get 'today' => 'sessions#today'
 
   get '/auth/:provider/callback', to: 'sessions#link_to_facebook'

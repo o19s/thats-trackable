@@ -7,11 +7,14 @@ class RunnersController < ApplicationController
   # GET /runners.json
   def index
     @runners = Runner.active.order(:role).order(:name)
+    @runner = @runners.first
   end
 
   # GET /runners/1
   # GET /runners/1.json
   def show
+    @runners = Runner.active.order(:role).order(:name)
+    render :index
   end
 
   # GET /runners/new
