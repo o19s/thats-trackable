@@ -1,6 +1,4 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
+
           <h1>Log In</h1>
           <% flash.each do |key, value| %>
               <div class="alert alert-<%= key %>"><%= value %></div>
@@ -17,7 +15,3 @@
 
                 <%= f.submit "Log in", class: "btn btn-primary", style: "width:100%" %>
             <% end %>
-
-        </div>
-    </div>
-</div>

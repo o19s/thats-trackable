@@ -5,15 +5,22 @@ class RunsController < ApplicationController
 
   def index
     if @runner
-      @run = @runner.runs.order(:date)
+      @runs = @runner.runs.order('date DESC')
     else
-      @run = Run.all.order(:date)
+      @runs = Run.all.order('date DESC')
     end
+    @run = @runs.first
 
   end
 
   def show
+    if @runner
+      @runs = @runner.runs.order('date DESC')
+    else
+      @runs = Run.all.order('date DESC')
+    end
     commontator_thread_show(@run) # have the comment thread be open in the page.
+    render :index
   end
 
 
@@ -36,11 +43,16 @@ class RunsController < ApplicationController
 
     # Check if Run is customized
     original_run = PlannedRun.find_by_id(@run.planned_run_id)
-    if original_run.training_plan != @run.training_plan
-      @run.customize_flag = true
-      @run.save
+    if (original_run)
+      if original_run.training_plan != @run.training_plan
+        @run.customize_flag = true
+        @run.save
+      else
+        @run.customize_flag = false
+        @run.save
+      end
     else
-      @run.customize_flag = false
+      @run.customize_flag = true
       @run.save
     end
 
@@ -54,7 +66,7 @@ class RunsController < ApplicationController
         format.html { redirect_to redirect_path, notice: 'Run was successfully updated. '}
         format.json { render :show, status: :ok, location: @run }
       else
-        render_path = (today_view_update == true) ? 'sessions/today' : 'runs/edit'
+        render_path = (today_view_update == true) ? today_path : 'runs/edit'
         format.html { render render_path }
         format.json { render json: @run.errors, status: :unprocessable_entity }
       end
@@ -94,7 +106,10 @@ class RunsController < ApplicationController
   end
 
   def run_params
-    params.require(:run).permit(:runner_id, :date, :training_plan, :progress, :customize_flag)
+    params.require(:run).permit(
+      :runner_id, :date, :training_plan, :progress, :customize_flag,
+      :duration, :pace, :mileage
+    )
   end
 
   def with_tracking

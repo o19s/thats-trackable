@@ -1,0 +1,24 @@
+<!-- fixed tabbed footer -->
+<div class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container">
+    <div class="bootcards-desktop-footer clearfix">
+      <p class="pull-left">Made with <i class="fa fa-heart"></i> in Charlottesville, Virginia</p>
+    </div>
+    <% if @current_runner %>
+    <div class="btn-group">
+      <a href="<%= root_path %>" class="btn btn-default" data-pjax="#main" data-title="Dashboard">
+        <i class="fa fa-2x fa-dashboard"></i>
+        Dashboard
+      </a>
+      <a href="<%= runner_runs_path(@current_runner) %>" class="btn btn-default" data-pjax="#main" data-title="My Runs">
+        <i class="fa fa-2x fa-history"></i>
+        My Runs
+      </a>
+      <a href="<%= runners_path %>" class="btn btn-default active" data-pjax="#main" data-title="Teammates!">
+        <i class="fa fa-2x fa-bull-horn"></i>
+        Team mates!
+      </a>
+    </div>
+    <% end %>
+  </div>
+</div>

@@ -16,6 +16,7 @@ class RunnersController < ApplicationController
   # GET /runners/new
   def new
     @runner = Runner.new
+    @runner.active = true #by default they are active.
   end
 
   # GET /runners/1/edit
@@ -113,7 +114,7 @@ class RunnersController < ApplicationController
       params.require(:runner).permit(:name, :group_id, :role, :email, :password)
     end
 
- 
+
 
 
 end

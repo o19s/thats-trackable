@@ -1,29 +1,170 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>RunTracker</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag  'addtohomescreen', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'addtohomescreen', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!--<link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">-->
+
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<!-- Icons -->
+  <link rel="shortcut icon" sizes="196x196" href="/bootcards-demo-app/images/apple-touch-icon-144x144.png">
+  <link rel="shortcut icon" sizes="128x128" href="/bootcards-demo-app/images/apple-touch-icon-120x120.png">
+	<!-- For iPhone with high-resolution Retina display running iOS ≥ 7: -->
+	<link rel="apple-touch-icon" sizes="120x120" href="/bootcards-demo-app/images/apple-touch-icon-120x120.png">
+	<!-- For iPad with high-resolution Retina display running iOS ≤ 6: -->
+	<link rel="apple-touch-icon" sizes="144x144" href="/bootcards-demo-app/images/apple-touch-icon-144x144.png">
+
+	<!-- Splash Screen Images -->
+    <!-- iOS 6 & 7 iPad (retina, portrait) -->
+    <link href="/bootcards-demo-app/images/bootcards-splash-768x1004@2x.png"
+          media="(device-width: 768px) and (device-height: 1024px)
+             and (orientation: portrait)
+             and (-webkit-device-pixel-ratio: 2)"
+          rel="apple-touch-startup-image">
+
+    <!-- iOS 6 & 7 iPad (retina, landscape) -->
+    <link href="/bootcards-demo-app/images/bootcards-splash-1024x748@2x.png"
+          media="(device-width: 768px) and (device-height: 1024px)
+             and (orientation: landscape)
+             and (-webkit-device-pixel-ratio: 2)"
+          rel="apple-touch-startup-image">
+
+    <!-- iOS 6 iPad (portrait) -->
+    <link href="/bootcards-demo-app/images/bootcards-splash-1024x748.png"
+          media="(device-width: 768px) and (device-height: 1024px)
+             and (orientation: portrait)
+             and (-webkit-device-pixel-ratio: 1)"
+          rel="apple-touch-startup-image">
+
+    <!-- iOS 6 iPad (landscape) -->
+    <link href="/bootcards-demo-app/images/bootcards-splash-768x1004.png"
+          media="(device-width: 768px) and (device-height: 1024px)
+             and (orientation: landscape)
+             and (-webkit-device-pixel-ratio: 1)"
+          rel="apple-touch-startup-image">
+
+    <!-- iOS 6 & 7 iPhone 5 -->
+    <link href="/bootcards-demo-app/images/bootcards-splash-320x548@2x.png"
+          media="(device-width: 320px) and (device-height: 568px)
+             and (-webkit-device-pixel-ratio: 2)"
+          rel="apple-touch-startup-image">
+
+    <!-- iOS 6 & 7 iPhone (retina) -->
+    <link href="/bootcards-demo-app/images/bootcards-splash-320x460@2x.png"
+          media="(device-width: 320px) and (device-height: 480px)
+             and (-webkit-device-pixel-ratio: 2)"
+          rel="apple-touch-startup-image">
+
+    <!-- iOS 6 iPhone -->
+    <link href="/bootcards-demo-app/images/bootcards-splash-320x460.png"
+          media="(device-width: 320px) and (device-height: 480px)
+             and (-webkit-device-pixel-ratio: 1)"
+          rel="apple-touch-startup-image">
 
 
-  <link rel="apple-touch-icon" href="/apple-icon-60x60.png">
-  
-  <script>
-	addToHomescreen({
-	   skipFirstVisit: true,
-	   maxDisplayCount: 5
-	});
-</script>
+  <title>WAHS Run Tracker</title>
+  <!-- 1.1.2 -->
+
+  <!-- Load the required CSS libraries -->
+
+  <!-- bootstrap -->
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+
+   <!-- Bootcards CSS file (different for desktop, iOS and Android, included Bootstrap CSS) -->
+  <link href="//cdnjs.cloudflare.com/ajax/libs/bootcards/1.1.2/css/bootcards-desktop.min.css" rel="stylesheet" type="text/css" />
+
+  <link href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css" rel="stylesheet" />
+
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+
+  <script>var isDesktop = true;</script>
+  <!-- Custom CSS for the demo app -->
+  <link href="/bootcards-demo-app/css/bootcards-demo-app.css" rel="stylesheet" />
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <![endif]-->
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!--<script src="/bower_components/jquery/dist/jquery.min.js"></script>-->
+    <!--
+    The below style sheet was giving me all sorts of styling issues! - Eric
+    <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track' => true %>
+
+    -->
+    <%= stylesheet_link_tag  'addtohomescreen', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'addtohomescreen', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+
+    <script>
+  	addToHomescreen({
+  	   skipFirstVisit: true,
+  	   maxDisplayCount: 5
+  	});
+    </script>
 </head>
-<body>
-<!-- Header -->
-<%= render "layouts/header" %>
-<%= yield %>
-<!-- Footer -->
-<%= render "layouts/footer"%>
+<body id="bootcards">
+
+  <%= render "layouts/navbar3" %>
+
+
+  <div class="container bootcards-container" id="main">
+
+    <%= yield %>
+
+    <%= render "layouts/footer2" %>
+
+  </div>
+
+
+
+  <!-- Load the required JavaScript libraries -->
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.pjax/1.9.2/jquery.pjax.min.js"></script>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.3/fastclick.min.js"></script>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
+  <!-- Bootcards JS file -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/bootcards/1.1.2/js/bootcards.min.js"></script>
+
+  <script src="/bootcards-demo-app/js/bootcards-demo-app.js"></script>
+
+	<!--modals-->
+	<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content"></div>
+		</div>
+	</div>
+  <div class="modal fade" id="docsModal" tabindex="-1" role="dialog" aria-labelledby="docsModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    //highlight first list group option (if non active yet)
+    if ( $('.list-group a.active').length === 0 ) {
+      $('.list-group a').first().addClass('active');
+    }
+
+    bootcards.init( {
+        offCanvasHideOnMainClick : true,
+        offCanvasBackdrop : true,
+        enableTabletPortraitMode : true,
+        disableRubberBanding : true,
+        disableBreakoutSelector : 'a.no-break-out'
+      });
+
+  </script>
+
 </body>
 </html>

@@ -1,31 +1,84 @@
-<div class="container">
-  <% if flash[:notice] %>
-        <div class="alert alert-success" role="alert">
-          <%= flash[:notice] %>
+<% if notice %>
+<div class="alert alert-info"><%= notice %></div>
+<% end %>
+
+<div class="row">
+
+  <div class="bootcards-cards">
+
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading clearfix">
+          <h3 class="panel-title pull-left">Track your Run!</h3>
+
         </div>
-      <% end %>
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-3" style="text-align:center">
-      <h1>Your Run Plan for Today</h1>
- 
-      <h1>
-      <% if @current_run %>
-          <div class="alert alert-info" role="alert">
-            <%=  @current_run.training_plan %>
-          </div>
-          <h2>Record Your Progress:</h2><br>
-          <!-- Progess Update -->
-          <%= form_for [@runner, @current_run] do |f| %>
-              <%= f.text_area :progress, rows:"6" %><br>
-              <%= f.submit "Track Today", class: "btn btn-primary" %>
+        <div class="modal-body">
+          <%= form_for [@runner, @current_run],:html => {:class => "form-horizontal"} do |f| %>
+
+            <div class="form-group">
+              <label class="col-xs-3 control-label">Mileage</label>
+              <div class="col-xs-9">
+                <input type="text" id="run_mileage" name="run[mileage]" class="form-control" placeholder="How far you ran" value="<%= @current_run.mileage %>">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-xs-3 control-label">Pace</label>
+              <div class="col-xs-9">
+                <input type="text" id="run_pace" name="run[pace]" class="form-control" placeholder="What pace did you do keep?" value="<%= @current_run.pace %>">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-xs-3 control-label">Duration</label>
+              <div class="col-xs-9">
+                <input type="text" id="run_duration" name="run[duration]" class="form-control" placeholder="How long did you run" value="<%= @current_run.duration %>">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-xs-3 control-label">How did it go?</label>
+              <div class="col-xs-9">
+                <textarea id="run_progress" name="run[progress]" class="form-control" rows="6" placeholder="How did you feel?  What happened?"><%= @current_run.progress %></textarea>
+
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="btn-group pull-right">
+                <button class="btn btn-danger">
+                  <i class="fa fa-times"></i>
+                  Cancel
+                </button>
+                <%= button_tag(name: "commit", value: "Track Today", type: 'submit', class: "btn btn-success") do %>
+                  <i class="fa fa-check"></i> Track Today
+                <% end %>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+
+              </div>
+            </div>
           <% end %>
-      <% else %>
-
-          <div class="alert alert-warning" role="alert"><strong>Oh snap!</strong> You don't have any runs planned for today!</div>
-      <% end %>
-      </h1>
+        </div>
+        <div class="panel-footer">
+          <small><i>You must expect great things from yourself before you can do them.</i> - Michael Jordan</small>
+        </div>
+      </div>
     </div>
-    <%= render 'shared/activities' %>
-  </div>
-</div>
 
+
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading clearfix">
+          <h3 class="panel-title pull-left">Keep up with your teammates!</h3>
+
+          </div>
+          <div class="list-group">
+            <%= render 'shared/activities2' %>
+          </div>
+        <div class="panel-footer">
+          <small><i>I run to see who has the most guts.</i> - Steve Prefontaine</small>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+</div>

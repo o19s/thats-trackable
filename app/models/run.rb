@@ -5,12 +5,14 @@ class Run < ActiveRecord::Base
   belongs_to :planned_run
   belongs_to :runner
 
-  validates :runner, :date, :training_plan, presence: true
+  # We don't require a run be tied to a training_plan or a #planned_run
+  #validates :runner, :date, :training_plan, presence: true
+  validates :runner, :date, presence: true
 
   #Catches the user trying to add duplicate dates per runner
   validates_uniqueness_of :date, :scope => :runner_id
 
   acts_as_commontable
-  
+
   Run.public_activity_off
 end

@@ -6,7 +6,8 @@ class SessionsController < ApplicationController
 
   def today
     @today = Date.today
-    @current_run = Run.find_by date: @today, runner: current_runner
+    @current_run = Run.find_or_create_by date: @today, runner: current_runner
+    @runner = current_runner
   end
 
   def still_logged_in
@@ -59,7 +60,7 @@ class SessionsController < ApplicationController
 
   private
   def load_activities
-    @activities = PublicActivity::Activity.order('created_at DESC').limit(20)
+    @activities = PublicActivity::Activity.order('created_at DESC').limit(5)
   end
 
 end
