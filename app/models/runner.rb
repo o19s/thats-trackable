@@ -1,4 +1,6 @@
 class Runner < ActiveRecord::Base
+  scope :active, -> { where(active: true) }
+  
   validates :email, uniqueness: true
   validates :name, uniqueness: true
 

@@ -2,6 +2,7 @@ class RunnersController < ApplicationController
   before_action :set_runner, only: [:show, :edit, :update, :destroy]
 
 
+
   # GET /runners
   # GET /runners.json
   def index
@@ -111,7 +112,7 @@ class RunnersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def runner_params
-      params.require(:runner).permit(:name, :group_id, :role, :email, :password)
+      params.require(:runner).permit(:name, :group_id, :role, :email, :password, :active)
     end
 
 
