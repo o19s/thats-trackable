@@ -21,4 +21,14 @@ module SessionsHelper
     session.delete(:runner_id)
     @current_runner = nil
   end
+
+  def detect_mobile
+    if request.user_agent.downcase =~ /iphone|ipad/i
+      return 'ios'
+    elsif request.user_agent.downcase =~ /android/i
+      return 'android'
+    else
+      return 'desktop'
+    end
+  end
 end

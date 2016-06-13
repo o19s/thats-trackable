@@ -27,8 +27,9 @@
       </button-->
 
       <!--navbar menu options: shown on desktop only -->
-      <% if @current_runner %>
+
       <div class="navbar-collapse collapse">
+        <% if @current_runner %>
         <ul class="nav navbar-nav">
           <li class="<%= 'active' if current_page?(today_path) or current_page?(root_path) %>">
             <a href="<%= today_path %>">
@@ -53,24 +54,32 @@
             </a>
           </li>
         </ul>
+        <% end %>
       </div>
-      <% end %>
+
     </div>
   </div>
 
   <!-- slide in off canvas menu (mobile only) -->
   <nav class="navmenu offcanvas offcanvas-left">
     <ul class="nav">
-      <li>
+      <li class="<%= 'active' if current_page?(today_path) or current_page?(root_path) %>">
         <a href="<%= root_path %>">
           <i class="fa fa-fw fa-dashboard"></i>Dashboard
         </a>
       </li>
-      <li class="active">
-        <a href="<%=root_path%>">
-          <i class="fa fa-fw fa-files"></i>Files
+      <% if @current_runner %>
+      <li class="<%= 'active' if current_page?(runner_runs_path(@current_runner)) %>">
+        <a href="<%= runner_runs_path(@current_runner) %>">
+          <i class="fa fa-fw fa-history"></i>My Runs
         </a>
       </li>
+      <li class="<%= 'active' if current_page?(runners_path) %>">
+        <a href="<%= runners_path %>">
+          <i class="fa fa-fw fa-bullhorn"></i>Team mates!
+        </a>
+      </li>
+      <% end %>
 
     </ul>
 
