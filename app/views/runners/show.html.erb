@@ -24,6 +24,11 @@
     <%= @runner.role %>
     </p>
 
+    <p>
+    <strong>Active in Program:</strong>
+    <%= @runner.active %>
+    </p>
+
   <%= link_to 'Edit', edit_runner_path(@runner), class: "btn btn-success" %> |
   <%= link_to 'Back', runners_path, class: "btn btn-info" %>
   </div>
