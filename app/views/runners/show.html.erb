@@ -29,7 +29,7 @@
     <%= @runner.active %>
     </p>
 
-  <%= link_to 'Edit', edit_runner_path(@runner), class: "btn btn-success" %> |
+  <%= link_to 'Edit', edit_runner_path(@runner), class: "btn btn-success" if runner_role == 'Coach' || @runner.name == current_runner.name %> |
   <%= link_to 'Back', runners_path, class: "btn btn-info" %>
   </div>
 </div>

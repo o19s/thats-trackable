@@ -15,7 +15,9 @@
      </div>
      <div class="col-sm-7 bootcards-cards">
 
+       <% if @run %>
        <div class="panel panel-default">
+
          <div class="panel-heading clearfix">
            <h3 class="panel-title pull-left"><%= @run.date %></h3>
              <a class="btn btn-primary pull-right" href="#">
@@ -41,9 +43,11 @@
                <p class="list-group-item-text"><%= @run.progress %></p>
              </div>
            </div>
+
          <div class="panel-footer">
            <small><i>Repeating is harder than anything else.</i> - Usain Bolt</small>
          </div>
+         <% end %>
        </div>
 
      </div>

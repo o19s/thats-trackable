@@ -47,7 +47,7 @@
     <%= link_to 'Show', runner, class: "btn btn-success" %>
     <%= link_to 'Edit', edit_runner_path(runner), class: "btn btn-primary" if runner_role == 'Coach' || runner.name == current_runner.name %>
     <%= link_to 'Delete', runner, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" if runner_role == 'Coach'%>
-    <%= link_to 'Password', runner_password_path(runner), class: "btn btn-warning" %>
+    <%= link_to 'Password', runner_password_path(runner), class: "btn btn-warning" if runner_role == 'Coach' || runner.name == current_runner.name %>
 
 
   </div>
