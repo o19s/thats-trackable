@@ -29,6 +29,9 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#destroy'
   get 'today' => 'sessions#today'
 
+  #legacy route
+  get '/runners/:id/today' => 'sessions#today'
+
   get '/auth/:provider/callback', to: 'sessions#link_to_facebook'
 
   get '/teammates', to: 'runners#teammates', as: :teammates
