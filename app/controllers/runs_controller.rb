@@ -5,7 +5,7 @@ class RunsController < ApplicationController
 
   def index
     if @runner
-      @runs = @runner.runs.order('date DESC')
+      @runs = @runner.runs.sorted #order('date DESC')
     else
       @runs = Run.all.order('date DESC')
     end
