@@ -2,6 +2,8 @@ class Run < ActiveRecord::Base
   include PublicActivity::Model
   tracked owner: Proc.new { |controller, model| controller.current_runner ? controller.current_runner : nil }
 
+  scope :sorted, order(:date => :desc)
+
   belongs_to :planned_run
   belongs_to :runner
 

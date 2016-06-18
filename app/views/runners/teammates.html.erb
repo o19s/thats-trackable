@@ -30,7 +30,7 @@
            </div>
            <div class="list-group">
 
-            <% @runner.runs.each do |run| %>
+            <% @runner.runs.sorted.each do |run| %>
              <div class="list-group-item">
                <p class="list-group-item-text"><%=run.date%></p>
                <h4 class="list-group-item-heading"><%= run.mileage %>/<%= run.pace %>/<%= run.duration %></h4>
