@@ -31,6 +31,9 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback', to: 'sessions#link_to_facebook'
 
+  get '/teammates', to: 'runners#teammates', as: :teammates
+  get '/teammates/:id', to: 'runners#teammate', as: :teammate
+
 
 
 

@@ -1,0 +1,53 @@
+<% if notice %>
+<div class="alert alert-info"><%= notice %></div>
+<% end %>
+<div class="row">
+     <div class="col-sm-5 bootcards-list">
+
+       <div class="panel panel-default">
+
+
+         <div class="list-group">
+           <% @runners.each do |runner| %>
+           <a class="list-group-item <%= 'active' if runner.id == @runner.id %>" href="<%= teammate_path(runner) %>">
+             <%= image_tag runner.facebook_user.avatar_url, class: 'img-rounded pull-left', alt: runner.name unless runner.facebook_user.nil? %>
+             <%= runner.facebook_user %>
+             <h4 class="list-group-item-heading"><%=runner.name%></h4>
+             <p class="list-group-item-text"><%=runner.role %></p>
+           </a>
+           <% end %>
+         </div>
+       </div>
+
+     </div>
+     <div class="col-sm-7 bootcards-cards">
+
+       <% if @runner %>
+       <div class="panel panel-default">
+
+         <div class="panel-heading clearfix">
+           <h3 class="panel-title pull-left"><%= @runner.name %></h3>
+           </div>
+           <div class="list-group">
+
+            <% @runner.runs.each do |run| %>
+             <div class="list-group-item">
+               <p class="list-group-item-text"><%=run.date%></p>
+               <h4 class="list-group-item-heading"><%= run.mileage %>/<%= run.pace %>/<%= run.duration %></h4>
+               <p class="list-group-item-text"><%=run.progress%></p>
+             </div>
+            <% end %>
+
+
+           </div>
+
+         <div class="panel-footer">
+           <small><i>Repeating is harder than anything else.</i> - Usain Bolt</small>
+         </div>
+         <% end %>
+       </div>
+
+     </div>
+   </div>
+
+</div>

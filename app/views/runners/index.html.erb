@@ -32,6 +32,7 @@
            <% @runners.each do |runner| %>
            <a class="list-group-item <%= 'active' if runner.id == @runner.id %>" href="<%= runner_path(runner) %>">
              <%= image_tag runner.facebook_user.avatar_url, class: 'img-rounded pull-left', alt: runner.name unless runner.facebook_user.nil? %>
+             <%= runner.facebook_user %>
              <h4 class="list-group-item-heading"><%=runner.name%></h4>
              <p class="list-group-item-text"><%=runner.role %></p>
            </a>
@@ -54,11 +55,12 @@
              <% end %>
            </div>
            <div class="list-group">
+
+             <% if runner_role == 'Coach' || @runner.name == current_runner.name %>
              <div class="list-group-item">
                <p class="list-group-item-text">Email</p>
                <h4 class="list-group-item-heading"><%= @runner.email %></h4>
-             </div>
-             <% if runner_role == 'Coach' || @runner.name == current_runner.name %>
+             </div>             
              <div class="list-group-item">
                <p class="list-group-item-text">Training Group</p>
                <h4 class="list-group-item-heading"><%= @runner.group.nil? ? 'n/a' : @runner.group.name %></h4>

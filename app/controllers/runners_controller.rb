@@ -1,5 +1,5 @@
 class RunnersController < ApplicationController
-  before_action :set_runner, only: [:show, :edit, :update, :destroy]
+  before_action :set_runner, only: [:show, :edit, :update, :destroy, :teammate]
 
 
 
@@ -8,6 +8,18 @@ class RunnersController < ApplicationController
   def index
     @runners = Runner.active.order(:role).order(:name)
     @runner = @runners.first
+  end
+
+  # GET /teammates
+  def teammates
+    @runners = Runner.active.order(:role).order(:name)
+    @runner = @runners.first
+  end
+
+  # GET /teammates/1
+  def teammate
+    @runners = Runner.active.order(:role).order(:name)
+    render :teammates
   end
 
   # GET /runners/1
