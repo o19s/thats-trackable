@@ -9,7 +9,7 @@ class RunsController < ApplicationController
     else
       @runs = Run.all.order('date DESC')
     end
-    @run = @runs.first
+    #@run = @runs.first
 
   end
 
@@ -38,23 +38,31 @@ class RunsController < ApplicationController
     today_view_update = (params[:commit] == 'Track Today')
 
     with_tracking do
+
+      date_string = run_params['date']
+      date = DateTime.strptime(date_string, '%m/%d/%Y')
+      params[:run][:date] = date
+      #run_params['date'] = date
+      puts run_params
       @successful_update = @run.update(run_params)
     end
 
     # Check if Run is customized
-    original_run = PlannedRun.find_by_id(@run.planned_run_id)
-    if (original_run)
-      if original_run.training_plan != @run.training_plan
-        @run.customize_flag = true
-        @run.save
-      else
-        @run.customize_flag = false
-        @run.save
-      end
-    else
-      @run.customize_flag = true
-      @run.save
-    end
+    #original_run = PlannedRun.find_by_id(@run.planned_run_id)
+    #if (original_run)
+  #    if original_run.training_plan != @run.training_plan
+  #      @run.customize_flag = true
+  #      @run.save
+  #    else
+  #      @run.customize_flag = false
+  #      @run.save
+  #    end
+  #  else
+  #    @run.customize_flag = true
+  #    @run.save
+  #  end
+
+  puts "successful_update is #{@successful_update}"
 
     respond_to do |format|
       if @successful_update
@@ -62,11 +70,14 @@ class RunsController < ApplicationController
         #updated_run = Run.find_by_id(@successful_update)
         #updated_run.customize_flag = 1
         #updated_run.save
-        redirect_path = (today_view_update == true) ? today_path : runner_runs_path(@runner,@run)
+        redirect_path = (today_view_update == true) ? today_path : runner_runs_path(@runner)
         format.html { redirect_to redirect_path, notice: 'Run was successfully updated. '}
         format.json { render :show, status: :ok, location: @run }
       else
+        require 'pp'
+        pp @run.errors
         render_path = (today_view_update == true) ? today_path : 'runs/edit'
+        puts "Render path is #{render_path}"
         format.html { render render_path }
         format.json { render json: @run.errors, status: :unprocessable_entity }
       end
