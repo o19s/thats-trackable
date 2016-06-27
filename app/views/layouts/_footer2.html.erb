@@ -14,10 +14,16 @@
         <i class="fa fa-2x fa-history"></i>
         My Runs
       </a>
-      <a href="<%= runners_path %>" class="btn btn-default active" data-pjax="#main" data-title="Teammates!">
+      <a href="<%= teammates_path %>" class="btn btn-default active" data-pjax="#main" data-title="Teammates!">
         <i class="fa fa-2x fa-bullhorn"></i>
         Team mates!
       </a>
+      <% if runner_role == 'Coach' %>
+      <a href="<%= runners_path %>" class="btn btn-default active" data-pjax="#main" data-title="Runners!">
+        <i class="fa fa-2x glyphicon glyphicon-user"></i>
+        Admin Runners
+      </a>
+      <% end %>
     </div>
     <% end %>
   </div>
