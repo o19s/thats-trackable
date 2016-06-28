@@ -60,7 +60,7 @@ class SessionsController < ApplicationController
 
   private
   def load_activities
-    @activities = PublicActivity::Activity.order('created_at DESC').limit(5)
+    @activities = PublicActivity::Activity.order('created_at DESC').limit(10)
   end
 
 end
