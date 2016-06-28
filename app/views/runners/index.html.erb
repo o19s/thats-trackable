@@ -30,7 +30,7 @@
 
          <div class="list-group">
            <% @runners.each do |runner| %>
-           <a class="list-group-item <%= 'active' if runner.id == @runner.id %>" href="<%= runner_path(runner) %>">
+           <a class="list-group-item <%= 'active' if runner == @runner %>" href="<%= runner_path(runner) %>">
              <%= image_tag runner.facebook_user.avatar_url, class: 'img-rounded pull-left', alt: runner.name unless runner.facebook_user.nil? %>
              <h4 class="list-group-item-heading"><%=runner.name%></h4>
              <p class="list-group-item-text"><%=runner.role %></p>
@@ -51,7 +51,7 @@
              <%= @runner.name %>
            </h3>
               <% if runner_role == 'Coach' || @runner.name == current_runner.name %>
-              <a class="btn btn-primary pull-right" href="/runners/3/edit">
+              <a class="btn btn-primary pull-right" href="<%= edit_runner_path(@runner) %>">
                 <i class="fa fa-pencil"></i>Edit
              </a>
              <% end %>
@@ -77,7 +77,7 @@
            </div>
 
          <div class="panel-footer">
-           <small><i>Repeating is harder than anything else.</i> - Usain Bolt</small>
+           <small><i>Don’t go to the grave with life unused.</i> - Bobby Bowden</small>
          </div>
          <% end %>
        </div>

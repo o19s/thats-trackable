@@ -1,10 +1,84 @@
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <h1>Editing Runner</h1>
-
-    <%= render 'form' %>
-
-    <%= link_to 'Show', @runner, class: "btn btn-success" %> |
-    <%= link_to 'Back', runners_path, class: "btn btn-primary" %>
+<% if notice %>
+<div class="alert alert-info"><%= notice %></div>
+<% end %>
+<% if @runner.errors.any? %>
+  <div id="alert alert-error">
+    <strong><%= pluralize(@runner.errors.count, "error") %> prohibited this runner from being saved:</strong>
+    <ul>
+    <% @runner.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
   </div>
+<% end %>
+
+<div class="row">
+
+  <div class="bootcards-cards">
+
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading clearfix">
+          <h3 class="panel-title pull-left">Manage <%=@runner.name %></h3>
+
+        </div>
+        <div class="modal-body">
+          <%= form_for [@runner],:html => {:class => "form-horizontal"} do |f| %>
+
+            <div class="form-group">
+              <label class="col-xs-3 control-label">Name</label>
+              <div class="col-xs-9">
+                <input type="text" id="runner_name" name="runner[name]" class="form-control" placeholder="Participant's name" value="<%= @runner.name %>">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-xs-3 control-label">Email</label>
+              <div class="col-xs-9">
+                <input type="text" id="runner_email" name="runner[email]" class="form-control" placeholder="email address" value="<%= @runner.email %>">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-xs-3 control-label">Role</label>
+              <div class="col-xs-9">
+                <%= f.radio_button(:role, "Athlete") %>
+                <%= f.label(:athlete_label, "I am an Athlete") %>
+                <%= f.radio_button(:role, "Coach") %>
+                <%= f.label(:coach_label, "I am a Coach") %>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-xs-3 control-label">Active in Program?</label>
+              <div class="col-xs-9">
+                <%= f.check_box :active, class: 'form-control' %>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-xs-3 control-label">Password</label>
+              <div class="col-xs-9">
+                <%= f.password_field :password, class: 'form-control' %>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="btn-group pull-right">
+                <button class="btn btn-danger">
+                  <i class="fa fa-times"></i>
+                  Cancel
+                </button>
+                <%= button_tag(name: "commit", value: "Update Profile", type: 'submit', class: "btn btn-success") do %>
+                  <i class="fa fa-check"></i> Update Profile
+                <% end %>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="panel-footer">
+          <small><i>You must expect great things from yourself before you can do them.</i> - Michael Jordan</small>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
 </div>

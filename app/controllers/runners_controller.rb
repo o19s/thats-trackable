@@ -93,7 +93,7 @@ class RunnersController < ApplicationController
     respond_to do |format|
       if @runner.update(runner_params)
 
-        format.html { redirect_to today_path, notice: 'Runner was successfully updated.' }
+        format.html { redirect_to today_path, notice: "#{@runner.name} was successfully updated." }
         format.json { render :show, status: :ok, location: @runner }
       else
         format.html { render :edit }
