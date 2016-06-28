@@ -9,13 +9,15 @@
   	<%= activity.owner ? activity.owner.name : 'Guest' %>
   </strong>
   <% if a.trackable %>
+    <i>
     reported
     <% if (a.updated_at - 1.day) > a.trackable.date %>
     for <strong>
-      <%= local_time(a.trackable.date, '%B %e, %Y') %>
+      <%= local_time(a.trackable.date, '%B %e') %>
     </strong>
-    <% end %>
-    <i><%= a.trackable.progress %></i>
+    <% end %>    
+    </i>
+    <%= a.trackable.progress.squish %>
     <%= commontator_thread(a.trackable) %>
   <% else %>
     edited the run that is currently deleted.
