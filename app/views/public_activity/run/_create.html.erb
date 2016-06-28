@@ -10,7 +10,7 @@
   </strong>
 
   <% if a.trackable %>
-    added the run <%= link_to a.trackable.id, runner_run_path(a.trackable.runner,a.trackable) %>.
+    <i>added a run on <%= link_to a.trackable.date.to_formatted_s(:super_short), runner_run_path(a.trackable.runner,a.trackable) %></i> <%= a.trackable.progress.squish unless a.trackable.progress.nil? %>
     <%= commontator_thread(a.trackable) %>
   <% else %>
     added the run that is currently deleted.
