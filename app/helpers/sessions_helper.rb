@@ -31,4 +31,8 @@ module SessionsHelper
       return 'desktop'
     end
   end
+  def is_mobile?
+    puts "detect_mobile: #{detect_mobile}"
+    detect_mobile.eql?('desktop') ? false : true
+  end
 end

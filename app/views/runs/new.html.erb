@@ -19,7 +19,7 @@
     <div class="col-sm-6">
       <div class="panel panel-default">
         <div class="panel-heading clearfix">
-          <h3 class="panel-title pull-left">Create New Run!</h3>
+          <h3 class="panel-title pull-left">Track a New Run!</h3>
 
         </div>
         <div class="modal-body">
@@ -28,8 +28,13 @@
             <label class="col-xs-3 control-label">Date</label>
             <div class="col-xs-9">
 
+              <% if is_mobile? %>
+
+                <%= f.date_select :date, {discard_year: true}, {class: 'form-control'} %>
+
+              <% else %>
               <div class='input-group date' id='run_date'>
-                  <input type='text' class="form-control" id="run_date" name="run[date]" value="<%= format_date(@run.date) %>"/>
+                  <input type='text' class="form-control" id="run_date" name="run[date]" placeholder='Pick the date you ran' value="<%= format_date(@run.date) %>"/>
                   <span class="input-group-addon">
                       <span class="glyphicon glyphicon-calendar"></span>
                   </span>
@@ -41,7 +46,7 @@
                       });
                   });
               </script>
-
+              <% end %>
             </div>
           </div>
             <div class="form-group">

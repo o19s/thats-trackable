@@ -39,20 +39,8 @@ class RunsController < ApplicationController
 
     with_tracking do
 
-      if run_params['date']
-        date_string = run_params['date']
-        date = DateTime.strptime(date_string, '%m/%d/%Y')
-        params[:run][:date] = date
-        puts run_params
+      @run = create_run_from_params
 
-        puts "params[:run][:date]: #{params[:run][:date].to_date}"
-        @run = Run.find_or_create_by date: params[:run][:date].to_date, runner: current_runner
-      else
-        @run = Run.find(params[:id])
-      end
-
-      puts "Okay, got run with id #{@run.id}"
-      @successful_update = @run.update(run_params)
     end
 
     # Check if Run is customized
@@ -94,24 +82,12 @@ class RunsController < ApplicationController
 
   def create
     with_tracking do
-      if run_params['date']
-        date_string = run_params['date']
-        date = DateTime.strptime(date_string, '%m/%d/%Y')
-        params[:run][:date] = date
-        puts run_params
-
-        puts "params[:run][:date]: #{params[:run][:date].to_date}"
-        @run = Run.find_or_create_by date: params[:run][:date].to_date, runner: current_runner
-      else
-        @run = Run.find(params[:id])
-      end
-      @run.update(run_params)
-      @run.runner = @runner
+      @run = create_run_from_params
     end
 
     respond_to do |format|
       if @run.save
-        format.html {redirect_to runner_run_path(@runner, @run), notice: "Run for #{@run.date.strftime("%m/%d/%Y")} was successfully created." }
+        format.html {redirect_to runner_run_path(@runner, @run), notice: "Run for #{@run.date.strftime("%m/%d/%Y")} was successfully tracked." }
         format.json {render :show, status: :created, locations: @run }
       else
         format.html { render :edit }
@@ -148,5 +124,31 @@ class RunsController < ApplicationController
     Run.public_activity_on
     yield if block_given?
     Run.public_activity_off
+  end
+
+  def create_run_from_params()
+    if run_params['date']
+      date_string = run_params['date']
+      date = DateTime.strptime(date_string, '%m/%d/%Y')
+      params[:run][:date] = date
+
+
+      puts "params[:run][:date]: #{params[:run][:date].to_date}"
+      @run = Run.find_or_create_by date: params[:run][:date].to_date, runner: current_runner
+    elsif run_params['date(1i)']
+      date_string = "#{run_params['date(2i)']}/#{run_params['date(3i)']}/#{run_params['date(1i)']}"
+      puts "date_string: #{date_string}"
+      date = DateTime.strptime(date_string, '%m/%d/%Y')
+      params[:run][:date] = date
+
+
+      puts "params[:run][:date]: #{params[:run][:date].to_date}"
+      @run = Run.find_or_create_by date: params[:run][:date].to_date, runner: current_runner
+    else
+      @run = Run.find(params[:id])
+    end
+    #@run.runner = @runner
+    @successful_update = @run.update(run_params)
+    @run
   end
 end
