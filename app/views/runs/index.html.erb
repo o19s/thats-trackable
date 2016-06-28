@@ -6,6 +6,27 @@
      <div class="col-sm-5 bootcards-list">
 
        <div class="panel panel-default">
+         <div class="panel-body">
+ 						<div class="search-form">
+ 							<div class="row">
+ 							    <div class="col-xs-9">
+                    <!--
+ 							      <div class="form-group">
+ 								      <input type="text" class="form-control" placeholder="Search Runners...">
+ 								      <i class="fa fa-search"></i>
+ 							      </div>
+                    -->
+ 							    </div>
+ 							    <div class="col-xs-3">
+
+                  <a class="btn btn-primary btn-block" href="<%= new_runner_run_path(current_runner) %>">
+                    <i class="fa fa-plus"></i><span>Add</span>
+                  </a>
+ 							    </div>
+ 							</div>
+ 					 </div>
+ 				 </div>
+
          <div class="list-group">
            <% @runs.each do |run| %>
            <a class="list-group-item <%= 'active' if run == @run %>" href="<%= runner_run_path(run.runner, run) %>">
@@ -24,10 +45,11 @@
 
          <div class="panel-heading clearfix">
            <h3 class="panel-title pull-left"><%= @run.date %></h3>
-             <a class="btn btn-primary pull-right" href="#">
-               <i class="fa fa-pencil"></i>
-               Edit
-             </a>
+             <% if @runner.name == current_runner.name %>
+             <a class="btn btn-primary pull-right" href="<%= edit_runner_run_path(@runner, @run) %>">
+               <i class="fa fa-pencil"></i>Edit
+            </a>
+            <% end %>
            </div>
            <div class="list-group">
              <div class="list-group-item">

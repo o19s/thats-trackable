@@ -16,15 +16,5 @@
 //= require bootstrap-sprockets
 //= require_tree .
 //= require local_time
-
-//Renders datepicker on planned_run form and run form
-$(document).ready(function(){
-    $('#planned_run_date').datepicker({
-        dateFormat: "yy-mm-dd"
-    });
-
-    $('#run_date').datepicker({
-        dateFormat: "yy-mm-dd"
-    });
-
-});
+//= require moment
+//= require bootstrap-datetimepicker

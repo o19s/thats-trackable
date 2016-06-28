@@ -1,5 +1,5 @@
 class RunsController < ApplicationController
-  before_action :set_run, only: [:show, :edit, :update, :destroy]
+  before_action :set_run, only: [:show, :edit, :destroy]
   before_action :get_runner
 
 
@@ -35,15 +35,23 @@ class RunsController < ApplicationController
 
   def update
 
-    today_view_update = (params[:commit] == 'Track Today')
+    today_view_update = (params[:commit] == 'Track It!')
 
     with_tracking do
 
-      date_string = run_params['date']
-      date = DateTime.strptime(date_string, '%m/%d/%Y')
-      params[:run][:date] = date
-      #run_params['date'] = date
-      puts run_params
+      if run_params['date']
+        date_string = run_params['date']
+        date = DateTime.strptime(date_string, '%m/%d/%Y')
+        params[:run][:date] = date
+        puts run_params
+
+        puts "params[:run][:date]: #{params[:run][:date].to_date}"
+        @run = Run.find_or_create_by date: params[:run][:date].to_date, runner: current_runner
+      else
+        @run = Run.find(params[:id])
+      end
+
+      puts "Okay, got run with id #{@run.id}"
       @successful_update = @run.update(run_params)
     end
 
@@ -70,8 +78,8 @@ class RunsController < ApplicationController
         #updated_run = Run.find_by_id(@successful_update)
         #updated_run.customize_flag = 1
         #updated_run.save
-        redirect_path = (today_view_update == true) ? today_path : runner_runs_path(@runner)
-        format.html { redirect_to redirect_path, notice: 'Run was successfully updated. '}
+        redirect_path = (today_view_update == true) ? today_path : runner_run_path(@runner, @run)
+        format.html { redirect_to redirect_path, notice: "Run for #{@run.date.strftime("%m/%d/%Y")} was successfully updated."}
         format.json { render :show, status: :ok, location: @run }
       else
         require 'pp'
@@ -85,12 +93,25 @@ class RunsController < ApplicationController
   end
 
   def create
-    @run = Run.new(run_params)
-    @run.runner = @runner
+    with_tracking do
+      if run_params['date']
+        date_string = run_params['date']
+        date = DateTime.strptime(date_string, '%m/%d/%Y')
+        params[:run][:date] = date
+        puts run_params
+
+        puts "params[:run][:date]: #{params[:run][:date].to_date}"
+        @run = Run.find_or_create_by date: params[:run][:date].to_date, runner: current_runner
+      else
+        @run = Run.find(params[:id])
+      end
+      @run.update(run_params)
+      @run.runner = @runner
+    end
 
     respond_to do |format|
       if @run.save
-        format.html {redirect_to runner_runs_path(@runner), notice: 'Run was successfully created.' }
+        format.html {redirect_to runner_run_path(@runner, @run), notice: "Run for #{@run.date.strftime("%m/%d/%Y")} was successfully created." }
         format.json {render :show, status: :created, locations: @run }
       else
         format.html { render :edit }

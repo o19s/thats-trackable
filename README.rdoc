@@ -46,6 +46,8 @@ Please feel free to use a different markup language if you do not plan to run
 
 # To run migrations in production run `heroku run rake db:migrate --app stormy-fjord-4119`
 
+# To migrate database from production to staging run `heroku pg:copy stormy-fjord-4119::black --app stormy-fjord-4119-staging`
+
 === Notes
 
 # AddToHomescreen Javascript from https://github.com/cubiq/add-to-homescreen
@@ -59,3 +61,6 @@ Please feel free to use a different markup language if you do not plan to run
 # Privacy Policy that Facebook needs generated via https://www.iubenda.com
 
 # Commenting support from https://github.com/lml/commontato
+
+# date picker feature: https://eonasdan.github.io/bootstrap-datetimepicker/
+    # https://github.com/TrevorS/bootstrap3-datetimepicker-rails

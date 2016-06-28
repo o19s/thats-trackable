@@ -14,7 +14,26 @@
         </div>
         <div class="modal-body">
           <%= form_for [@runner, @current_run],:html => {:class => "form-horizontal"} do |f| %>
+          <div class="form-group">
+            <label class="col-xs-3 control-label">Date</label>
+            <div class="col-xs-9">
 
+              <div class='input-group date' id='run_date'>
+                  <input type='text' class="form-control" id="run_date" name="run[date]" value="<%= format_date(@current_run.date) %>"/>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+              <script type="text/javascript">
+                  $(function () {
+                      $('#run_date').datetimepicker({
+                        format: 'MM/DD/YYYY'
+                      });
+                  });
+              </script>
+
+            </div>
+          </div>
             <div class="form-group">
               <label class="col-xs-3 control-label">Mileage</label>
               <div class="col-xs-9">
@@ -46,8 +65,8 @@
                   <i class="fa fa-times"></i>
                   Cancel
                 </button>
-                <%= button_tag(name: "commit", value: "Track Today", type: 'submit', class: "btn btn-success") do %>
-                  <i class="fa fa-check"></i> Track Today
+                <%= button_tag(name: "commit", value: "Track It!", type: 'submit', class: "btn btn-success") do %>
+                  <i class="fa fa-check"></i> Track It!
                 <% end %>
                 &nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -76,9 +95,6 @@
         </div>
       </div>
     </div>
-
-
-
   </div>
 
 </div>

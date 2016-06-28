@@ -1,3 +1,95 @@
-<h1>New Run for <%=@runner.name%></h1>
-<%= render 'form' %>
-<%= link_to 'Back', runner_runs_path(@runner) %>
+<% if notice %>
+<div class="alert alert-info"><%= notice %></div>
+<% end %>
+<% if @run.errors.any? %>
+  <div id="alert alert-error">
+    <strong><%= pluralize(@run.errors.count, "error") %> prohibited this run from being saved:</strong>
+    <ul>
+    <% @run.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="row">
+
+  <div class="bootcards-cards">
+
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading clearfix">
+          <h3 class="panel-title pull-left">Create New Run!</h3>
+
+        </div>
+        <div class="modal-body">
+          <%= form_for [@runner, @run],:html => {:class => "form-horizontal"} do |f| %>
+          <div class="form-group">
+            <label class="col-xs-3 control-label">Date</label>
+            <div class="col-xs-9">
+
+              <div class='input-group date' id='run_date'>
+                  <input type='text' class="form-control" id="run_date" name="run[date]" value="<%= format_date(@run.date) %>"/>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+              <script type="text/javascript">
+                  $(function () {
+                      $('#run_date').datetimepicker({
+                        format: 'MM/DD/YYYY'
+                      });
+                  });
+              </script>
+
+            </div>
+          </div>
+            <div class="form-group">
+              <label class="col-xs-3 control-label">Mileage</label>
+              <div class="col-xs-9">
+                <input type="text" id="run_mileage" name="run[mileage]" class="form-control" placeholder="How far you ran" value="<%= @run.mileage %>">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-xs-3 control-label">Pace</label>
+              <div class="col-xs-9">
+                <input type="text" id="run_pace" name="run[pace]" class="form-control" placeholder="What pace did you do keep?" value="<%= @run.pace %>">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-xs-3 control-label">Duration</label>
+              <div class="col-xs-9">
+                <input type="text" id="run_duration" name="run[duration]" class="form-control" placeholder="How long did you run" value="<%= @run.duration %>">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-xs-3 control-label">How did it go?</label>
+              <div class="col-xs-9">
+                <textarea id="run_progress" name="run[progress]" class="form-control" rows="6" placeholder="How did you feel?  What happened?"><%= @run.progress %></textarea>
+
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="btn-group pull-right">
+                <button class="btn btn-danger">
+                  <i class="fa fa-times"></i>
+                  Cancel
+                </button>
+                <%= button_tag(name: "commit", value: "Create It!", type: 'submit', class: "btn btn-success") do %>
+                  <i class="fa fa-check"></i> Create It!
+                <% end %>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="panel-footer">
+          <small><i>You must expect great things from yourself before you can do them.</i> - Michael Jordan</small>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
