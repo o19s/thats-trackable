@@ -12,13 +12,13 @@ class RunnersController < ApplicationController
 
   # GET /teammates
   def teammates
-    @runners = Runner.active.order(:role).order(:name)
+    @runners = Runner.includes(:runs).active.order("runs.updated_at DESC")
     @runner = @runners.first
   end
 
   # GET /teammates/1
   def teammate
-    @runners = Runner.active.order(:role).order(:name)
+    @runners = Runner.includes(:runs).active.order("runs.updated_at DESC")
     render :teammates
   end
 
